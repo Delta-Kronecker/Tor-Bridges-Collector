@@ -55,7 +55,7 @@ def main():
             try:
                 with open(filename, "r", encoding="utf-8") as f:
                     for line in f:
-                        if line.strip():
+                        if line.strip() and "No bridges available" not in line:
                             file_bridges.add(line.strip())
             except:
                 pass
@@ -87,9 +87,8 @@ def main():
             log(f"Connection error for {filename}: {e}")
 
         if fetched_bridges:
-            file_bridges.update(fetched_bridges)
             with open(filename, "w", encoding="utf-8") as f:
-                for bridge in sorted(file_bridges):
+                for bridge in sorted(fetched_bridges):
                     f.write(bridge + "\n")
             log(f"Updated {filename}: {len(fetched_bridges)} bridges.")
         else:
@@ -103,7 +102,7 @@ def main():
     for bridge, timestamp_str in history.items():
         try:
             bridge_time = datetime.fromisoformat(timestamp_str)
-            if bridge_time > cutoff_time:
+            if bridge_time > cutoff_time and "No bridges available" not in bridge:
                 recent_bridges.append(bridge)
         except ValueError:
             continue

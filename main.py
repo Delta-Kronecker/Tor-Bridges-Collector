@@ -2,6 +2,8 @@ import os
 import requests
 import json
 import re
+import socket
+import concurrent.futures
 from bs4 import BeautifulSoup
 from datetime import datetime, timedelta
 
@@ -18,6 +20,9 @@ HISTORY_FILE = "bridge_history.json"
 RECENT_HOURS = 72
 HISTORY_RETENTION_DAYS = 30
 REPO_URL = "https://raw.githubusercontent.com/Delta-Kronecker/Tor-Bridges-Collector/refs/heads/main"
+MAX_WORKERS = 50
+CONNECTION_TIMEOUT = 10
+MAX_RETRIES = 3
 
 def log(message):
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -31,6 +36,31 @@ def is_valid_bridge_line(line):
     if len(line) < 10:
         return False
     return bool(re.search(r'\d+\.\d+\.\d+\.\d+|\[.*\]', line))
+
+def extract_ip_port(line):
+    ipv6_match = re.search(r'\[(.*?)\]:(\d+)', line)
+    if ipv6_match:
+        return ipv6_match.group(1), int(ipv6_match.group(2))
+    
+    ipv4_match = re.search(r'(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}):(\d+)', line)
+    if ipv4_match:
+        return ipv4_match.group(1), int(ipv4_match.group(2))
+    
+    return None, None
+
+def check_connection(bridge_line):
+    ip, port = extract_ip_port(bridge_line)
+    if not ip or not port:
+        return False
+
+    for attempt in range(MAX_RETRIES):
+        try:
+            sock = socket.create_connection((ip, port), timeout=CONNECTION_TIMEOUT)
+            sock.close()
+            return True
+        except (socket.timeout, socket.error):
+            continue
+    return False
 
 def load_history():
     if os.path.exists(HISTORY_FILE):
@@ -65,16 +95,25 @@ def update_readme(stats):
 
 This repository automatically collects, validates, and archives Tor bridges. A GitHub Action runs every 3 hours to fetch new bridges from the official Tor Project.
 
-## 🔥 Important Notes on IPv6 & WebTunnel
+## ⚠️ Important Notes on IPv6 & WebTunnel
 
 1.  **IPv6 Instability:** IPv6 bridges are significantly fewer in number and are often more susceptible to blocking or connection instability compared to IPv4.
 2.  **WebTunnel Overlap:** WebTunnel bridges often use the same endpoint domain for both IPv4 and IPv6. Consequently, the IPv6 list is frequently identical to or a subset of the IPv4 list.
 3.  **Recommendation:** For the most reliable connection, **prioritize using IPv4 bridges**. Use IPv6 only if IPv4 is completely inaccessible on your network.
 
-## 🔥 Bridge Lists
+## 📂 Bridge Lists
 
-### 1. Fresh Bridges (Last 72 Hours)
-Use these files for the most reliable connections. These contain bridges discovered within the last 3 days.
+### ✅ Tested & Active (Recommended)
+These bridges from the archive have passed a TCP connectivity test (3 retries, 10s timeout) during the last run.
+
+| Transport | IPv4 (Tested) | Count | IPv6 (Tested) | Count |
+| :--- | :--- | :--- | :--- | :--- |
+| **obfs4** | [obfs4_tested.txt]({REPO_URL}/obfs4_tested.txt) | **{stats.get('obfs4_tested.txt', 0)}** | [obfs4_ipv6_tested.txt]({REPO_URL}/obfs4_ipv6_tested.txt) | **{stats.get('obfs4_ipv6_tested.txt', 0)}** |
+| **WebTunnel** | [webtunnel_tested.txt]({REPO_URL}/webtunnel_tested.txt) | **{stats.get('webtunnel_tested.txt', 0)}** | [webtunnel_ipv6_tested.txt]({REPO_URL}/webtunnel_ipv6_tested.txt) | **{stats.get('webtunnel_ipv6_tested.txt', 0)}** |
+| **Vanilla** | [vanilla_tested.txt]({REPO_URL}/vanilla_tested.txt) | **{stats.get('vanilla_tested.txt', 0)}** | [vanilla_ipv6_tested.txt]({REPO_URL}/vanilla_ipv6_tested.txt) | **{stats.get('vanilla_ipv6_tested.txt', 0)}** |
+
+### 🕒 Fresh Bridges (Last 72 Hours)
+Bridges discovered within the last 3 days.
 
 | Transport | IPv4 (72h) | Count | IPv6 (72h) | Count |
 | :--- | :--- | :--- | :--- | :--- |
@@ -82,8 +121,8 @@ Use these files for the most reliable connections. These contain bridges discove
 | **WebTunnel** | [webtunnel_72h.txt]({REPO_URL}/webtunnel_72h.txt) | **{stats.get('webtunnel_72h.txt', 0)}** | [webtunnel_ipv6_72h.txt]({REPO_URL}/webtunnel_ipv6_72h.txt) | **{stats.get('webtunnel_ipv6_72h.txt', 0)}** |
 | **Vanilla** | [vanilla_72h.txt]({REPO_URL}/vanilla_72h.txt) | **{stats.get('vanilla_72h.txt', 0)}** | [vanilla_ipv6_72h.txt]({REPO_URL}/vanilla_ipv6_72h.txt) | **{stats.get('vanilla_ipv6_72h.txt', 0)}** |
 
-### 2. Full Archive (Accumulative)
-These files contain the history of all collected bridges.
+### 📦 Full Archive (Accumulative)
+History of all collected bridges.
 
 | Transport | IPv4 (All Time) | Count | IPv6 (All Time) | Count |
 | :--- | :--- | :--- | :--- | :--- |
@@ -91,8 +130,13 @@ These files contain the history of all collected bridges.
 | **WebTunnel** | [webtunnel.txt]({REPO_URL}/webtunnel.txt) | **{stats.get('webtunnel.txt', 0)}** | [webtunnel_ipv6.txt]({REPO_URL}/webtunnel_ipv6.txt) | **{stats.get('webtunnel_ipv6.txt', 0)}** |
 | **Vanilla** | [vanilla.txt]({REPO_URL}/vanilla.txt) | **{stats.get('vanilla.txt', 0)}** | [vanilla_ipv6.txt]({REPO_URL}/vanilla_ipv6.txt) | **{stats.get('vanilla_ipv6.txt', 0)}** |
 
+## ⚙️ Automation Logic
 
-## 🔥 Disclaimer
+-   **Schedule:** Runs every 3 hours.
+-   **Testing:** Archive files are tested for TCP connectivity (3 retries, 10s timeout).
+-   **Retention:** `bridge_history.json` is cleaned every 30 days.
+
+## ⚠️ Disclaimer
 This project is for educational and archival purposes. Please use these bridges responsibly.
 """
     with open("README.md", "w", encoding="utf-8") as f:
@@ -117,6 +161,7 @@ def main():
         url = target["url"]
         filename = target["file"]
         recent_filename = filename.replace(".txt", f"_{RECENT_HOURS}h.txt")
+        tested_filename = filename.replace(".txt", "_tested.txt")
         
         existing_bridges = set()
         if os.path.exists(filename):
@@ -183,8 +228,32 @@ def main():
             with open(recent_filename, "w", encoding="utf-8") as f:
                 f.write("")
         
+        log(f"Testing connectivity for {filename} ({len(all_bridges)} bridges)...")
+        tested_bridges = []
+        if all_bridges:
+            with concurrent.futures.ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
+                future_to_bridge = {executor.submit(check_connection, bridge): bridge for bridge in all_bridges}
+                for future in concurrent.futures.as_completed(future_to_bridge):
+                    bridge = future_to_bridge[future]
+                    try:
+                        if future.result():
+                            tested_bridges.append(bridge)
+                    except Exception:
+                        pass
+        
+        if tested_bridges:
+            with open(tested_filename, "w", encoding="utf-8") as f:
+                for bridge in sorted(tested_bridges):
+                    f.write(bridge + "\n")
+            log(f"   -> {len(tested_bridges)} bridges passed connectivity test.")
+        else:
+            with open(tested_filename, "w", encoding="utf-8") as f:
+                f.write("")
+            log(f"   -> No bridges passed connectivity test for {filename}.")
+
         stats[filename] = len(all_bridges)
         stats[recent_filename] = len(recent_bridges)
+        stats[tested_filename] = len(tested_bridges)
 
     save_history(history)
     update_readme(stats)

@@ -93,7 +93,7 @@ def update_readme(stats):
 
 **Last Updated:** {timestamp}
 
-This repository automatically collects, validates, and archives Tor bridges. A GitHub Action runs every 3 hours to fetch new bridges from the official Tor Project.
+This repository automatically collects, validates, and archives Tor bridges. A GitHub Action runs every 1 hours to fetch new bridges from the official Tor Project.
 
 ## 🔥 Important Notes on IPv6 & WebTunnel
 

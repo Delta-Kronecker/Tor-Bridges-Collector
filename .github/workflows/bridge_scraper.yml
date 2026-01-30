@@ -2,7 +2,7 @@ name: Update Tor Bridges
 
 on:
   schedule:
-    - cron: '0 */1 * * *'
+    - cron: '0 */3 * * *'
   workflow_dispatch:
 
 permissions:
@@ -33,5 +33,5 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add *.txt *.json README.md
-          git commit -m "Update bridges and stats [skip ci]" || echo "No changes to commit"
+          git commit -m "Update bridges, stats and tested files [skip ci]" || echo "No changes to commit"
           git push

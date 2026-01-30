@@ -1,6 +1,7 @@
 import os
 import requests
 import json
+import re
 from bs4 import BeautifulSoup
 from datetime import datetime, timedelta
 
@@ -14,11 +15,21 @@ TARGETS = [
 ]
 
 HISTORY_FILE = "bridge_history.json"
-RECENT_FILE = "recent_bridges_24h.txt"
+RECENT_HOURS = 72
+HISTORY_RETENTION_DAYS = 30
 
 def log(message):
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     print(f"[{timestamp}] {message}")
+
+def is_valid_bridge_line(line):
+    if "No bridges available" in line:
+        return False
+    if line.startswith("#"):
+        return False
+    if len(line) < 10:
+        return False
+    return bool(re.search(r'\d+\.\d+\.\d+\.\d+|\[.*\]', line))
 
 def load_history():
     if os.path.exists(HISTORY_FILE):
@@ -36,19 +47,31 @@ def save_history(history):
     except Exception as e:
         log(f"Error saving history: {e}")
 
-def main():
-    headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+def cleanup_history(history):
+    cutoff = datetime.now() - timedelta(days=HISTORY_RETENTION_DAYS)
+    new_history = {
+        k: v for k, v in history.items() 
+        if datetime.fromisoformat(v) > cutoff
     }
+    return new_history
+
+def main():
+    session = requests.Session()
+    session.headers.update({
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    })
     
     history = load_history()
-    total_new_bridges_session = 0
+    history = cleanup_history(history)
+    
+    recent_cutoff_time = datetime.now() - timedelta(hours=RECENT_HOURS)
     
     log("Starting Bridge Scraper Session...")
 
     for target in TARGETS:
         url = target["url"]
         filename = target["file"]
+        recent_filename = filename.replace(".txt", f"_{RECENT_HOURS}h.txt")
         
         existing_bridges = set()
         if os.path.exists(filename):
@@ -56,14 +79,14 @@ def main():
                 with open(filename, "r", encoding="utf-8") as f:
                     for line in f:
                         line = line.strip()
-                        if line and "No bridges available" not in line:
+                        if is_valid_bridge_line(line):
                             existing_bridges.add(line)
             except:
                 pass
 
         fetched_bridges = set()
         try:
-            response = requests.get(url, headers=headers, timeout=30)
+            response = session.get(url, timeout=30)
             if response.status_code == 200:
                 soup = BeautifulSoup(response.text, "html.parser")
                 bridge_div = soup.find("div", id="bridgelines")
@@ -73,14 +96,13 @@ def main():
                     lines = [line.strip() for line in raw_text.split("\n") if line.strip()]
                     
                     for line in lines:
-                        if line and not line.startswith("#") and "No bridges available" not in line:
+                        if is_valid_bridge_line(line):
                             fetched_bridges.add(line)
                             
                             if line not in history:
                                 history[line] = datetime.now().isoformat()
-                                total_new_bridges_session += 1
                 else:
-                    log(f"Warning: No bridge container found for {filename}.")
+                    log(f"Warning: No bridge container for {filename}.")
             else:
                 log(f"Failed to fetch {url}. Status: {response.status_code}")
 
@@ -93,41 +115,32 @@ def main():
             with open(filename, "w", encoding="utf-8") as f:
                 for bridge in sorted(all_bridges):
                     f.write(bridge + "\n")
-            
-            if fetched_bridges:
-                log(f"Updated {filename}: {len(fetched_bridges)} new bridges added. Total: {len(all_bridges)}")
-            else:
-                log(f"Checked {filename}: No new bridges. Total: {len(all_bridges)}")
+            log(f"Processed {filename}: Total {len(all_bridges)}")
         else:
             with open(filename, "w", encoding="utf-8") as f:
                 f.write("")
-            log(f"No bridges available for {filename}. File cleared.")
 
-    cutoff_time = datetime.now() - timedelta(hours=24)
-    recent_bridges = []
-
-    for bridge, timestamp_str in history.items():
-        try:
-            bridge_time = datetime.fromisoformat(timestamp_str)
-            if bridge_time > cutoff_time and "No bridges available" not in bridge:
-                recent_bridges.append(bridge)
-        except ValueError:
-            continue
-
-    if recent_bridges:
-        with open(RECENT_FILE, "w", encoding="utf-8") as f:
-            for bridge in sorted(recent_bridges):
-                f.write(bridge + "\n")
-        log(f"Recent 24h file generated with {len(recent_bridges)} bridges.")
-    else:
-        if os.path.exists(RECENT_FILE):
-            with open(RECENT_FILE, "w", encoding="utf-8") as f:
+        recent_bridges = []
+        for bridge in all_bridges:
+            if bridge in history:
+                try:
+                    first_seen = datetime.fromisoformat(history[bridge])
+                    if first_seen > recent_cutoff_time:
+                        recent_bridges.append(bridge)
+                except ValueError:
+                    pass
+        
+        if recent_bridges:
+            with open(recent_filename, "w", encoding="utf-8") as f:
+                for bridge in sorted(recent_bridges):
+                    f.write(bridge + "\n")
+            log(f"   -> Generated {recent_filename} with {len(recent_bridges)} active bridges.")
+        else:
+            with open(recent_filename, "w", encoding="utf-8") as f:
                 f.write("")
-        log("No bridges found in last 24 hours. Recent file cleared.")
 
     save_history(history)
-
-    log(f"Session Finished. Total new: {total_new_bridges_session}.")
+    log("Session Finished.")
 
 if __name__ == "__main__":
     main()

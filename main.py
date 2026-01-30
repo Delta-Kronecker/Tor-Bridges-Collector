@@ -1,3 +1,4 @@
+```python
 import os
 import requests
 import json
@@ -46,12 +47,10 @@ def main():
     
     log("Starting Bridge Scraper Session...")
 
-    # 1. Fetch and Update Individual Files
     for target in TARGETS:
         url = target["url"]
         filename = target["file"]
         
-        # Load existing bridges for this specific file
         file_bridges = set()
         if os.path.exists(filename):
             try:
@@ -74,22 +73,20 @@ def main():
                     lines = [line.strip() for line in raw_text.split("\n") if line.strip()]
                     
                     for line in lines:
-                        if not line.startswith("#"):
+                        if line and not line.startswith("#") and "No bridges available" not in line:
                             fetched_bridges.add(line)
                             
-                            # Update Global History
                             if line not in history:
                                 history[line] = datetime.now().isoformat()
                                 total_new_bridges_session += 1
                 else:
-                    log(f"Warning: No bridge container found for {filename} (CAPTCHA likely).")
+                    log(f"Warning: No bridge container found for {filename}.")
             else:
                 log(f"Failed to fetch {url}. Status: {response.status_code}")
 
         except Exception as e:
             log(f"Connection error for {filename}: {e}")
 
-        # Update the specific text file
         new_for_file = fetched_bridges - file_bridges
         if new_for_file:
             file_bridges.update(new_for_file)
@@ -100,8 +97,6 @@ def main():
         else:
             log(f"Checked {filename}: No new unique bridges.")
 
-    # 2. Generate 'Recent 24h' File
-    log("Generating recent bridges list...")
     cutoff_time = datetime.now() - timedelta(hours=24)
     recent_bridges = []
 
@@ -113,14 +108,18 @@ def main():
         except ValueError:
             continue
 
-    with open(RECENT_FILE, "w", encoding="utf-8") as f:
-        for bridge in sorted(recent_bridges):
-            f.write(bridge + "\n")
+    if recent_bridges:
+        with open(RECENT_FILE, "w", encoding="utf-8") as f:
+            for bridge in sorted(recent_bridges):
+                f.write(bridge + "\n")
+        log(f"Recent 24h file generated with {len(recent_bridges)} bridges.")
+    else:
+        log("No bridges found in last 24 hours. Skipping recent file creation.")
 
-    # 3. Save History
     save_history(history)
 
-    log(f"Session Finished. Total new: {total_new_bridges_session}. Recent (24h) count: {len(recent_bridges)}")
+    log(f"Session Finished. Total new: {total_new_bridges_session}.")
 
 if __name__ == "__main__":
     main()
+```

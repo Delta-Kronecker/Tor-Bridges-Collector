@@ -1,7 +1,8 @@
 import os
 import requests
+import json
 from bs4 import BeautifulSoup
-from datetime import datetime
+from datetime import datetime, timedelta
 
 TARGETS = [
     {"url": "https://bridges.torproject.org/bridges?transport=obfs4", "file": "obfs4.txt"},
@@ -12,37 +13,56 @@ TARGETS = [
     {"url": "https://bridges.torproject.org/bridges?transport=vanilla&ipv6=yes", "file": "vanilla_ipv6.txt"},
 ]
 
+HISTORY_FILE = "bridge_history.json"
+RECENT_FILE = "recent_bridges_24h.txt"
+
 def log(message):
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     print(f"[{timestamp}] {message}")
+
+def load_history():
+    if os.path.exists(HISTORY_FILE):
+        try:
+            with open(HISTORY_FILE, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except Exception:
+            return {}
+    return {}
+
+def save_history(history):
+    try:
+        with open(HISTORY_FILE, "w", encoding="utf-8") as f:
+            json.dump(history, f, indent=2)
+    except Exception as e:
+        log(f"Error saving history: {e}")
 
 def main():
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
     }
     
+    history = load_history()
     total_new_bridges_session = 0
-
+    
     log("Starting Bridge Scraper Session...")
 
+    # 1. Fetch and Update Individual Files
     for target in TARGETS:
         url = target["url"]
         filename = target["file"]
-        existing_bridges = set()
         
+        # Load existing bridges for this specific file
+        file_bridges = set()
         if os.path.exists(filename):
             try:
                 with open(filename, "r", encoding="utf-8") as f:
                     for line in f:
-                        clean_line = line.strip()
-                        if clean_line:
-                            existing_bridges.add(clean_line)
-            except Exception as e:
-                log(f"Error reading {filename}: {e}")
+                        if line.strip():
+                            file_bridges.add(line.strip())
+            except:
+                pass
 
-        initial_count = len(existing_bridges)
         fetched_bridges = set()
-        
         try:
             response = requests.get(url, headers=headers, timeout=30)
             if response.status_code == 200:
@@ -56,6 +76,11 @@ def main():
                     for line in lines:
                         if not line.startswith("#"):
                             fetched_bridges.add(line)
+                            
+                            # Update Global History
+                            if line not in history:
+                                history[line] = datetime.now().isoformat()
+                                total_new_bridges_session += 1
                 else:
                     log(f"Warning: No bridge container found for {filename} (CAPTCHA likely).")
             else:
@@ -64,26 +89,38 @@ def main():
         except Exception as e:
             log(f"Connection error for {filename}: {e}")
 
-        new_entries = fetched_bridges - existing_bridges
-        count_new = len(new_entries)
-        total_new_bridges_session += count_new
-
-        if count_new > 0:
-            existing_bridges.update(new_entries)
-            try:
-                with open(filename, "w", encoding="utf-8") as f:
-                    for bridge in sorted(existing_bridges):
-                        f.write(bridge + "\n")
-                log(f"SUCCESS: {filename} | Fetched: {len(fetched_bridges)} | New: {count_new} | Total Archived: {len(existing_bridges)}")
-            except Exception as e:
-                log(f"Error writing to {filename}: {e}")
+        # Update the specific text file
+        new_for_file = fetched_bridges - file_bridges
+        if new_for_file:
+            file_bridges.update(new_for_file)
+            with open(filename, "w", encoding="utf-8") as f:
+                for bridge in sorted(file_bridges):
+                    f.write(bridge + "\n")
+            log(f"Updated {filename}: {len(new_for_file)} new bridges added.")
         else:
-            if len(fetched_bridges) > 0:
-                log(f"Info: {filename} | Fetched: {len(fetched_bridges)} | No new unique bridges found.")
-            else:
-                log(f"Info: {filename} | No bridges retrieved.")
+            log(f"Checked {filename}: No new unique bridges.")
 
-    log(f"Session Finished. Total new bridges added across all files: {total_new_bridges_session}")
+    # 2. Generate 'Recent 24h' File
+    log("Generating recent bridges list...")
+    cutoff_time = datetime.now() - timedelta(hours=24)
+    recent_bridges = []
+
+    for bridge, timestamp_str in history.items():
+        try:
+            bridge_time = datetime.fromisoformat(timestamp_str)
+            if bridge_time > cutoff_time:
+                recent_bridges.append(bridge)
+        except ValueError:
+            continue
+
+    with open(RECENT_FILE, "w", encoding="utf-8") as f:
+        for bridge in sorted(recent_bridges):
+            f.write(bridge + "\n")
+
+    # 3. Save History
+    save_history(history)
+
+    log(f"Session Finished. Total new: {total_new_bridges_session}. Recent (24h) count: {len(recent_bridges)}")
 
 if __name__ == "__main__":
     main()

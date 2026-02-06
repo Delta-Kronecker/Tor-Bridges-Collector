@@ -6,7 +6,6 @@ import socket
 import concurrent.futures
 import ssl
 import time
-import ipaddress
 from bs4 import BeautifulSoup
 from datetime import datetime, timedelta
 
@@ -27,219 +26,70 @@ MAX_WORKERS = 50
 CONNECTION_TIMEOUT = 8
 MAX_RETRIES = 2
 SSL_TIMEOUT = 5
-MAX_TEST_PER_TYPE = 500
 
 def log(message):
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     print(f"[{timestamp}] {message}")
 
 def is_valid_bridge_line(line):
-    if not line or not line.strip():
-        return False
     line = line.strip()
+    if not line:
+        return False
     if "No bridges available" in line:
         return False
     if line.startswith("#"):
         return False
     if len(line) < 10:
         return False
-    return bool(re.search(r'\d+\.\d+\.\d+\.\d+|\[.*\]|https?://', line))
+    return True
 
-def normalize_bridge_line(line):
+def get_ip_port(line):
     line = line.strip()
-    line = re.sub(r'\s+', ' ', line)
-    return line
-
-def extract_connection_info(line):
-    line = normalize_bridge_line(line)
     
-    if not line or len(line) < 5:
-        return None, None, None
-    
-    if "obfs4" in line.lower():
-        transport = "obfs4"
-    elif "webtunnel" in line.lower() or "https://" in line.lower():
-        transport = "webtunnel"
-    else:
-        transport = "vanilla"
-    
-    patterns = [
-        (r'https?://\[([0-9a-fA-F:]+)\](?::(\d+))?', "ipv6"),
-        (r'https?://([^/:]+)(?::(\d+))?', "domain"),
-        (r'\[([0-9a-fA-F:]+)\]:(\d+)', "ipv6"),
-        (r'(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}):(\d+)', "ipv4"),
-        (r'([a-zA-Z0-9.-]+):(\d+)', "domain"),
-        (r'obfs4\s+([^:]+):(\d+)\s+', "obfs4"),
-        (r'(\S+)\s+(\S+)\s+(\S+)', "fingerprint"),
-    ]
-    
-    for pattern, ptype in patterns:
-        match = re.search(pattern, line, re.IGNORECASE)
+    if line.startswith("https://"):
+        match = re.search(r'https?://([^/:]+)(?::(\d+))?', line, re.IGNORECASE)
         if match:
-            if ptype == "fingerprint" and len(match.groups()) >= 3:
-                host = match.group(1)
-                port = match.group(2)
-                return host, int(port), transport
-            elif len(match.groups()) >= 2:
-                host = match.group(1)
-                port = match.group(2) if match.group(2) else "443"
-                return host, int(port), transport
-            elif ptype in ["domain", "ipv6"]:
-                host = match.group(1)
-                port = "443" if "https" in line.lower() else "80"
-                return host, int(port), transport
+            host = match.group(1)
+            port = int(match.group(2)) if match.group(2) else 443
+            return host, port
     
-    return None, None, transport
-
-def is_valid_ip(host):
-    try:
-        ipaddress.ip_address(host)
-        return True
-    except:
-        return False
-
-def resolve_host(host):
-    try:
-        return socket.gethostbyname(host)
-    except:
-        return None
-
-def test_tcp_socket(host, port, timeout):
-    try:
-        sock = socket.create_connection((host, port), timeout=timeout)
-        sock.settimeout(1)
-        
-        try:
-            sock.send(b"\x00")
-            data = sock.recv(1)
-        except:
-            pass
-        
-        sock.close()
-        return True
-    except:
-        return False
-
-def test_ssl_socket(host, port, timeout):
-    try:
-        sock = socket.create_connection((host, port), timeout=timeout)
-        context = ssl.create_default_context()
-        context.check_hostname = False
-        context.verify_mode = ssl.CERT_NONE
-        context.minimum_version = ssl.TLSVersion.TLSv1_2
-        
-        ssl_sock = context.wrap_socket(sock, server_hostname=host)
-        ssl_sock.settimeout(SSL_TIMEOUT)
-        
-        try:
-            ssl_sock.send(b"GET / HTTP/1.0\r\n\r\n")
-            response = ssl_sock.recv(1024)
-        except:
-            pass
-        
-        ssl_sock.close()
-        return True
-    except:
-        return False
-
-def advanced_connection_test(bridge_line):
-    host, port, transport = extract_connection_info(bridge_line)
+    ipv6_match = re.search(r'\[([0-9a-fA-F:]+)\]:(\d+)', line)
+    if ipv6_match:
+        return ipv6_match.group(1), int(ipv6_match.group(2))
     
+    ipv4_match = re.search(r'(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}):(\d+)', line)
+    if ipv4_match:
+        return ipv4_match.group(1), int(ipv4_match.group(2))
+    
+    simple_match = re.search(r'([^:\s]+):(\d+)', line)
+    if simple_match:
+        return simple_match.group(1), int(simple_match.group(2))
+    
+    return None, None
+
+def test_bridge_connection(line):
+    host, port = get_ip_port(line)
     if not host or not port:
         return False
     
-    if transport == "webtunnel":
-        test_func = test_ssl_socket
-        timeout = CONNECTION_TIMEOUT
-        default_port = 443
-    else:
-        test_func = test_tcp_socket
-        timeout = CONNECTION_TIMEOUT
-        default_port = 9001 if transport == "obfs4" else 443
-    
-    if port == 0:
-        port = default_port
-    
-    test_hosts = []
-    
-    if is_valid_ip(host):
-        test_hosts.append(host)
-    else:
-        resolved = resolve_host(host)
-        if resolved:
-            test_hosts.append(resolved)
-        test_hosts.append(host)
-    
-    for test_host in test_hosts:
-        for attempt in range(MAX_RETRIES):
-            try:
-                if test_func(test_host, port, timeout):
-                    return True
-            except:
-                pass
-            
+    for attempt in range(MAX_RETRIES):
+        try:
+            if "https://" in line.lower() or "webtunnel" in line.lower():
+                sock = socket.create_connection((host, port), timeout=CONNECTION_TIMEOUT)
+                context = ssl.create_default_context()
+                context.check_hostname = False
+                context.verify_mode = ssl.CERT_NONE
+                ssl_sock = context.wrap_socket(sock, server_hostname=host)
+                ssl_sock.settimeout(SSL_TIMEOUT)
+                ssl_sock.close()
+            else:
+                sock = socket.create_connection((host, port), timeout=CONNECTION_TIMEOUT)
+                sock.close()
+            return True
+        except:
             if attempt < MAX_RETRIES - 1:
-                time.sleep(0.3 * (attempt + 1))
-    
+                time.sleep(0.5)
     return False
-
-def smart_bridge_filter(bridge_list, transport_type):
-    if not bridge_list:
-        return []
-    
-    if len(bridge_list) > MAX_TEST_PER_TYPE:
-        bridge_list = bridge_list[:MAX_TEST_PER_TYPE]
-    
-    unique_bridges = []
-    seen = set()
-    
-    for bridge in bridge_list:
-        normalized = normalize_bridge_line(bridge)
-        if normalized not in seen:
-            seen.add(normalized)
-            unique_bridges.append(bridge)
-    
-    return unique_bridges
-
-def batch_test_bridges(bridge_list, transport_type, batch_size=100):
-    if not bridge_list:
-        return []
-    
-    filtered_bridges = smart_bridge_filter(bridge_list, transport_type)
-    
-    if not filtered_bridges:
-        return []
-    
-    working_bridges = []
-    total = len(filtered_bridges)
-    batch_num = 1
-    
-    for i in range(0, total, batch_size):
-        batch = filtered_bridges[i:i + batch_size]
-        batch_working = []
-        
-        with concurrent.futures.ThreadPoolExecutor(max_workers=min(MAX_WORKERS, len(batch))) as executor:
-            future_to_bridge = {executor.submit(advanced_connection_test, bridge): bridge for bridge in batch}
-            
-            completed = 0
-            for future in concurrent.futures.as_completed(future_to_bridge):
-                completed += 1
-                bridge = future_to_bridge[future]
-                try:
-                    if future.result():
-                        batch_working.append(bridge)
-                except:
-                    pass
-        
-        working_bridges.extend(batch_working)
-        
-        if len(batch_working) > 0:
-            success_rate = (len(batch_working) / len(batch)) * 100
-            log(f"   Batch {batch_num}: {len(batch_working)}/{len(batch)} bridges working ({success_rate:.1f}%)")
-        
-        batch_num += 1
-    
-    return working_bridges
 
 def load_history():
     bridges_dir = "bridges"
@@ -249,7 +99,7 @@ def load_history():
         try:
             with open(history_path, "r", encoding="utf-8") as f:
                 return json.load(f)
-        except Exception:
+        except:
             return {}
     return {}
 
@@ -265,26 +115,19 @@ def save_history(history):
 
 def cleanup_history(history):
     cutoff = datetime.now() - timedelta(days=HISTORY_RETENTION_DAYS)
-    new_history = {
-        k: v for k, v in history.items() 
-        if datetime.fromisoformat(v) > cutoff
-    }
-    return new_history
+    return {k: v for k, v in history.items() if datetime.fromisoformat(v) > cutoff}
 
 def count_file_lines(filepath):
     try:
         if os.path.exists(filepath):
             with open(filepath, "r", encoding="utf-8") as f:
-                lines = f.readlines()
-                return len([line for line in lines if line.strip()])
+                return sum(1 for line in f if line.strip())
         return 0
     except:
         return 0
 
 def update_readme(stats):
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M UTC")
-    
-    total_bridges = sum(stats.values())
     
     readme_content = f"""# Tor Bridges Collector & Archive
 
@@ -293,23 +136,16 @@ def update_readme(stats):
 ## 📊 Overall Statistics
 | Metric | Count |
 |--------|-------|
-| Total Bridges Collected | {total_bridges} |
+| Total Bridges Collected | {stats.get('total_all', 0)} |
 | Successfully Tested | {stats.get('total_tested', 0)} |
 | New Bridges (72h) | {stats.get('total_recent', 0)} |
 | History Retention | {HISTORY_RETENTION_DAYS} days |
 
-This repository automatically collects, validates, and archives Tor bridges. A GitHub Action runs every hour to fetch new bridges from the official Tor Project.
-
-## ⚠️ Important Notes on IPv6 & WebTunnel
-1. **IPv6 Instability:** IPv6 bridges are significantly fewer in number and are often more susceptible to blocking or connection instability compared to IPv4.
-2. **WebTunnel Overlap:** WebTunnel bridges often use the same endpoint domain for both IPv4 and IPv6. Consequently, the IPv6 list is frequently identical to or a subset of the IPv4 list.
-3. **Recommendation:** For the most reliable connection, **prioritize using IPv4 bridges**. Use IPv6 only if IPv4 is completely inaccessible on your network.
+This repository automatically collects, validates, and archives Tor bridges.
 
 ## 🔥 Bridge Lists
 
-### ✅ Tested & Active (Recommended)
-These bridges from the archive have passed a TCP/SSL connectivity test during the last run.
-
+### ✅ Tested & Active
 | Transport | IPv4 (Tested) | Count | IPv6 (Tested) | Count |
 | :--- | :--- | :--- | :--- | :--- |
 | **obfs4** | [obfs4_tested.txt]({REPO_URL}/bridges/obfs4_tested.txt) | **{stats.get('obfs4_tested.txt', 0)}** | [obfs4_ipv6_tested.txt]({REPO_URL}/bridges/obfs4_ipv6_tested.txt) | **{stats.get('obfs4_ipv6_tested.txt', 0)}** |
@@ -317,17 +153,13 @@ These bridges from the archive have passed a TCP/SSL connectivity test during th
 | **Vanilla** | [vanilla_tested.txt]({REPO_URL}/bridges/vanilla_tested.txt) | **{stats.get('vanilla_tested.txt', 0)}** | [vanilla_ipv6_tested.txt]({REPO_URL}/bridges/vanilla_ipv6_tested.txt) | **{stats.get('vanilla_ipv6_tested.txt', 0)}** |
 
 ### 🔥 Fresh Bridges (Last 72 Hours)
-Bridges discovered within the last 3 days. Updated every hour.
-
 | Transport | IPv4 (72h) | Count | IPv6 (72h) | Count |
 | :--- | :--- | :--- | :--- | :--- |
 | **obfs4** | [obfs4_72h.txt]({REPO_URL}/bridges/obfs4_72h.txt) | **{stats.get('obfs4_72h.txt', 0)}** | [obfs4_ipv6_72h.txt]({REPO_URL}/bridges/obfs4_ipv6_72h.txt) | **{stats.get('obfs4_ipv6_72h.txt', 0)}** |
 | **WebTunnel** | [webtunnel_72h.txt]({REPO_URL}/bridges/webtunnel_72h.txt) | **{stats.get('webtunnel_72h.txt', 0)}** | [webtunnel_ipv6_72h.txt]({REPO_URL}/bridges/webtunnel_ipv6_72h.txt) | **{stats.get('webtunnel_ipv6_72h.txt', 0)}** |
 | **Vanilla** | [vanilla_72h.txt]({REPO_URL}/bridges/vanilla_72h.txt) | **{stats.get('vanilla_72h.txt', 0)}** | [vanilla_ipv6_72h.txt]({REPO_URL}/bridges/vanilla_ipv6_72h.txt) | **{stats.get('vanilla_ipv6_72h.txt', 0)}** |
 
-### 📁 Full Archive (Accumulative)
-History of all collected bridges since the beginning.
-
+### 📁 Full Archive
 | Transport | IPv4 (All Time) | Count | IPv6 (All Time) | Count |
 | :--- | :--- | :--- | :--- | :--- |
 | **obfs4** | [obfs4.txt]({REPO_URL}/bridges/obfs4.txt) | **{stats.get('obfs4.txt', 0)}** | [obfs4_ipv6.txt]({REPO_URL}/bridges/obfs4_ipv6.txt) | **{stats.get('obfs4_ipv6.txt', 0)}** |
@@ -335,11 +167,11 @@ History of all collected bridges since the beginning.
 | **Vanilla** | [vanilla.txt]({REPO_URL}/bridges/vanilla.txt) | **{stats.get('vanilla.txt', 0)}** | [vanilla_ipv6.txt]({REPO_URL}/bridges/vanilla_ipv6.txt) | **{stats.get('vanilla_ipv6.txt', 0)}** |
 
 ## 🔥 Disclaimer
-This project is for educational and archival purposes. Please use these bridges responsibly.
+This project is for educational and archival purposes.
 """
     with open("README.md", "w", encoding="utf-8") as f:
         f.write(readme_content)
-    log("README.md updated with latest statistics.")
+    log("README.md updated.")
 
 def main():
     bridges_dir = "bridges"
@@ -357,40 +189,22 @@ def main():
     recent_cutoff_time = datetime.now() - timedelta(hours=RECENT_HOURS)
     stats = {}
     
-    log("=" * 70)
-    log("STARTING BRIDGE SCRAPER SESSION")
-    log(f"Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-    log(f"Targets: {len(TARGETS)} bridge types")
-    log(f"History entries: {len(history)}")
-    log("=" * 70)
-    
-    total_new_bridges = 0
-    total_fetched = 0
-    total_existing = 0
-    
+    log("Starting bridge collection...")
+
     for target in TARGETS:
         url = target["url"]
         filename = os.path.join(bridges_dir, target["file"])
         recent_filename = os.path.join(bridges_dir, target["file"].replace(".txt", f"_{RECENT_HOURS}h.txt"))
         tested_filename = os.path.join(bridges_dir, target["file"].replace(".txt", "_tested.txt"))
-        transport_type = target["type"]
-        ip_version = target["ip"]
-        
-        log(f"\n🔍 Processing {transport_type} ({ip_version})...")
-        log(f"   URL: {url}")
-        log(f"   File: {filename}")
         
         existing_bridges = []
         if os.path.exists(filename):
             try:
                 with open(filename, "r", encoding="utf-8") as f:
-                    existing_bridges = [normalize_bridge_line(line) for line in f if is_valid_bridge_line(line)]
+                    existing_bridges = [line.strip() for line in f if is_valid_bridge_line(line)]
             except:
                 existing_bridges = []
         
-        total_existing += len(existing_bridges)
-        log(f"   Existing bridges: {len(existing_bridges)}")
-
         fetched_bridges = []
         try:
             response = session.get(url, timeout=30)
@@ -400,38 +214,22 @@ def main():
                 
                 if bridge_div:
                     raw_text = bridge_div.get_text()
-                    lines = [normalize_bridge_line(line) for line in raw_text.split("\n") if is_valid_bridge_line(line)]
-                    
-                    for line in lines:
-                        fetched_bridges.append(line)
-                        
-                        if line not in history:
-                            history[line] = datetime.now().isoformat()
-                            total_new_bridges += 1
-                    
-                    log(f"   Fetched new bridges: {len(fetched_bridges)}")
-                    total_fetched += len(fetched_bridges)
-                else:
-                    log(f"   ⚠️ No bridge container found")
-            else:
-                log(f"   ❌ Failed to fetch. Status: {response.status_code}")
-
+                    for line in raw_text.split("\n"):
+                        line = line.strip()
+                        if is_valid_bridge_line(line):
+                            fetched_bridges.append(line)
+                            if line not in history:
+                                history[line] = datetime.now().isoformat()
         except Exception as e:
-            log(f"   ❌ Connection error: {e}")
+            log(f"Error fetching {url}: {e}")
+            continue
 
-        all_bridges_set = set(existing_bridges + fetched_bridges)
-        all_bridges = list(all_bridges_set)
+        all_bridges = list(set(existing_bridges + fetched_bridges))
         
-        if all_bridges:
-            with open(filename, "w", encoding="utf-8") as f:
-                for bridge in sorted(all_bridges):
-                    f.write(bridge + "\n")
-            log(f"   ✅ Saved total bridges: {len(all_bridges)} (existing: {len(existing_bridges)}, new: {len(fetched_bridges)})")
-        else:
-            with open(filename, "w", encoding="utf-8") as f:
-                f.write("")
-            log(f"   ⚠️ No bridges to save")
-
+        with open(filename, "w", encoding="utf-8") as f:
+            for bridge in sorted(all_bridges):
+                f.write(bridge + "\n")
+        
         recent_bridges = []
         for bridge in all_bridges:
             if bridge in history:
@@ -439,83 +237,54 @@ def main():
                     first_seen = datetime.fromisoformat(history[bridge])
                     if first_seen > recent_cutoff_time:
                         recent_bridges.append(bridge)
-                except ValueError:
+                except:
                     pass
         
-        if recent_bridges:
-            with open(recent_filename, "w", encoding="utf-8") as f:
-                for bridge in sorted(recent_bridges):
-                    f.write(bridge + "\n")
-            log(f"   ✅ Recent bridges (72h): {len(recent_bridges)}")
-        else:
-            with open(recent_filename, "w", encoding="utf-8") as f:
-                f.write("")
-            log(f"   ⚠️ No recent bridges")
+        with open(recent_filename, "w", encoding="utf-8") as f:
+            for bridge in sorted(recent_bridges):
+                f.write(bridge + "\n")
         
-        log(f"   🔧 Testing connectivity ({len(all_bridges)} bridges)...")
-        start_test = time.time()
-        tested_bridges = batch_test_bridges(all_bridges, transport_type)
-        test_time = time.time() - start_test
+        tested_bridges = []
+        if all_bridges:
+            with concurrent.futures.ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
+                future_to_bridge = {executor.submit(test_bridge_connection, bridge): bridge for bridge in all_bridges}
+                for future in concurrent.futures.as_completed(future_to_bridge):
+                    bridge = future_to_bridge[future]
+                    try:
+                        if future.result():
+                            tested_bridges.append(bridge)
+                    except:
+                        pass
         
-        if tested_bridges:
-            with open(tested_filename, "w", encoding="utf-8") as f:
-                for bridge in sorted(tested_bridges):
-                    f.write(bridge + "\n")
-            success_rate = (len(tested_bridges) / len(all_bridges)) * 100
-            log(f"   ✅ Tested bridges: {len(tested_bridges)}/{len(all_bridges)} ({success_rate:.1f}%) in {test_time:.1f}s")
-        else:
-            with open(tested_filename, "w", encoding="utf-8") as f:
-                f.write("")
-            log(f"   ❌ No working bridges found")
-    
+        with open(tested_filename, "w", encoding="utf-8") as f:
+            for bridge in sorted(tested_bridges):
+                f.write(bridge + "\n")
+        
+        base_filename = os.path.basename(filename)
+        base_recent = os.path.basename(recent_filename)
+        base_tested = os.path.basename(tested_filename)
+        
+        stats[base_filename] = len(all_bridges)
+        stats[base_recent] = len(recent_bridges)
+        stats[base_tested] = len(tested_bridges)
+        
+        log(f"{target['type']} ({target['ip']}): {len(all_bridges)} total, {len(recent_bridges)} recent, {len(tested_bridges)} working")
+
     save_history(history)
     
-    log("\n" + "=" * 70)
-    log("CALCULATING FILE STATISTICS")
-    log("=" * 70)
-    
-    for target in TARGETS:
-        base_name = target["file"].replace(".txt", "")
-        
-        main_file = os.path.join(bridges_dir, target["file"])
-        recent_file = os.path.join(bridges_dir, f"{base_name}_{RECENT_HOURS}h.txt")
-        tested_file = os.path.join(bridges_dir, f"{base_name}_tested.txt")
-        
-        stats[target["file"]] = count_file_lines(main_file)
-        stats[f"{base_name}_{RECENT_HOURS}h.txt"] = count_file_lines(recent_file)
-        stats[f"{base_name}_tested.txt"] = count_file_lines(tested_file)
-        
-        log(f"{target['type']} ({target['ip']}):")
-        log(f"   Total: {stats[target['file']]} bridges")
-        log(f"   Recent: {stats[f'{base_name}_{RECENT_HOURS}h.txt']} bridges")
-        log(f"   Tested: {stats[f'{base_name}_tested.txt']} bridges")
-    
+    stats['total_all'] = sum(stats.get(f, 0) for f in ['obfs4.txt', 'webtunnel.txt', 'vanilla.txt', 
+                                                       'obfs4_ipv6.txt', 'webtunnel_ipv6.txt', 'vanilla_ipv6.txt'])
     stats['total_tested'] = sum(stats.get(f, 0) for f in ['obfs4_tested.txt', 'webtunnel_tested.txt', 'vanilla_tested.txt',
                                                           'obfs4_ipv6_tested.txt', 'webtunnel_ipv6_tested.txt', 'vanilla_ipv6_tested.txt'])
     stats['total_recent'] = sum(stats.get(f, 0) for f in ['obfs4_72h.txt', 'webtunnel_72h.txt', 'vanilla_72h.txt',
                                                           'obfs4_ipv6_72h.txt', 'webtunnel_ipv6_72h.txt', 'vanilla_ipv6_72h.txt'])
     
-    log("\n" + "=" * 70)
-    log("SESSION SUMMARY")
-    log("=" * 70)
-    log(f"Total existing bridges: {total_existing}")
-    log(f"Total newly fetched: {total_fetched}")
-    log(f"Total new unique bridges: {total_new_bridges}")
-    log(f"Total bridges in history: {len(history)}")
-    
-    total_all = sum(stats.get(f, 0) for f in ['obfs4.txt', 'webtunnel.txt', 'vanilla.txt', 
-                                              'obfs4_ipv6.txt', 'webtunnel_ipv6.txt', 'vanilla_ipv6.txt'])
-    
-    log(f"Total bridges in files: {total_all}")
-    log(f"Total bridges tested working: {stats['total_tested']}")
-    log(f"Total recent bridges (72h): {stats['total_recent']}")
-    
-    if total_all > 0:
-        overall_success = (stats['total_tested'] / total_all) * 100
-        log(f"Overall success rate: {overall_success:.1f}%")
+    log(f"\nTotal bridges: {stats['total_all']}")
+    log(f"Working bridges: {stats['total_tested']}")
+    log(f"Recent bridges (72h): {stats['total_recent']}")
     
     update_readme(stats)
-    log("\n✅ Session completed successfully!")
+    log("Done!")
 
 if __name__ == "__main__":
     main()

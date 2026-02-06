@@ -21,14 +21,14 @@ TARGETS = [
 ]
 
 HISTORY_FILE = "bridge_history.json"
-RECENT_HOURS = 72
-HISTORY_RETENTION_DAYS = 30
+RECENT_HOURS = 168
+HISTORY_RETENTION_DAYS = 365
 REPO_URL = "https://raw.githubusercontent.com/Delta-Kronecker/Tor-Bridges-Collector/refs/heads/main"
-MAX_WORKERS = 50
-CONNECTION_TIMEOUT = 8
-MAX_RETRIES = 2
-SSL_TIMEOUT = 5
-MAX_TEST_PER_TYPE = 500
+MAX_WORKERS = 10
+CONNECTION_TIMEOUT = 10
+MAX_RETRIES = 3
+SSL_TIMEOUT = 10
+MAX_TEST_PER_TYPE = 1000
 
 def log(message):
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -272,16 +272,16 @@ This repository automatically collects, validates, and archives Tor bridges. A G
 ## 🔥 Bridge Lists
 
 ### ✅ Tested & Active (Recommended)
-These bridges from the archive have passed a TCP connectivity test (3 retries, 10s timeout) during the last run.
+These bridges from the archive have passed a TCP connectivity test.
 
-| Transport | IPv4 (Tested) | Count | IPv6 (Tested) | Count |
+| Transport | IPv4 (Tested) | Count |
 | :--- | :--- | :--- | :--- | :--- |
 | **obfs4** | [obfs4_tested.txt]({REPO_URL}/obfs4_tested.txt) | **{stats.get('obfs4_tested.txt', 0)}** |
 | **WebTunnel** | [webtunnel_tested.txt]({REPO_URL}/webtunnel_tested.txt) | **{stats.get('webtunnel_tested.txt', 0)}** |
 | **Vanilla** | [vanilla_tested.txt]({REPO_URL}/vanilla_tested.txt) | **{stats.get('vanilla_tested.txt', 0)}** |
 
-### 🔥 Fresh Bridges (Last 72 Hours)
-Bridges discovered within the last 3 days.
+### 🔥 Fresh Bridges
+Bridges discovered within the last Week.
 
 | Transport | IPv4 (72h) | Count | IPv6 (72h) | Count |
 | :--- | :--- | :--- | :--- | :--- |

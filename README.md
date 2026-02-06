@@ -1,6 +1,5 @@
 # Tor Bridges Collector & Archive
 
-**Last Updated:** 2026-02-06 21:22 UTC
 
 This repository automatically collects, validates, and archives Tor bridges. A GitHub Action runs every 1 hours to fetch new bridges from the official Tor Project.
 
@@ -15,7 +14,7 @@ This repository automatically collects, validates, and archives Tor bridges. A G
 ### ✅ Tested & Active (Recommended)
 These bridges from the archive have passed a TCP connectivity test (3 retries, 10s timeout) during the last run.
 
-| Transport | IPv4 (Tested) | Count | IPv6 (Tested) | Count |
+| Transport | IPv4 (Tested) | Count | 
 | :--- | :--- | :--- | :--- | :--- |
 | **obfs4** | [obfs4_tested.txt](https://raw.githubusercontent.com/Delta-Kronecker/Tor-Bridges-Collector/refs/heads/main/obfs4_tested.txt) | **70** |
 | **WebTunnel** | [webtunnel_tested.txt](https://raw.githubusercontent.com/Delta-Kronecker/Tor-Bridges-Collector/refs/heads/main/webtunnel_tested.txt) | **23** |

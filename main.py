@@ -34,16 +34,24 @@ def log(message):
     print(f"[{timestamp}] {message}")
 
 def is_valid_bridge_line(line):
+    if not line or not line.strip():
+        return False
+    line = line.strip()
     if "No bridges available" in line:
         return False
     if line.startswith("#"):
         return False
     if len(line) < 10:
         return False
-    return bool(re.search(r'\d+\.\d+\.\d+\.\d+|\[.*\]', line))
+    return bool(re.search(r'\d+\.\d+\.\d+\.\d+|\[.*\]|https?://', line))
+
+def normalize_bridge_line(line):
+    line = line.strip()
+    line = re.sub(r'\s+', ' ', line)
+    return line
 
 def extract_connection_info(line):
-    line = line.strip()
+    line = normalize_bridge_line(line)
     
     if not line or len(line) < 5:
         return None, None, None
@@ -186,9 +194,9 @@ def smart_bridge_filter(bridge_list, transport_type):
     seen = set()
     
     for bridge in bridge_list:
-        key = re.sub(r'\s+', ' ', bridge.strip()).lower()
-        if key not in seen:
-            seen.add(key)
+        normalized = normalize_bridge_line(bridge)
+        if normalized not in seen:
+            seen.add(normalized)
             unique_bridges.append(bridge)
     
     return unique_bridges
@@ -280,7 +288,15 @@ def update_readme(stats):
     
     readme_content = f"""# Tor Bridges Collector & Archive
 
+**Last Updated:** {timestamp}
 
+## 📊 Overall Statistics
+| Metric | Count |
+|--------|-------|
+| Total Bridges Collected | {total_bridges} |
+| Successfully Tested | {stats.get('total_tested', 0)} |
+| New Bridges (72h) | {stats.get('total_recent', 0)} |
+| History Retention | {HISTORY_RETENTION_DAYS} days |
 
 This repository automatically collects, validates, and archives Tor bridges. A GitHub Action runs every hour to fetch new bridges from the official Tor Project.
 
@@ -364,21 +380,18 @@ def main():
         log(f"   URL: {url}")
         log(f"   File: {filename}")
         
-        existing_bridges = set()
+        existing_bridges = []
         if os.path.exists(filename):
             try:
                 with open(filename, "r", encoding="utf-8") as f:
-                    for line in f:
-                        line = line.strip()
-                        if is_valid_bridge_line(line):
-                            existing_bridges.add(line)
+                    existing_bridges = [normalize_bridge_line(line) for line in f if is_valid_bridge_line(line)]
             except:
-                pass
+                existing_bridges = []
         
         total_existing += len(existing_bridges)
         log(f"   Existing bridges: {len(existing_bridges)}")
 
-        fetched_bridges = set()
+        fetched_bridges = []
         try:
             response = session.get(url, timeout=30)
             if response.status_code == 200:
@@ -387,15 +400,14 @@ def main():
                 
                 if bridge_div:
                     raw_text = bridge_div.get_text()
-                    lines = [line.strip() for line in raw_text.split("\n") if line.strip()]
+                    lines = [normalize_bridge_line(line) for line in raw_text.split("\n") if is_valid_bridge_line(line)]
                     
                     for line in lines:
-                        if is_valid_bridge_line(line):
-                            fetched_bridges.add(line)
-                            
-                            if line not in history:
-                                history[line] = datetime.now().isoformat()
-                                total_new_bridges += 1
+                        fetched_bridges.append(line)
+                        
+                        if line not in history:
+                            history[line] = datetime.now().isoformat()
+                            total_new_bridges += 1
                     
                     log(f"   Fetched new bridges: {len(fetched_bridges)}")
                     total_fetched += len(fetched_bridges)
@@ -407,13 +419,14 @@ def main():
         except Exception as e:
             log(f"   ❌ Connection error: {e}")
 
-        all_bridges = existing_bridges.union(fetched_bridges)
+        all_bridges_set = set(existing_bridges + fetched_bridges)
+        all_bridges = list(all_bridges_set)
         
         if all_bridges:
             with open(filename, "w", encoding="utf-8") as f:
                 for bridge in sorted(all_bridges):
                     f.write(bridge + "\n")
-            log(f"   ✅ Saved total bridges: {len(all_bridges)}")
+            log(f"   ✅ Saved total bridges: {len(all_bridges)} (existing: {len(existing_bridges)}, new: {len(fetched_bridges)})")
         else:
             with open(filename, "w", encoding="utf-8") as f:
                 f.write("")
@@ -441,7 +454,7 @@ def main():
         
         log(f"   🔧 Testing connectivity ({len(all_bridges)} bridges)...")
         start_test = time.time()
-        tested_bridges = batch_test_bridges(list(all_bridges), transport_type)
+        tested_bridges = batch_test_bridges(all_bridges, transport_type)
         test_time = time.time() - start_test
         
         if tested_bridges:

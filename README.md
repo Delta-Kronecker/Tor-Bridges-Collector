@@ -18,7 +18,7 @@ These bridges from the archive have passed a TCP connectivity test (3 retries, 1
 | :--- | :--- | :--- |
 | **obfs4** | [obfs4_tested.txt](https://raw.githubusercontent.com/Delta-Kronecker/Tor-Bridges-Collector/refs/heads/main/obfs4_tested.txt) | **76** |
 | **WebTunnel** | [webtunnel_tested.txt](https://raw.githubusercontent.com/Delta-Kronecker/Tor-Bridges-Collector/refs/heads/main/webtunnel_tested.txt) | **27** |
-| **Vanilla** | [vanilla_tested.txt](https://raw.githubusercontent.com/Delta-Kronecker/Tor-Bridges-Collector/refs/heads/main/vanilla_tested.txt) | **84** |
+| **Vanilla** | [vanilla_tested.txt](https://raw.githubusercontent.com/Delta-Kronecker/Tor-Bridges-Collector/refs/heads/main/vanilla_tested.txt) | **83** |
 
 ### 🔥 Fresh Bridges (Last 72 Hours)
 Bridges discovered within the last 3 days.

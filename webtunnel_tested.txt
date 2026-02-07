@@ -9,6 +9,7 @@ webtunnel [2001:db8:603:6e60:8f8b:5077:7cd3:7d3b]:443 E72CE4ACEEE2552F3104A728EC
 webtunnel [2001:db8:63b4:6bd7:a357:7858:898e:718c]:443 059AEB126918A33B8246E8136D565FF57753D5CF url=https://alwaysnewbie.eu.org/homesweethome ver=0.0.2
 webtunnel [2001:db8:6ebc:2eba:25e:28d6:4d14:6cfa]:443 60EA71C9493B9B5792CF12F684273B1B06DD156C url=https://tired.social/0r2DRKvagEsZtvZgItdN0fo1 ver=0.0.3
 webtunnel [2001:db8:77cb:5ce6:9995:7466:7ffa:b3f8]:443 770EA6412C8D3997ABFFF7173A3E53F1D3660167 url=https://shallotfarm.org/jcHgyp7m90iQr9QaVSprq1wP ver=0.0.3
+webtunnel [2001:db8:81e2:be4f:fd29:9372:6ffe:f7a0]:443 C9628ABAC17E75C70B32C0830E08CA85A9DFF0B0 url=https://wt3.vkurage.zip/CJLc2A5gsTw8NIahLyYhvBlZ ver=0.0.3
 webtunnel [2001:db8:a273:b501:5987:3660:5d1b:1603]:443 082B13E0A1E5D8D2585B6C84914B1810B7E884EC url=https://s3.vlue.dev/s33gf0iiidqo9lacdqzbjgy6 ver=0.0.3
 webtunnel [2001:db8:a436:6460:fa7b:318:4e8e:9de3]:443 F76C85011FD8C113AA00960BD9FC7F5B66F726A2 url=https://disobey.net/vM8i19mU4gvHOzRm33DaBNuM ver=0.0.2
 webtunnel [2001:db8:b91b:9b4c:8003:9671:eee:7f0a]:443 B80A80398FDE7F94C6C72F9429D8EA128663B780 url=https://ams1.cryptomeanscryptography.club/x50fjFEcivPj42GQKfOOnyw3 ver=0.0.3
@@ -19,5 +20,6 @@ webtunnel [2001:db8:d3e0:e4e:ea8c:f13c:4b74:6c15]:443 ECE165E6510C15D4EA814D32B1
 webtunnel [2001:db8:dd08:c58f:3aa5:756b:30e4:ffd7]:443 7EBE64BFD07F84D7C315F2264DEDD824A62DB749 url=https://metastable03.mori.yuka.org/VbP7vU6eaxTu2XE9dKCXErVn ver=0.0.3
 webtunnel [2001:db8:e40f:2e7c:eaa0:a693:c904:6780]:443 63BC6E53914453BF8C4355082EC907E72E68B7C4 url=https://anoni.net/sgs/lol ver=0.0.3
 webtunnel [2001:db8:ecdd:795b:81e3:f90a:4a52:b772]:443 4268FDA0435617984075BEEEDEA95226D3E29513 url=https://myprivatecloud82.fun/DM143fFEmqF1rgqtFtwqgFAFmt21uGPkmFq2ZT1f9pPlitj1 ver=0.0.3
+webtunnel [2001:db8:ece6:a97f:c608:ac46:d9d5:af74]:443 2CF5232525187101F49ED9ED7A75678DA920EB6E url=https://nextcloud.kiljan.org/v4bpkQtAiqV9QfdKda54PXAI ver=0.0.1
 webtunnel [2001:db8:f37a:49d9:c85f:3e7b:eb39:853e]:443 7E8CB9592C97B8ADD03D374A8E207CAAE5121336 url=https://gia.shallotfarm.org/3IMx3r7r1hKVsW136nx9vVMD ver=0.0.1
 webtunnel [2001:db8:fbfa:48b4:5520:53e6:24b4:eca0]:443 93807A85521915D7D2BA17725C08AC39035D1741 url=https://web.localenby.is/HmlgNcBbNgRJw862bJVxZRes ver=0.0.3

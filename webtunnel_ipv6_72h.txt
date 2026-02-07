@@ -10,3 +10,5 @@ webtunnel [2001:db8:a436:6460:fa7b:318:4e8e:9de3]:443 F76C85011FD8C113AA00960BD9
 webtunnel [2001:db8:c525:22a6:6b6a:e916:9ef7:8152]:443 8A1EE5824071CA39E7D76BD579FB2AEF2B52E524 url=https://c.img-cdn.net/yE4s7KehTFyj/ ver=0.0.2
 webtunnel [2001:db8:cc50:fa:264f:d1b8:79a:6a81]:443 38C7ADB125A7AEA7A668C5AE300F6DCEA6BFB340 url=https://surf.mysticboarding.cz/S2vNtMmDc72E3uSmAroQaUyj ver=0.0.1
 webtunnel [2001:db8:cc53:9d8f:41f4:ebdc:ef7d:adc1]:443 5AA94C138A5B9CCDB96EA0C7D6C587AF18230158 url=https://cdn.seo-manager.info/jXh2ONiCuMLsUyzJWq3HJaeE ver=0.0.3
+webtunnel [2001:db8:db12:d3f0:335f:5cb1:f305:bdd1]:443 F0657A8419A7C14027CD79D33CA018D9487CB302 url=https://heresthespace.com/oAH2lLnop5li9wV ver=0.0.3
+webtunnel [2001:db8:ece6:a97f:c608:ac46:d9d5:af74]:443 2CF5232525187101F49ED9ED7A75678DA920EB6E url=https://nextcloud.kiljan.org/v4bpkQtAiqV9QfdKda54PXAI ver=0.0.1

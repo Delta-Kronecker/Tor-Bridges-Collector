@@ -1,56 +1,43 @@
-# 🌐 Tor Bridges Tester
-
-This project is an automated tool designed to test and publish working Tor Bridges. The script runs every day, identifying active bridges and publishing them here and to the Telegram channel.
-
----
-
-## 📢 Telegram Channel
-
-All final results are automatically compressed into a ZIP file and uploaded to our Telegram channel:
-
-🔹 **Main Channel:** [DeltaKroneckerGithub](https://t.me/DeltaKroneckerGithub)
-
----
-
-## 🔄 About Bridge Sources
-
-This project tests bridges from [this](https://github.com/scriptzteam/Tor-Bridges-Collector) repository, which is:
-- A **very large archive** of various bridge types
-- **Slow to update** - may not change for months
-
-Despite the source's infrequent updates, daily testing remains valuable for:
-Maintaining a verified working list and healthy bridges show little variation between daily runs
+# Tor Bridges Collector & Archive
 
 
-**For fresh and new bridges**, please check our dedicated collection repository:
-🔗 [Delta-Kronecker/Tor-Bridges-Collector](https://github.com/Delta-Kronecker/Tor-Bridges-Collector)
+This repository automatically collects, validates, and archives Tor bridges. A GitHub Action runs every 1 hours to fetch new bridges from the official Tor Project.
 
----
+## 🔥 Important Notes on IPv6 & WebTunnel
 
-## 🚀 Direct Download Links
+1.  **IPv6 Instability:** IPv6 bridges are significantly fewer in number and are often more susceptible to blocking or connection instability compared to IPv4.
+2.  **WebTunnel Overlap:** WebTunnel bridges often use the same endpoint domain for both IPv4 and IPv6. Consequently, the IPv6 list is frequently identical to or a subset of the IPv4 list.
+3.  **Recommendation:** For the most reliable connection, **prioritize using IPv4 bridges**. Use IPv6 only if IPv4 is completely inaccessible on your network.
 
-You can always find the latest tested and working bridges using the links below:
+## 🔥 Bridge Lists
 
-| Bridge Type | Status | Direct Download Link |
-| :--- | :---: | :--- |
-| **obfs4** | ✅ Active | [Download working_obfs4.txt](https://raw.githubusercontent.com/Delta-Kronecker/Tor-Bridges/refs/heads/main/working_obfs4.txt) |
-| **Vanilla** | ✅ Active | [Download working_vanilla.txt](https://raw.githubusercontent.com/Delta-Kronecker/Tor-Bridges/refs/heads/main/working_vanilla.txt) |
-| **WebTunnel** | ✅ Active | [Download working_webtunnel.txt](https://raw.githubusercontent.com/Delta-Kronecker/Tor-Bridges/refs/heads/main/working_webtunnel.txt) |
+### ✅ Tested & Active (Recommended)
+These bridges from the archive have passed a TCP connectivity test (3 retries, 10s timeout) during the last run.
+
+| Transport | IPv4 (Tested) | Count | 
+| :--- | :--- | :--- |
+| **obfs4** | [obfs4_tested.txt](https://raw.githubusercontent.com/Delta-Kronecker/Tor-Bridges-Collector/refs/heads/main/obfs4_tested.txt) | **79** |
+| **WebTunnel** | [webtunnel_tested.txt](https://raw.githubusercontent.com/Delta-Kronecker/Tor-Bridges-Collector/refs/heads/main/webtunnel_tested.txt) | **31** |
+| **Vanilla** | [vanilla_tested.txt](https://raw.githubusercontent.com/Delta-Kronecker/Tor-Bridges-Collector/refs/heads/main/vanilla_tested.txt) | **89** |
+
+### 🔥 Fresh Bridges (Last 72 Hours)
+Bridges discovered within the last 3 days.
+
+| Transport | IPv4 (72h) | Count | IPv6 (72h) | Count |
+| :--- | :--- | :--- | :--- | :--- |
+| **obfs4** | [obfs4_72h.txt](https://raw.githubusercontent.com/Delta-Kronecker/Tor-Bridges-Collector/refs/heads/main/obfs4_72h.txt) | **31** | [obfs4_ipv6_72h.txt](https://raw.githubusercontent.com/Delta-Kronecker/Tor-Bridges-Collector/refs/heads/main/obfs4_ipv6_72h.txt) | **22** |
+| **WebTunnel** | [webtunnel_72h.txt](https://raw.githubusercontent.com/Delta-Kronecker/Tor-Bridges-Collector/refs/heads/main/webtunnel_72h.txt) | **18** | [webtunnel_ipv6_72h.txt](https://raw.githubusercontent.com/Delta-Kronecker/Tor-Bridges-Collector/refs/heads/main/webtunnel_ipv6_72h.txt) | **31** |
+| **Vanilla** | [vanilla_72h.txt](https://raw.githubusercontent.com/Delta-Kronecker/Tor-Bridges-Collector/refs/heads/main/vanilla_72h.txt) | **45** | [vanilla_ipv6_72h.txt](https://raw.githubusercontent.com/Delta-Kronecker/Tor-Bridges-Collector/refs/heads/main/vanilla_ipv6_72h.txt) | **0** |
+
+### 🔥 Full Archive (Accumulative)
+History of all collected bridges.
+
+| Transport | IPv4 (All Time) | Count | IPv6 (All Time) | Count |
+| :--- | :--- | :--- | :--- | :--- |
+| **obfs4** | [obfs4.txt](https://raw.githubusercontent.com/Delta-Kronecker/Tor-Bridges-Collector/refs/heads/main/obfs4.txt) | **100** | [obfs4_ipv6.txt](https://raw.githubusercontent.com/Delta-Kronecker/Tor-Bridges-Collector/refs/heads/main/obfs4_ipv6.txt) | **56** |
+| **WebTunnel** | [webtunnel.txt](https://raw.githubusercontent.com/Delta-Kronecker/Tor-Bridges-Collector/refs/heads/main/webtunnel.txt) | **39** | [webtunnel_ipv6.txt](https://raw.githubusercontent.com/Delta-Kronecker/Tor-Bridges-Collector/refs/heads/main/webtunnel_ipv6.txt) | **39** |
+| **Vanilla** | [vanilla.txt](https://raw.githubusercontent.com/Delta-Kronecker/Tor-Bridges-Collector/refs/heads/main/vanilla.txt) | **145** | [vanilla_ipv6.txt](https://raw.githubusercontent.com/Delta-Kronecker/Tor-Bridges-Collector/refs/heads/main/vanilla_ipv6.txt) | **0** |
 
 
-
-## ⚠️ Disclaimer
-This project is for educational purposes and Users are responsible for their own actions and compliance with local regulations.
-
-## 💝 Support This Project
-
-If you find this project useful, please consider supporting it:
-
-⭐ **Star the repository on GitHub:**
-
-🌟 **Add star reaction to posts in Telegram channel:** 
-
-Your support helps maintain and improve this service for everyone!
-
----
-**Maintained by Delta Kronecker**
+## 🔥 Disclaimer
+This project is for educational and archival purposes. Please use these bridges responsibly.

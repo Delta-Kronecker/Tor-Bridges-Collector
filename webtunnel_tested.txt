@@ -6,6 +6,7 @@ webtunnel [2001:db8:272b:3cc6:66df:4d41:6895:cbcf]:443 316ACA10592957F567C643384
 webtunnel [2001:db8:2ae3:679a:856c:c72a:2746:1a1b]:443 8943BF53C9561C75A7302ED59575EF71E2B26562 url=https://allium.heelsn.eu/X1uzc7J4omPPBbqkJMDgBtXP ver=0.0.3
 webtunnel [2001:db8:2ce3:75bd:2da:f69f:d97a:7874]:443 CFB5DD5A5CC4AAB0435C1C5B27D46C0E2AB54C6E url=https://sexgrueselbox.ch/Tha8Iequ4Goo9ku ver=0.0.3
 webtunnel [2001:db8:35ed:b91c:d25f:5603:5c77:ebeb]:443 57C218E285D2AA1E7077859761421E9C62B9123E url=https://wtb007.unshakled.net:8443/4oeMXyIPcCVtKH7jFkEBvueX ver=0.0.3
+webtunnel [2001:db8:365b:caab:1be4:d672:e78e:c09a]:443 5C4499F49EF591BB28F86DC63E48846F8E610764 url=https://mstdn.party/ou8MiapiZahngai6 ver=0.0.2
 webtunnel [2001:db8:3c39:fa6c:6fe3:6ec6:ffa:aede]:443 B903D2B1EFA75C5014475CDA60DD694627B37D39 url=https://tearandnatureeco.net/9543cff3539d7c6e4d3f12c7c4e940e0f99a7e59 ver=0.0.3
 webtunnel [2001:db8:4153:2734:a5fd:324a:77fe:7d3b]:443 91DE3D9DBAFB8A583CEE02448BBA8CADDE54735E url=https://5-ams.sports-streams.org/jdyLcFWUBl1jEjIkL2Bo2LCT ver=0.0.1
 webtunnel [2001:db8:4b0:feea:81d8:72b9:95c1:cd62]:443 A6A5AF5E8410EB76647925F66AB2B5810A2C3791 url=https://wolkewolkewolke.zip/xrCyxOQH6HOe952fVtzKMGDN ver=0.0.2

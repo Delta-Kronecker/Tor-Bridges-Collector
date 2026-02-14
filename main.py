@@ -7,6 +7,7 @@ import concurrent.futures
 import ssl
 import time
 import ipaddress
+import zipfile
 from urllib.parse import urlparse
 from bs4 import BeautifulSoup
 from datetime import datetime, timedelta
@@ -29,6 +30,14 @@ CONNECTION_TIMEOUT = 8
 MAX_RETRIES = 2
 SSL_TIMEOUT = 5
 MAX_TEST_PER_TYPE = 500
+
+IS_GITHUB = os.getenv('GITHUB_ACTIONS') == 'true'
+TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
+TELEGRAM_CHAT_ID = os.getenv('TELEGRAM_CHAT_ID')
+
+BRIDGE_DIR = "bridge"
+if not os.path.exists(BRIDGE_DIR):
+    os.makedirs(BRIDGE_DIR)
 
 def log(message):
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -259,51 +268,64 @@ def update_readme(stats):
     
     readme_content = f"""# Tor Bridges Collector & Archive
 
-
 This repository automatically collects, validates, and archives Tor bridges. A GitHub Action runs every 1 hours to fetch new bridges from the official Tor Project.
 
-## 🔥 Important Notes on IPv6 & WebTunnel
+## Important Notes on IPv6 & WebTunnel
 
 1.  **IPv6 Instability:** IPv6 bridges are significantly fewer in number and are often more susceptible to blocking or connection instability compared to IPv4.
 2.  **WebTunnel Overlap:** WebTunnel bridges often use the same endpoint domain for both IPv4 and IPv6. Consequently, the IPv6 list is frequently identical to or a subset of the IPv4 list.
 3.  **Recommendation:** For the most reliable connection, **prioritize using IPv4 bridges**. Use IPv6 only if IPv4 is completely inaccessible on your network.
 
-## 🔥 Bridge Lists
+## Bridge Lists
 
-### ✅ Tested & Active (Recommended)
+### Tested & Active (Recommended)
 These bridges from the archive have passed a TCP connectivity test (3 retries, 10s timeout) during the last run.
 
 | Transport | IPv4 (Tested) | Count | 
 | :--- | :--- | :--- |
-| **obfs4** | [obfs4_tested.txt]({REPO_URL}/obfs4_tested.txt) | **{stats.get('obfs4_tested.txt', 0)}** |
-| **WebTunnel** | [webtunnel_tested.txt]({REPO_URL}/webtunnel_tested.txt) | **{stats.get('webtunnel_tested.txt', 0)}** |
-| **Vanilla** | [vanilla_tested.txt]({REPO_URL}/vanilla_tested.txt) | **{stats.get('vanilla_tested.txt', 0)}** |
+| **obfs4** | [obfs4_tested.txt]({REPO_URL}/bridge/obfs4_tested.txt) | **{stats.get('obfs4_tested.txt', 0)}** |
+| **WebTunnel** | [webtunnel_tested.txt]({REPO_URL}/bridge/webtunnel_tested.txt) | **{stats.get('webtunnel_tested.txt', 0)}** |
+| **Vanilla** | [vanilla_tested.txt]({REPO_URL}/bridge/vanilla_tested.txt) | **{stats.get('vanilla_tested.txt', 0)}** |
 
-### 🔥 Fresh Bridges (Last 72 Hours)
+### Fresh Bridges (Last 72 Hours)
 Bridges discovered within the last 3 days.
 
 | Transport | IPv4 (72h) | Count | IPv6 (72h) | Count |
 | :--- | :--- | :--- | :--- | :--- |
-| **obfs4** | [obfs4_72h.txt]({REPO_URL}/obfs4_72h.txt) | **{stats.get('obfs4_72h.txt', 0)}** | [obfs4_ipv6_72h.txt]({REPO_URL}/obfs4_ipv6_72h.txt) | **{stats.get('obfs4_ipv6_72h.txt', 0)}** |
-| **WebTunnel** | [webtunnel_72h.txt]({REPO_URL}/webtunnel_72h.txt) | **{stats.get('webtunnel_72h.txt', 0)}** | [webtunnel_ipv6_72h.txt]({REPO_URL}/webtunnel_ipv6_72h.txt) | **{stats.get('webtunnel_ipv6_tested.txt', 0)}** |
-| **Vanilla** | [vanilla_72h.txt]({REPO_URL}/vanilla_72h.txt) | **{stats.get('vanilla_72h.txt', 0)}** | [vanilla_ipv6_72h.txt]({REPO_URL}/vanilla_ipv6_72h.txt) | **{stats.get('vanilla_ipv6_72h.txt', 0)}** |
+| **obfs4** | [obfs4_72h.txt]({REPO_URL}/bridge/obfs4_72h.txt) | **{stats.get('obfs4_72h.txt', 0)}** | [obfs4_ipv6_72h.txt]({REPO_URL}/bridge/obfs4_ipv6_72h.txt) | **{stats.get('obfs4_ipv6_72h.txt', 0)}** |
+| **WebTunnel** | [webtunnel_72h.txt]({REPO_URL}/bridge/webtunnel_72h.txt) | **{stats.get('webtunnel_72h.txt', 0)}** | [webtunnel_ipv6_72h.txt]({REPO_URL}/bridge/webtunnel_ipv6_72h.txt) | **{stats.get('webtunnel_ipv6_72h.txt', 0)}** |
+| **Vanilla** | [vanilla_72h.txt]({REPO_URL}/bridge/vanilla_72h.txt) | **{stats.get('vanilla_72h.txt', 0)}** | [vanilla_ipv6_72h.txt]({REPO_URL}/bridge/vanilla_ipv6_72h.txt) | **{stats.get('vanilla_ipv6_72h.txt', 0)}** |
 
-### 🔥 Full Archive (Accumulative)
+### Full Archive (Accumulative)
 History of all collected bridges.
 
 | Transport | IPv4 (All Time) | Count | IPv6 (All Time) | Count |
 | :--- | :--- | :--- | :--- | :--- |
-| **obfs4** | [obfs4.txt]({REPO_URL}/obfs4.txt) | **{stats.get('obfs4.txt', 0)}** | [obfs4_ipv6.txt]({REPO_URL}/obfs4_ipv6.txt) | **{stats.get('obfs4_ipv6.txt', 0)}** |
-| **WebTunnel** | [webtunnel.txt]({REPO_URL}/webtunnel.txt) | **{stats.get('webtunnel.txt', 0)}** | [webtunnel_ipv6.txt]({REPO_URL}/webtunnel_ipv6.txt) | **{stats.get('webtunnel_ipv6.txt', 0)}** |
-| **Vanilla** | [vanilla.txt]({REPO_URL}/vanilla.txt) | **{stats.get('vanilla.txt', 0)}** | [vanilla_ipv6.txt]({REPO_URL}/vanilla_ipv6.txt) | **{stats.get('vanilla_ipv6.txt', 0)}** |
+| **obfs4** | [obfs4.txt]({REPO_URL}/bridge/obfs4.txt) | **{stats.get('obfs4.txt', 0)}** | [obfs4_ipv6.txt]({REPO_URL}/bridge/obfs4_ipv6.txt) | **{stats.get('obfs4_ipv6.txt', 0)}** |
+| **WebTunnel** | [webtunnel.txt]({REPO_URL}/bridge/webtunnel.txt) | **{stats.get('webtunnel.txt', 0)}** | [webtunnel_ipv6.txt]({REPO_URL}/bridge/webtunnel_ipv6.txt) | **{stats.get('webtunnel_ipv6.txt', 0)}** |
+| **Vanilla** | [vanilla.txt]({REPO_URL}/bridge/vanilla.txt) | **{stats.get('vanilla.txt', 0)}** | [vanilla_ipv6.txt]({REPO_URL}/bridge/vanilla_ipv6.txt) | **{stats.get('vanilla_ipv6.txt', 0)}** |
 
-
-## 🔥 Disclaimer
+## Disclaimer
 This project is for educational and archival purposes. Please use these bridges responsibly.
 """
     with open("README.md", "w", encoding="utf-8") as f:
         f.write(readme_content)
     log("README.md updated with latest statistics.")
+
+def send_to_telegram(file_path, caption):
+    if not TELEGRAM_BOT_TOKEN or not TELEGRAM_CHAT_ID:
+        log("Telegram credentials missing.")
+        return
+    url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendDocument"
+    try:
+        with open(file_path, 'rb') as f:
+            response = requests.post(url, data={'chat_id': TELEGRAM_CHAT_ID, 'caption': caption, 'parse_mode': 'Markdown'}, files={'document': f})
+            if response.status_code == 200:
+                log(f"Telegram upload successful: {os.path.basename(file_path)}")
+            else:
+                log(f"Telegram upload failed: {response.status_code}")
+    except Exception as e:
+        log(f"Telegram Error: {e}")
 
 def main():
     session = requests.Session()
@@ -322,14 +344,17 @@ def main():
     for target in TARGETS:
         url = target["url"]
         filename = target["file"]
+        bridge_path = os.path.join(BRIDGE_DIR, filename)
         recent_filename = filename.replace(".txt", f"_{RECENT_HOURS}h.txt")
+        recent_path = os.path.join(BRIDGE_DIR, recent_filename)
         tested_filename = filename.replace(".txt", "_tested.txt")
+        tested_path = os.path.join(BRIDGE_DIR, tested_filename)
         transport_type = target["type"]
         
         existing_bridges = set()
-        if os.path.exists(filename):
+        if os.path.exists(bridge_path):
             try:
-                with open(filename, "r", encoding="utf-8") as f:
+                with open(bridge_path, "r", encoding="utf-8") as f:
                     for line in f:
                         line = line.strip()
                         if is_valid_bridge_line(line):
@@ -365,12 +390,12 @@ def main():
         all_bridges = existing_bridges.union(fetched_bridges)
         
         if all_bridges:
-            with open(filename, "w", encoding="utf-8") as f:
+            with open(bridge_path, "w", encoding="utf-8") as f:
                 for bridge in sorted(all_bridges):
                     f.write(bridge + "\n")
             log(f"Processed {filename}: Total {len(all_bridges)}")
         else:
-            with open(filename, "w", encoding="utf-8") as f:
+            with open(bridge_path, "w", encoding="utf-8") as f:
                 f.write("")
 
         recent_bridges = []
@@ -384,22 +409,22 @@ def main():
                     pass
         
         if recent_bridges:
-            with open(recent_filename, "w", encoding="utf-8") as f:
+            with open(recent_path, "w", encoding="utf-8") as f:
                 for bridge in sorted(recent_bridges):
                     f.write(bridge + "\n")
         else:
-            with open(recent_filename, "w", encoding="utf-8") as f:
+            with open(recent_path, "w", encoding="utf-8") as f:
                 f.write("")
         
         tested_bridges = batch_test_bridges(list(all_bridges), transport_type)
         
         if tested_bridges:
-            with open(tested_filename, "w", encoding="utf-8") as f:
+            with open(tested_path, "w", encoding="utf-8") as f:
                 for bridge in sorted(tested_bridges):
                     f.write(bridge + "\n")
-            log(f"   → {len(tested_bridges)} bridges passed connectivity test.")
+            log(f"   → {len(tested_bridges)} bridges passed connectivity test for {filename}.")
         else:
-            with open(tested_filename, "w", encoding="utf-8") as f:
+            with open(tested_path, "w", encoding="utf-8") as f:
                 f.write("")
             log(f"   → No bridges passed connectivity test for {filename}.")
 
@@ -409,6 +434,64 @@ def main():
 
     save_history(history)
     update_readme(stats)
+    
+    history_path = os.path.join(BRIDGE_DIR, HISTORY_FILE)
+    if os.path.exists(HISTORY_FILE):
+        import shutil
+        shutil.copy2(HISTORY_FILE, history_path)
+    
+    current_hour = datetime.now().hour
+    if current_hour == 0 and IS_GITHUB:
+        zip_name = "tor_bridges.zip"
+        zip_path = os.path.join(BRIDGE_DIR, zip_name)
+        
+        with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as zipf:
+            for root, dirs, files in os.walk(BRIDGE_DIR):
+                for file in files:
+                    if file != zip_name:
+                        file_path = os.path.join(root, file)
+                        arcname = os.path.relpath(file_path, BRIDGE_DIR)
+                        zipf.write(file_path, arcname)
+        
+        log(f"Created ZIP archive: {zip_path}")
+        
+        obfs4_total = stats.get('obfs4.txt', 0)
+        webtunnel_total = stats.get('webtunnel.txt', 0)
+        vanilla_total = stats.get('vanilla.txt', 0)
+        obfs4_tested = stats.get('obfs4_tested.txt', 0)
+        webtunnel_tested = stats.get('webtunnel_tested.txt', 0)
+        vanilla_tested = stats.get('vanilla_tested.txt', 0)
+        obfs4_recent = stats.get('obfs4_72h.txt', 0)
+        webtunnel_recent = stats.get('webtunnel_72h.txt', 0)
+        vanilla_recent = stats.get('vanilla_72h.txt', 0)
+        obfs4_ipv6 = stats.get('obfs4_ipv6.txt', 0)
+        webtunnel_ipv6 = stats.get('webtunnel_ipv6.txt', 0)
+        vanilla_ipv6 = stats.get('vanilla_ipv6.txt', 0)
+        
+        caption = f"""*Tor Bridges Collector - Midnight Update*
+
+*Full Archive (All Time):*
+• obfs4 (IPv4): {obfs4_total} bridges
+• WebTunnel (IPv4): {webtunnel_total} bridges
+• Vanilla (IPv4): {vanilla_total} bridges
+• obfs4 (IPv6): {obfs4_ipv6} bridges
+• WebTunnel (IPv6): {webtunnel_ipv6} bridges
+• Vanilla (IPv6): {vanilla_ipv6} bridges
+
+*Tested & Active:*
+• obfs4 (IPv4): {obfs4_tested} bridges
+• WebTunnel (IPv4): {webtunnel_tested} bridges
+• Vanilla (IPv4): {vanilla_tested} bridges
+
+*Recent (Last 72h):*
+• obfs4 (IPv4): {obfs4_recent} bridges
+• WebTunnel (IPv4): {webtunnel_recent} bridges
+• Vanilla (IPv4): {vanilla_recent} bridges
+
+*Total Unique Bridges:* {obfs4_total + webtunnel_total + vanilla_total + obfs4_ipv6 + webtunnel_ipv6 + vanilla_ipv6}"""
+        
+        send_to_telegram(zip_path, caption)
+    
     log("Session Finished.")
 
 if __name__ == "__main__":

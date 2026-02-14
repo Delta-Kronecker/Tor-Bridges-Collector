@@ -408,11 +408,14 @@ def main():
     should_upload = (current_hour == 0 and IS_GITHUB) or (IS_GITHUB and TELEGRAM_UPLOAD)
     
     if should_upload:
-        zip_name = "tor_bridges_collector.zip"
+        zip_name = "tor_bridges.zip"
         zip_path = os.path.join(BRIDGE_DIR, zip_name)
         
+        if os.path.exists(zip_path):
+            os.remove(zip_path)
+        
         with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as zipf:
-            archive_dir = "Tor Bridges"
+            archive_root = "Tor Bridges"
             
             for root, dirs, files in os.walk(BRIDGE_DIR):
                 for file in files:
@@ -422,11 +425,11 @@ def main():
                     file_path = os.path.join(root, file)
                     
                     if file.endswith("_tested.txt"):
-                        folder = os.path.join(archive_dir, "Tested")
+                        folder = os.path.join(archive_root, "Tested")
                     elif file.endswith(f"_{RECENT_HOURS}h.txt"):
-                        folder = os.path.join(archive_dir, "Recent 72h")
+                        folder = os.path.join(archive_root, "Recent 72h")
                     else:
-                        folder = os.path.join(archive_dir, "Full Archive")
+                        folder = os.path.join(archive_root, "Full Archive")
                     
                     arcname = os.path.join(folder, file)
                     zipf.write(file_path, arcname)
@@ -453,25 +456,24 @@ def main():
         
         caption = f"""*🔍 Tor Bridges Collector - Live Update*
 
- *Source:* All bridges are fetched directly from the official Tor Project website.
-
-
- *Statistics:*
+ *Source:* All bridges are fetched directly from the official Tor Project website (bridges.torproject.org) in real-time.
+ 
+📊 *Statistics:*
 
 *Full Archive (All Time):*
-• obfs4: {obfs4_total} IPv4 + {obfs4_ipv6} IPv6 = {obfs4_total + obfs4_ipv6} total
-• WebTunnel: {webtunnel_total} IPv4 + {webtunnel_ipv6} IPv6 = {webtunnel_total + webtunnel_ipv6} total
-• Vanilla: {vanilla_total} IPv4 + {vanilla_ipv6} IPv6 = {vanilla_total + vanilla_ipv6} total
+• obfs4 IPv4: {obfs4_total} | IPv6: {obfs4_ipv6}
+• WebTunnel IPv4: {webtunnel_total} | IPv6: {webtunnel_ipv6}
+• Vanilla IPv4: {vanilla_total} | IPv6: {vanilla_ipv6}
 
-*Tested & Active (Recommended):*
-• obfs4: {obfs4_tested} bridges
-• WebTunnel: {webtunnel_tested} bridges
-• Vanilla: {vanilla_tested} bridges
+*Tested & Active (Recommended - IPv4 only):*
+• obfs4: {obfs4_tested}
+• WebTunnel: {webtunnel_tested}
+• Vanilla: {vanilla_tested}
 
-*Recent (Last 72 Hours):*
-• obfs4: {obfs4_recent} IPv4 + {obfs4_ipv6_recent} IPv6
-• WebTunnel: {webtunnel_recent} IPv4 + {webtunnel_ipv6_recent} IPv6
-• Vanilla: {vanilla_recent} IPv4 + {vanilla_ipv6_recent} IPv6
+*Recent (Last 72h):*
+• obfs4 IPv4: {obfs4_recent} | IPv6: {obfs4_ipv6_recent}
+• WebTunnel IPv4: {webtunnel_recent} | IPv6: {webtunnel_ipv6_recent}
+• Vanilla IPv4: {vanilla_recent} | IPv6: {vanilla_ipv6_recent}
 
  *Total Unique Bridges:* {total_bridges}
 
@@ -479,7 +481,7 @@ def main():
  *ZIP Contents:*
 • Full Archive/ - Complete bridge history
 • Recent 72h/ - Bridges from last 3 days
-• Tested/ - Verified working bridges
+• Tested/ - Verified working bridges (IPv4 only)
 
  Note: IPv6 bridges are fewer and less stable than IPv4. For best results, use IPv4 bridges first."""
         

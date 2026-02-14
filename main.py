@@ -408,18 +408,21 @@ def main():
     should_upload = (current_hour == 0 and IS_GITHUB) or (IS_GITHUB and TELEGRAM_UPLOAD)
     
     if should_upload:
-        zip_name = "Tor-Bridges-Collector.zip"
+        # Remove any existing zip files in the bridge directory to avoid clutter
+        for file in os.listdir(BRIDGE_DIR):
+            if file.endswith('.zip'):
+                os.remove(os.path.join(BRIDGE_DIR, file))
+                log(f"Removed old zip file: {file}")
+
+        zip_name = "tor_bridges.zip"
         zip_path = os.path.join(BRIDGE_DIR, zip_name)
-        
-        if os.path.exists(zip_path):
-            os.remove(zip_path)
         
         with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as zipf:
             archive_root = "Tor Bridges"
             
             for root, dirs, files in os.walk(BRIDGE_DIR):
                 for file in files:
-                    if file == zip_name or file == "bridge_history.json":
+                    if file == zip_name or file == "bridge_history.json" or not file.endswith('.txt'):
                         continue
                     
                     file_path = os.path.join(root, file)
@@ -454,11 +457,11 @@ def main():
         
         total_bridges = obfs4_total + webtunnel_total + vanilla_total + obfs4_ipv6 + webtunnel_ipv6 + vanilla_ipv6
         
-        caption = f"""* Tor Bridges Collector Update*
+        caption = f"""*Tor Bridges Collector - Live Update*
 
- *Source:* All bridges are fetched directly from the official Tor Project website in real-time.
- 
- *Statistics:*
+*Source:* All bridges are fetched directly from the official Tor Project website (bridges.torproject.org) in real-time.
+
+*Statistics:*
 
 *Full Archive (All Time):*
 • obfs4 IPv4: {obfs4_total} | IPv6: {obfs4_ipv6}
@@ -475,15 +478,15 @@ def main():
 • WebTunnel IPv4: {webtunnel_recent} | IPv6: {webtunnel_ipv6_recent}
 • Vanilla IPv4: {vanilla_recent} | IPv6: {vanilla_ipv6_recent}
 
- *Total Unique Bridges:* {total_bridges}
+*Total Unique Bridges:* {total_bridges}
 
 ━━━━━━━━━━━━━━━━━━━━━━
- *ZIP Contents:*
+*ZIP Contents:*
 • Full Archive/ - Complete bridge history
 • Recent 72h/ - Bridges from last 3 days
 • Tested/ - Verified working bridges (IPv4 only)
 
- Note: IPv6 bridges are fewer and less stable than IPv4. For best results, use IPv4 bridges first."""
+Note: IPv6 bridges are fewer and less stable than IPv4. For best results, use IPv4 bridges first."""
         
         send_to_telegram(zip_path, caption)
     

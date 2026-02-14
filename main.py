@@ -408,7 +408,7 @@ def main():
     should_upload = (current_hour == 0 and IS_GITHUB) or (IS_GITHUB and TELEGRAM_UPLOAD)
     
     if should_upload:
-        zip_name = "Tor-Bridges-Collector"
+        zip_name = "Tor-Bridges-Collector.zip"
         zip_path = os.path.join(BRIDGE_DIR, zip_name)
         
         if os.path.exists(zip_path):

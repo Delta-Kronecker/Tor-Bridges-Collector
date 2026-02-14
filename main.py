@@ -251,11 +251,11 @@ This repository automatically collects, validates, and archives Tor bridges. A G
 ### Tested & Active (Recommended)
 These bridges from the archive have passed a TCP connectivity test (3 retries, 10s timeout) during the last run.
 
-| Transport | IPv4 (Tested) | Count | 
-| :--- | :--- | :--- |
-| **obfs4** | [obfs4_tested.txt]({REPO_URL}/bridge/obfs4_tested.txt) | **{stats.get('obfs4_tested.txt', 0)}** |
-| **WebTunnel** | [webtunnel_tested.txt]({REPO_URL}/bridge/webtunnel_tested.txt) | **{stats.get('webtunnel_tested.txt', 0)}** |
-| **Vanilla** | [vanilla_tested.txt]({REPO_URL}/bridge/vanilla_tested.txt) | **{stats.get('vanilla_tested.txt', 0)}** |
+| Transport | IPv4 (Tested) | Count | IPv6 (Tested) | Count |
+| :--- | :--- | :--- | :--- | :--- |
+| **obfs4** | [obfs4_tested.txt]({REPO_URL}/bridge/obfs4_tested.txt) | **{stats.get('obfs4_tested.txt', 0)}** | [obfs4_ipv6_tested.txt]({REPO_URL}/bridge/obfs4_ipv6_tested.txt) | **{stats.get('obfs4_ipv6_tested.txt', 0)}** |
+| **WebTunnel** | [webtunnel_tested.txt]({REPO_URL}/bridge/webtunnel_tested.txt) | **{stats.get('webtunnel_tested.txt', 0)}** | [webtunnel_ipv6_tested.txt]({REPO_URL}/bridge/webtunnel_ipv6_tested.txt) | **{stats.get('webtunnel_ipv6_tested.txt', 0)}** |
+| **Vanilla** | [vanilla_tested.txt]({REPO_URL}/bridge/vanilla_tested.txt) | **{stats.get('vanilla_tested.txt', 0)}** | [vanilla_ipv6_tested.txt]({REPO_URL}/bridge/vanilla_ipv6_tested.txt) | **{stats.get('vanilla_ipv6_tested.txt', 0)}** |
 
 ### Fresh Bridges (Last 72 Hours)
 Bridges discovered within the last 3 days.
@@ -412,12 +412,24 @@ def main():
         zip_path = os.path.join(BRIDGE_DIR, zip_name)
         
         with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as zipf:
+            archive_dir = "Tor Bridges"
+            
             for root, dirs, files in os.walk(BRIDGE_DIR):
                 for file in files:
-                    if file != zip_name:
-                        file_path = os.path.join(root, file)
-                        arcname = os.path.relpath(file_path, BRIDGE_DIR)
-                        zipf.write(file_path, arcname)
+                    if file == zip_name or file == "bridge_history.json":
+                        continue
+                    
+                    file_path = os.path.join(root, file)
+                    
+                    if file.endswith("_tested.txt"):
+                        folder = os.path.join(archive_dir, "Tested")
+                    elif file.endswith(f"_{RECENT_HOURS}h.txt"):
+                        folder = os.path.join(archive_dir, "Recent 72h")
+                    else:
+                        folder = os.path.join(archive_dir, "Full Archive")
+                    
+                    arcname = os.path.join(folder, file)
+                    zipf.write(file_path, arcname)
         
         log(f"Created ZIP archive: {zip_path}")
         
@@ -433,26 +445,29 @@ def main():
         obfs4_ipv6 = stats.get('obfs4_ipv6.txt', 0)
         webtunnel_ipv6 = stats.get('webtunnel_ipv6.txt', 0)
         vanilla_ipv6 = stats.get('vanilla_ipv6.txt', 0)
+        obfs4_ipv6_tested = stats.get('obfs4_ipv6_tested.txt', 0)
+        webtunnel_ipv6_tested = stats.get('webtunnel_ipv6_tested.txt', 0)
+        vanilla_ipv6_tested = stats.get('vanilla_ipv6_tested.txt', 0)
+        obfs4_ipv6_recent = stats.get('obfs4_ipv6_72h.txt', 0)
+        webtunnel_ipv6_recent = stats.get('webtunnel_ipv6_72h.txt', 0)
+        vanilla_ipv6_recent = stats.get('vanilla_ipv6_72h.txt', 0)
         
         caption = f"""*Tor Bridges Collector - Update*
 
 *Full Archive (All Time):*
-• obfs4 (IPv4): {obfs4_total} bridges
-• WebTunnel (IPv4): {webtunnel_total} bridges
-• Vanilla (IPv4): {vanilla_total} bridges
-• obfs4 (IPv6): {obfs4_ipv6} bridges
-• WebTunnel (IPv6): {webtunnel_ipv6} bridges
-• Vanilla (IPv6): {vanilla_ipv6} bridges
+• obfs4 IPv4: {obfs4_total} | IPv6: {obfs4_ipv6}
+• WebTunnel IPv4: {webtunnel_total} | IPv6: {webtunnel_ipv6}
+• Vanilla IPv4: {vanilla_total} | IPv6: {vanilla_ipv6}
 
 *Tested & Active:*
-• obfs4 (IPv4): {obfs4_tested} bridges
-• WebTunnel (IPv4): {webtunnel_tested} bridges
-• Vanilla (IPv4): {vanilla_tested} bridges
+• obfs4 IPv4: {obfs4_tested} | IPv6: {obfs4_ipv6_tested}
+• WebTunnel IPv4: {webtunnel_tested} | IPv6: {webtunnel_ipv6_tested}
+• Vanilla IPv4: {vanilla_tested} | IPv6: {vanilla_ipv6_tested}
 
 *Recent (Last 72h):*
-• obfs4 (IPv4): {obfs4_recent} bridges
-• WebTunnel (IPv4): {webtunnel_recent} bridges
-• Vanilla (IPv4): {vanilla_recent} bridges
+• obfs4 IPv4: {obfs4_recent} | IPv6: {obfs4_ipv6_recent}
+• WebTunnel IPv4: {webtunnel_recent} | IPv6: {webtunnel_ipv6_recent}
+• Vanilla IPv4: {vanilla_recent} | IPv6: {vanilla_ipv6_recent}
 
 *Total Unique Bridges:* {obfs4_total + webtunnel_total + vanilla_total + obfs4_ipv6 + webtunnel_ipv6 + vanilla_ipv6}"""
         

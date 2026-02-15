@@ -8,6 +8,7 @@ webtunnel [2001:db8:2a61:dea:a9e1:2127:6f2c:5680]:443 76CAF380CD98B4640E2F2F4DD0
 webtunnel [2001:db8:2ae3:679a:856c:c72a:2746:1a1b]:443 8943BF53C9561C75A7302ED59575EF71E2B26562 url=https://allium.heelsn.eu/X1uzc7J4omPPBbqkJMDgBtXP ver=0.0.3
 webtunnel [2001:db8:2ce3:75bd:2da:f69f:d97a:7874]:443 CFB5DD5A5CC4AAB0435C1C5B27D46C0E2AB54C6E url=https://sexgrueselbox.ch/Tha8Iequ4Goo9ku ver=0.0.3
 webtunnel [2001:db8:2d5a:d621:5449:a5b7:2aeb:152a]:443 5CF46063D197073DBAE982D7E953738766799D0E url=https://s.dont.icu ver=0.0.1
+webtunnel [2001:db8:312a:3c9f:39b5:9b13:233d:a576]:443 F56C6CC6A0ACDC21A91B39A6553C0DD0B68A2884 url=https://relay.manupawick.men/uzUQruuMWxEDwyn5SS8q7HVd ver=0.0.3
 webtunnel [2001:db8:35ed:b91c:d25f:5603:5c77:ebeb]:443 57C218E285D2AA1E7077859761421E9C62B9123E url=https://wtb007.unshakled.net:8443/4oeMXyIPcCVtKH7jFkEBvueX ver=0.0.3
 webtunnel [2001:db8:365b:caab:1be4:d672:e78e:c09a]:443 5C4499F49EF591BB28F86DC63E48846F8E610764 url=https://mstdn.party/ou8MiapiZahngai6 ver=0.0.2
 webtunnel [2001:db8:3c39:fa6c:6fe3:6ec6:ffa:aede]:443 B903D2B1EFA75C5014475CDA60DD694627B37D39 url=https://tearandnatureeco.net/9543cff3539d7c6e4d3f12c7c4e940e0f99a7e59 ver=0.0.3
@@ -34,6 +35,7 @@ webtunnel [2001:db8:a62f:3205:a2b8:80f2:8491:9497]:443 CDCF334F257ACAD04A2C6CD97
 webtunnel [2001:db8:a8b5:9d82:9ae6:354f:671:e5da]:443 E3AE862BBB49EA5FACF4FDF09C8F1FE0D6F3CE4B url=https://d.img-cdn.net/mExFXMqeh1PcoDRRyz/ ver=0.0.2
 webtunnel [2001:db8:aa16:aa07:b3:b4f0:a667:3f08]:443 775A648318DA1E1240EF0DEC038154B60696DE5B url=https://pod01.oneclickhost.eu/jLoIafiPpOBkJRJBN5mm6GPe ver=0.0.3
 webtunnel [2001:db8:ad13:e588:6629:afd2:cc58:6af5]:443 B51FD3150E208A600D00BCA5963B0EF5C867574F url=https://rot.ronaak.eu:443/iUFRXvAp3E3MHDiJ8453BaaM ver=0.0.2
+webtunnel [2001:db8:afc8:4fe0:c021:5377:36bf:e9b7]:443 3BDD7036FAC9CC81ADBA39E88637D5EF87350F1C url=https://speedtest.qs.ee/dI6HDfnDLSUiFV0MaLMEtcmv ver=0.0.3
 webtunnel [2001:db8:b91b:9b4c:8003:9671:eee:7f0a]:443 B80A80398FDE7F94C6C72F9429D8EA128663B780 url=https://ams1.cryptomeanscryptography.club/x50fjFEcivPj42GQKfOOnyw3 ver=0.0.3
 webtunnel [2001:db8:c525:22a6:6b6a:e916:9ef7:8152]:443 8A1EE5824071CA39E7D76BD579FB2AEF2B52E524 url=https://c.img-cdn.net/yE4s7KehTFyj/ ver=0.0.2
 webtunnel [2001:db8:c9b:bc88:3d6e:1c94:c0e9:b3f9]:443 908AAD3122B6D46E6CD7CE4BE03A6F9491EF4204 url=https://lowkeykick.site/199ea8c3e6efa36c7e56a280838830757b806540 ver=0.0.3

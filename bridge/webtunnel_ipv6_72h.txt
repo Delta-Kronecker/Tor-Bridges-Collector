@@ -1,6 +1,5 @@
 webtunnel [2001:db8:312a:3c9f:39b5:9b13:233d:a576]:443 F56C6CC6A0ACDC21A91B39A6553C0DD0B68A2884 url=https://relay.manupawick.men/uzUQruuMWxEDwyn5SS8q7HVd ver=0.0.3
 webtunnel [2001:db8:32b:33c3:d919:f00f:8da0:7ed8]:443 6308B7595D50C18A56DCB68F79C96E572595050C url=https://transformaforge.com/ee879925614ee1df9f81fab122c1bb748a7261bb2c44b8e2 ver=0.0.3
-webtunnel [2001:db8:365b:caab:1be4:d672:e78e:c09a]:443 5C4499F49EF591BB28F86DC63E48846F8E610764 url=https://mstdn.party/ou8MiapiZahngai6 ver=0.0.2
 webtunnel [2001:db8:80f:be74:6afc:2b7b:e1ca:1daf]:443 3FBF86ADCC8D39D30B3BE340FB0D87F64E64E7EE url=https://hongkong.dagestani.eu/thismustallbefakenews ver=0.0.3
 webtunnel [2001:db8:a379:1522:ea89:9c9d:59c8:1d5a]:443 B55A418B4F30181ED304EB2698EE58D283BEE5BF url=https://mirror.sanin.dev/f6VK8vgUKiq3HX6FHdbQpUaa ver=0.0.3
 webtunnel [2001:db8:a62f:3205:a2b8:80f2:8491:9497]:443 CDCF334F257ACAD04A2C6CD9725B7FC686160912 url=https://meskio.net/eCDFZe3boSv+b2iqHiaY4ZgPxXBc ver=0.0.3

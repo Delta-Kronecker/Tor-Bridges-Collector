@@ -26,6 +26,7 @@ webtunnel [2001:db8:747d:f959:7714:e5ea:b6d8:66e7]:443 CF1827C41B504EB3CCF3D4EDE
 webtunnel [2001:db8:77cb:5ce6:9995:7466:7ffa:b3f8]:443 770EA6412C8D3997ABFFF7173A3E53F1D3660167 url=https://shallotfarm.org/jcHgyp7m90iQr9QaVSprq1wP ver=0.0.3
 webtunnel [2001:db8:77d3:3892:39fc:d459:869c:44e0]:443 B6650B31F73D0E82DFDD6302233AEA7DBA984DC1 url=https://dev.dumkatze.de/unpack-skinny-purr ver=0.0.3
 webtunnel [2001:db8:7c03:79e9:6937:2f0d:862:f3ef]:443 344BDF5CD95800CC9A9A53E1A3F15C82F538DDA3 url=staging.nexusocean.link ver=0.0.3
+webtunnel [2001:db8:7c55:4216:fa04:55e0:372c:8c57]:443 74A9E9BC6908DE84D7429CF6A13ABFF8FA5B21B2 url=https://onethirtysix.chummer.online/6bbKOCF7uQBebN17kxDy1PV8 ver=0.0.1
 webtunnel [2001:db8:80f:be74:6afc:2b7b:e1ca:1daf]:443 3FBF86ADCC8D39D30B3BE340FB0D87F64E64E7EE url=https://hongkong.dagestani.eu/thismustallbefakenews ver=0.0.3
 webtunnel [2001:db8:81e2:be4f:fd29:9372:6ffe:f7a0]:443 C9628ABAC17E75C70B32C0830E08CA85A9DFF0B0 url=https://wt3.vkurage.zip/CJLc2A5gsTw8NIahLyYhvBlZ ver=0.0.3
 webtunnel [2001:db8:8986:42b5:a784:ef30:f5cd:5e26]:443 07C77888D2367C25CA875E2174D9B225140940E9 url=https://nextcloud.privacy-vbox.de/iJmug5bRcsKeVv45h7a0fvkL ver=0.0.3

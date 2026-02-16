@@ -1,9 +1,9 @@
 webtunnel [2001:db8:312a:3c9f:39b5:9b13:233d:a576]:443 F56C6CC6A0ACDC21A91B39A6553C0DD0B68A2884 url=https://relay.manupawick.men/uzUQruuMWxEDwyn5SS8q7HVd ver=0.0.3
 webtunnel [2001:db8:32b:33c3:d919:f00f:8da0:7ed8]:443 6308B7595D50C18A56DCB68F79C96E572595050C url=https://transformaforge.com/ee879925614ee1df9f81fab122c1bb748a7261bb2c44b8e2 ver=0.0.3
+webtunnel [2001:db8:7c55:4216:fa04:55e0:372c:8c57]:443 74A9E9BC6908DE84D7429CF6A13ABFF8FA5B21B2 url=https://onethirtysix.chummer.online/6bbKOCF7uQBebN17kxDy1PV8 ver=0.0.1
 webtunnel [2001:db8:80f:be74:6afc:2b7b:e1ca:1daf]:443 3FBF86ADCC8D39D30B3BE340FB0D87F64E64E7EE url=https://hongkong.dagestani.eu/thismustallbefakenews ver=0.0.3
 webtunnel [2001:db8:a379:1522:ea89:9c9d:59c8:1d5a]:443 B55A418B4F30181ED304EB2698EE58D283BEE5BF url=https://mirror.sanin.dev/f6VK8vgUKiq3HX6FHdbQpUaa ver=0.0.3
 webtunnel [2001:db8:ad13:e588:6629:afd2:cc58:6af5]:443 B51FD3150E208A600D00BCA5963B0EF5C867574F url=https://rot.ronaak.eu:443/iUFRXvAp3E3MHDiJ8453BaaM ver=0.0.2
 webtunnel [2001:db8:afc8:4fe0:c021:5377:36bf:e9b7]:443 3BDD7036FAC9CC81ADBA39E88637D5EF87350F1C url=https://speedtest.qs.ee/dI6HDfnDLSUiFV0MaLMEtcmv ver=0.0.3
 webtunnel [2001:db8:f3a2:b7f8:ce95:daa3:e49b:d094]:443 40C5CA8B09069310DBA8BFB87F2AE1ABF5C46ED6 url=https://sp-tr.bitcdn.ovh/whereisthisshortguy ver=0.0.3
-webtunnel [2001:db8:f55d:9607:2c09:5e8c:32de:9a7f]:443 F1CF5DE3C36E879573C87295017AE25E60183EEA url=https://stream.lacka.day ver=0.0.3
 webtunnel [2001:db8:fdd1:4b0f:d96d:3615:bf02:2beb]:443 2E486A43146F32630308DA60FACD14EB1ADC6FCC url=https://webtnl.ekiprahati.shop/G0VsiOQl0kjs898g5f8qbw8u ver=0.0.3

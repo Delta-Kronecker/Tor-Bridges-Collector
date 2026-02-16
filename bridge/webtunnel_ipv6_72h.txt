@@ -1,5 +1,6 @@
 webtunnel [2001:db8:312a:3c9f:39b5:9b13:233d:a576]:443 F56C6CC6A0ACDC21A91B39A6553C0DD0B68A2884 url=https://relay.manupawick.men/uzUQruuMWxEDwyn5SS8q7HVd ver=0.0.3
 webtunnel [2001:db8:32b:33c3:d919:f00f:8da0:7ed8]:443 6308B7595D50C18A56DCB68F79C96E572595050C url=https://transformaforge.com/ee879925614ee1df9f81fab122c1bb748a7261bb2c44b8e2 ver=0.0.3
+webtunnel [2001:db8:478b:ae89:51bf:9af7:3576:b7b7]:443 76A48CD150165E281E80676267919BB734151680 url=https://cool110.xyz/Cn4J4GAUglhVcUKeMEkQJt7L ver=0.0.1
 webtunnel [2001:db8:7c55:4216:fa04:55e0:372c:8c57]:443 74A9E9BC6908DE84D7429CF6A13ABFF8FA5B21B2 url=https://onethirtysix.chummer.online/6bbKOCF7uQBebN17kxDy1PV8 ver=0.0.1
 webtunnel [2001:db8:80f:be74:6afc:2b7b:e1ca:1daf]:443 3FBF86ADCC8D39D30B3BE340FB0D87F64E64E7EE url=https://hongkong.dagestani.eu/thismustallbefakenews ver=0.0.3
 webtunnel [2001:db8:a379:1522:ea89:9c9d:59c8:1d5a]:443 B55A418B4F30181ED304EB2698EE58D283BEE5BF url=https://mirror.sanin.dev/f6VK8vgUKiq3HX6FHdbQpUaa ver=0.0.3

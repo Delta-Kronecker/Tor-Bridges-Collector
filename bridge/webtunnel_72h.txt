@@ -19,4 +19,3 @@ webtunnel [2001:db8:eb48:18d1:b5ac:62d0:da55:f164]:443 B9B09EDFAEA3824D6258DB017
 webtunnel [2001:db8:ec38:ad64:f0fb:d7c2:2e26:4c4a]:443 5FC9FFCBA10611A1C17851A4B0BE1352FBC8909F url=https://redstarsl.cc/cme9f87hmdc8s7dychbsm897xy ver=0.0.1
 webtunnel [2001:db8:f3f8:1a33:dba0:17f6:35ce:24f3]:443 963668851C177DC162895A33F1473E32E1E4BE56 url=https://pod05.oneclickhost.eu/K5Fsvkz3SaWjVPm4i0vn5gIs ver=0.0.3
 webtunnel [2001:db8:f87:9991:eb2c:ee55:9794:8632]:443 1A60FE3FAE97BD5FAE8E8F2E9B94AA697D9467F8 url=https://oldradio.info/9bd85e2a09a7eb00e0d2a542d436fd632143df9e ver=0.0.3
-webtunnel [2001:db8:fdd1:4b0f:d96d:3615:bf02:2beb]:443 2E486A43146F32630308DA60FACD14EB1ADC6FCC url=https://webtnl.ekiprahati.shop/G0VsiOQl0kjs898g5f8qbw8u ver=0.0.3

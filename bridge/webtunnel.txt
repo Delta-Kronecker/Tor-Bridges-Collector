@@ -1,4 +1,5 @@
 webtunnel [2001:db8:157f:b0b0:4ee2:b754:ee1e:76d1]:443 96E16DE2F8DA38060D93A554DC56C90A681F6FE4 url=https://jochenkessler.de/D82XI88Vz3nttmFEc9OBXGRD ver=0.0.3
+webtunnel [2001:db8:15ff:dc41:12c5:ce54:2bfa:ab3e]:443 88C9B6F63D50B63FC5E1DE2F5423FCDA2C0AC5EB url=https://vault.005184.xyz/e3QD38jnqsG3jzcfa8NA6ar9 ver=0.0.3
 webtunnel [2001:db8:1b75:cd28:36c7:1347:3eda:a01e]:443 2852538D49D7D73C1A6694FC492104983A9C4FA2 url=https://mrrp.sillykittens.net/IfuJ9KsjkEk6462QblGNI0pR ver=0.0.3
 webtunnel [2001:db8:1d30:ff54:bba:de27:3861:ff8c]:443 93F50F39F559F2BC2D0C8F936239017AC85AA9BE url=https://rabbithole2.net/4kHLbQkqWJV0Jxfk28H5MySc ver=0.0.1
 webtunnel [2001:db8:2638:b1a0:f262:490b:f15c:6798]:443 FFBAE1B459A6CB5C6751F9BE72284EAB9E36CD0F url=https://steuern-sind-raub.ch/rohzaaSae8meith4oo ver=0.0.3
@@ -56,6 +57,7 @@ webtunnel [2001:db8:ad13:e588:6629:afd2:cc58:6af5]:443 B51FD3150E208A600D00BCA59
 webtunnel [2001:db8:ae49:afd7:ffdc:5de:b0b9:740c]:443 AFFCC2EBEF1955CBC7B9414B71AF733AD2EB78F2 url=https://onethirtyseven.chummer.online/pz26xsQ41QjRwkFSQ4m29vRx ver=0.0.1
 webtunnel [2001:db8:afc8:4fe0:c021:5377:36bf:e9b7]:443 3BDD7036FAC9CC81ADBA39E88637D5EF87350F1C url=https://speedtest.qs.ee/dI6HDfnDLSUiFV0MaLMEtcmv ver=0.0.3
 webtunnel [2001:db8:b91b:9b4c:8003:9671:eee:7f0a]:443 B80A80398FDE7F94C6C72F9429D8EA128663B780 url=https://ams1.cryptomeanscryptography.club/x50fjFEcivPj42GQKfOOnyw3 ver=0.0.3
+webtunnel [2001:db8:bd88:ba8c:31d5:5bfc:e398:e22a]:443 5C416460CA3D1C72F89EAA654B668CE58943F1E0 url=https://www.readthefinemanual.net/LTi1BwOcMQmZ2kCGl1CK9plm ver=0.0.1
 webtunnel [2001:db8:c525:22a6:6b6a:e916:9ef7:8152]:443 8A1EE5824071CA39E7D76BD579FB2AEF2B52E524 url=https://c.img-cdn.net/yE4s7KehTFyj/ ver=0.0.2
 webtunnel [2001:db8:c9b:bc88:3d6e:1c94:c0e9:b3f9]:443 908AAD3122B6D46E6CD7CE4BE03A6F9491EF4204 url=https://lowkeykick.site/199ea8c3e6efa36c7e56a280838830757b806540 ver=0.0.3
 webtunnel [2001:db8:cc50:fa:264f:d1b8:79a:6a81]:443 38C7ADB125A7AEA7A668C5AE300F6DCEA6BFB340 url=https://surf.mysticboarding.cz/S2vNtMmDc72E3uSmAroQaUyj ver=0.0.1

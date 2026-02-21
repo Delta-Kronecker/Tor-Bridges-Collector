@@ -275,6 +275,16 @@ History of all collected bridges.
 | **WebTunnel** | [webtunnel.txt]({REPO_URL}/bridge/webtunnel.txt) | **{stats.get('webtunnel.txt', 0)}** | [webtunnel_ipv6.txt]({REPO_URL}/bridge/webtunnel_ipv6.txt) | **{stats.get('webtunnel_ipv6.txt', 0)}** |
 | **Vanilla** | [vanilla.txt]({REPO_URL}/bridge/vanilla.txt) | **{stats.get('vanilla.txt', 0)}** | [vanilla_ipv6.txt]({REPO_URL}/bridge/vanilla_ipv6.txt) | **{stats.get('vanilla_ipv6.txt', 0)}** |
 
+## 🔥 Keep This Project Going!
+
+If you're finding this useful, please show your support:
+
+⭐ **Star the repository on GitHub**
+
+⭐ **Star our [Telegram posts](https://t.me/DeltaKroneckerGithub)** 
+
+Your stars fuel our motivation to keep improving!
+
 ## Disclaimer
 This project is for educational and archival purposes. Please use these bridges responsibly.
 """

@@ -1,4 +1,4 @@
-name: Update Tor Bridges
+name: Upload telegram
 
 on:
   schedule:
@@ -24,6 +24,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -45,6 +47,15 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          git pull origin main --rebase --autostash
+          
           git add bridge/ README.md
-          git commit -m "Update bridges, stats and tested files [skip ci]" || echo "No changes to commit"
-          git push
+          
+          # commit و push
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Update bridges, stats and tested files [skip ci]"
+            git push
+          fi

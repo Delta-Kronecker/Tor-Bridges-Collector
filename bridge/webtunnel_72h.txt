@@ -9,5 +9,3 @@ webtunnel [2001:db8:ae03:9e61:9e65:cce8:fdb6:66a8]:443 CD0DFB72DE3124704AEA1BEF3
 webtunnel [2001:db8:b705:a39c:b308:e898:e070:b8e8]:443 E1094D987D5116EE9D77124AD1500CF59B41628A url=https://le.nd-ai.de/b0153c441eef06cbdd84d071897459e1789b347758fe282a99b4088daf154a1a ver=0.0.3
 webtunnel [2001:db8:bd88:ba8c:31d5:5bfc:e398:e22a]:443 5C416460CA3D1C72F89EAA654B668CE58943F1E0 url=https://www.readthefinemanual.net/LTi1BwOcMQmZ2kCGl1CK9plm ver=0.0.1
 webtunnel [2001:db8:e5e7:622f:3ff1:f694:a29c:7cfb]:443 40254C3F76F126C8D30C5FCEEAF9CE88C335FE0C url=https://1-cvt.sports-streams.org/vijOBpZwRymtoHs0TJh7BFm3 ver=0.0.3
-webtunnel [2001:db8:ec38:ad64:f0fb:d7c2:2e26:4c4a]:443 5FC9FFCBA10611A1C17851A4B0BE1352FBC8909F url=https://redstarsl.cc/cme9f87hmdc8s7dychbsm897xy ver=0.0.1
-webtunnel [2001:db8:f3f8:1a33:dba0:17f6:35ce:24f3]:443 963668851C177DC162895A33F1473E32E1E4BE56 url=https://pod05.oneclickhost.eu/K5Fsvkz3SaWjVPm4i0vn5gIs ver=0.0.3

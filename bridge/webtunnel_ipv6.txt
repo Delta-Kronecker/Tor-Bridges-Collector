@@ -32,6 +32,7 @@ webtunnel [2001:db8:5985:711a:a60e:61a0:1260:b42e]:443 58DA67BD879E9239FCD4A590E
 webtunnel [2001:db8:5bad:2592:cf4d:ca9:90a1:c73d]:443 351EBCA3042AF25ED2D9DC09F53D0C971153ACE7 url=https://tomorefreedomitis.com/BiBLE9ERvDcO0mBoGZKzZTAm ver=0.0.2
 webtunnel [2001:db8:5f24:a703:dbde:bec8:d285:d600]:443 EFCEA1B038931F73BA155FE1E5945BCEBD62212C url=https://ttt.enerhome.site/ttt_TOR_Cjy8764jkUtopY ver=0.0.1
 webtunnel [2001:db8:603:6e60:8f8b:5077:7cd3:7d3b]:443 E72CE4ACEEE2552F3104A728ECEC0C18ABD967EA url=https://pl2.808.re/5GZktnqLvubQd6yUdTR3dlVy ver=0.0.2
+webtunnel [2001:db8:60bb:a5e8:aa6b:6472:ab33:27b7]:443 DEC83BCC768236DA5F07E377B4A5C6A7E2638B18 url=https://oneforty.chummer.online/e2xrr8hjW2rRjUMsb6jdNoj6 ver=0.0.1
 webtunnel [2001:db8:63b4:6bd7:a357:7858:898e:718c]:443 059AEB126918A33B8246E8136D565FF57753D5CF url=https://alwaysnewbie.eu.org/homesweethome ver=0.0.2
 webtunnel [2001:db8:6d91:1d3e:230b:9d98:8e29:eefc]:443 C762244C9E351B4A63EF1EF4585A38535C3023D8 url=https://anastasia.anondns.net/atkzL9N85rspiiRudpeCh9gq ver=0.0.1
 webtunnel [2001:db8:6ebc:2eba:25e:28d6:4d14:6cfa]:443 60EA71C9493B9B5792CF12F684273B1B06DD156C url=https://tired.social/0r2DRKvagEsZtvZgItdN0fo1 ver=0.0.3
@@ -77,6 +78,7 @@ webtunnel [2001:db8:e5e7:622f:3ff1:f694:a29c:7cfb]:443 40254C3F76F126C8D30C5FCEE
 webtunnel [2001:db8:e73c:13d:2f1d:1d27:5531:a599]:443 FEFBF3C7503830E89234F91154CC1964FFF701A2 url=https://nl.808.re/rzK3UEX7Xx3RhGiXGgZ5gJpG ver=0.0.2
 webtunnel [2001:db8:eb48:18d1:b5ac:62d0:da55:f164]:443 B9B09EDFAEA3824D6258DB017002899F368C9943 url=https://pablo.iki.fi/H5cdG6c0tO7sDwZgAfBixLZB ver=0.0.3
 webtunnel [2001:db8:ec38:ad64:f0fb:d7c2:2e26:4c4a]:443 5FC9FFCBA10611A1C17851A4B0BE1352FBC8909F url=https://redstarsl.cc/cme9f87hmdc8s7dychbsm897xy ver=0.0.1
+webtunnel [2001:db8:ecb1:103a:4cd2:9747:f08d:757a]:443 7221AA7B6146D7762963D4DFB5F86618C48FE290 url=https://c.2jl.cc ver=0.0.3
 webtunnel [2001:db8:ecdd:795b:81e3:f90a:4a52:b772]:443 4268FDA0435617984075BEEEDEA95226D3E29513 url=https://myprivatecloud82.fun/DM143fFEmqF1rgqtFtwqgFAFmt21uGPkmFq2ZT1f9pPlitj1 ver=0.0.3
 webtunnel [2001:db8:ece6:a97f:c608:ac46:d9d5:af74]:443 2CF5232525187101F49ED9ED7A75678DA920EB6E url=https://nextcloud.kiljan.org/v4bpkQtAiqV9QfdKda54PXAI ver=0.0.1
 webtunnel [2001:db8:ed78:c452:ced0:4bde:3f97:7936]:443 12CDCBAD16B1526D63D37F61201FCE83BDCA8B75 url=https://front-eu1.webdeliveryonl.click/7ScDHGDaBsqHtxB1B9GJ2sB7 ver=0.0.1

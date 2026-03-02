@@ -7,7 +7,6 @@ webtunnel [2001:db8:4c4d:6607:48fd:c65:8863:3acb]:443 42CE173F2EBA27E2473C334A0A
 webtunnel [2001:db8:6ebc:2eba:25e:28d6:4d14:6cfa]:443 60EA71C9493B9B5792CF12F684273B1B06DD156C url=https://tired.social/0r2DRKvagEsZtvZgItdN0fo1 ver=0.0.3
 webtunnel [2001:db8:77a8:d427:4e0a:8cf7:a2c0:8cda]:443 77B60C7540BA105297FB91DD7BA3557F6ED15C5B url=https://alina-photos.art/da495ccdc73b948387c45c2ab82c1b1aac4b1582 ver=0.0.3
 webtunnel [2001:db8:77cb:5ce6:9995:7466:7ffa:b3f8]:443 770EA6412C8D3997ABFFF7173A3E53F1D3660167 url=https://shallotfarm.org/jcHgyp7m90iQr9QaVSprq1wP ver=0.0.3
-webtunnel [2001:db8:7d9e:1aa:ee0d:4115:ac82:8007]:443 7CC64C882F0098BCE3AC6D1C14ED5BA017B15AD8 url=https://ie01-dub.beijing.st/sorryiamlateijustdontgiveafoook ver=0.0.3
 webtunnel [2001:db8:a273:b501:5987:3660:5d1b:1603]:443 082B13E0A1E5D8D2585B6C84914B1810B7E884EC url=https://s3.vlue.dev/s33gf0iiidqo9lacdqzbjgy6 ver=0.0.3
 webtunnel [2001:db8:b91b:9b4c:8003:9671:eee:7f0a]:443 B80A80398FDE7F94C6C72F9429D8EA128663B780 url=https://ams1.cryptomeanscryptography.club/x50fjFEcivPj42GQKfOOnyw3 ver=0.0.3
 webtunnel [2001:db8:beb:5884:ffcc:bfe3:2858:b06b]:443 1E242C749707B4A68A269F0D31311CE36CDFEC28 url=https://wt.gri.mw/74Fm0lKUWWMMjZpKf6iSC0UH ver=0.0.3

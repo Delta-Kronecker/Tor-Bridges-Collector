@@ -1,4 +1,5 @@
 webtunnel [2001:db8:1b75:cd28:36c7:1347:3eda:a01e]:443 2852538D49D7D73C1A6694FC492104983A9C4FA2 url=https://mrrp.sillykittens.net/IfuJ9KsjkEk6462QblGNI0pR ver=0.0.3
+webtunnel [2001:db8:1d30:ff54:bba:de27:3861:ff8c]:443 93F50F39F559F2BC2D0C8F936239017AC85AA9BE url=https://rabbithole2.net/4kHLbQkqWJV0Jxfk28H5MySc ver=0.0.1
 webtunnel [2001:db8:2a61:dea:a9e1:2127:6f2c:5680]:443 76CAF380CD98B4640E2F2F4DD09BB8348D271C31 url=https://headhumping.jumpingcrab.com/teqzL2Muf7pnzw2qhQ3d ver=0.0.1
 webtunnel [2001:db8:4153:2734:a5fd:324a:77fe:7d3b]:443 91DE3D9DBAFB8A583CEE02448BBA8CADDE54735E url=https://5-ams.sports-streams.org/jdyLcFWUBl1jEjIkL2Bo2LCT ver=0.0.1
 webtunnel [2001:db8:4fe2:49d2:2b7d:8576:5ede:e177]:443 C9AB6F207432161589F1B994F44FFE28FBF211E2 url=https://www.jarlaxle.de/wzZhcKoNURYF5JUssKhC25Cg ver=0.0.3

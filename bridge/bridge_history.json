@@ -1,5 +1,4 @@
 {
-  "obfs4 94.159.100.199:30443 515741478B23701C7B5564C2DE4A7A089B222399 cert=yBh+XcvcCVOzIRmXdZAVHVI+galaD1iP6r3RH4WrrSuOybohy84R5uqEaG2yyxbpWmOyDQ iat-mode=0": "2026-02-27T21:33:51.153741",
   "obfs4 104.159.145.190:9003 D5890D3D5150E92F92DB9C1E2C885F17A0E7ED8E cert=yoA54/CFLxtNh2c61o7F9vCYQK/Jh04d0zorvd4IrpY2Ljoy/JLIoVQjjj2dYPVbOv14dw iat-mode=0": "2026-02-28T02:13:31.085176",
   "obfs4 85.117.251.69:44821 D40DA77CA68F39666F77CE8BA6FF332BF8DB3F31 cert=B4yVW8heE83luCJt+oQN1kDB/j4kWkNx6mtOc9O6GhLAV8zJx0lfUI6zWO9UxUoV5PX/Zw iat-mode=0": "2026-02-28T02:13:31.085187",
   "webtunnel [2001:db8:289b:84cd:4be3:77f1:1cdd:9cb1]:443 D71C8E9C2180D2F35DEBF4A39BFCA6972F076D1C sni-imitation=yandex.ru,google.com,dzen.ru,vk.com,mail.ru,ozon.ru,ya.ru,www.wildberries.ru,rutube.ru,www.avito.ru,ok.ru,vkvideo.ru url=https://streaming.the-forgotten-tales.com/gz9X1VBgl0r1Xfx3dHdNl5Tl ver=0.0.3": "2026-02-28T02:14:25.726800",

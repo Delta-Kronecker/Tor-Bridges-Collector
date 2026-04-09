@@ -94,5 +94,6 @@ webtunnel [2001:db8:f37a:49d9:c85f:3e7b:eb39:853e]:443 7E8CB9592C97B8ADD03D374A8
 webtunnel [2001:db8:f3a2:b7f8:ce95:daa3:e49b:d094]:443 40C5CA8B09069310DBA8BFB87F2AE1ABF5C46ED6 url=https://sp-tr.bitcdn.ovh/whereisthisshortguy ver=0.0.3
 webtunnel [2001:db8:f3f8:1a33:dba0:17f6:35ce:24f3]:443 963668851C177DC162895A33F1473E32E1E4BE56 url=https://pod05.oneclickhost.eu/K5Fsvkz3SaWjVPm4i0vn5gIs ver=0.0.3
 webtunnel [2001:db8:f7d3:5976:5f99:663b:3ba1:4e3a]:443 05D0531304F2DB161921D6D03CE38DB1CA2332D6 url=https://pod03.oneclickhost.eu/d0NbsV36v0Q4MDdDTs3ZhCCJ ver=0.0.3
+webtunnel [2001:db8:f7d3:5976:5f99:663b:3ba1:4e3a]:443 05D0531304F2DB161921D6D03CE38DB1CA2332D6 url=https://pod03.oneclickhost.eu/d0NbsV36v0Q4MDdDTs3ZhCCJ ver=0.0.4
 webtunnel [2001:db8:f87:9991:eb2c:ee55:9794:8632]:443 1A60FE3FAE97BD5FAE8E8F2E9B94AA697D9467F8 url=https://oldradio.info/9bd85e2a09a7eb00e0d2a542d436fd632143df9e ver=0.0.3
 webtunnel [2001:db8:fbfa:48b4:5520:53e6:24b4:eca0]:443 93807A85521915D7D2BA17725C08AC39035D1741 url=https://web.localenby.is/HmlgNcBbNgRJw862bJVxZRes ver=0.0.3

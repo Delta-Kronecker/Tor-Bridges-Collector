@@ -1,4 +1,5 @@
 webtunnel [2001:db8:32b:33c3:d919:f00f:8da0:7ed8]:443 6308B7595D50C18A56DCB68F79C96E572595050C url=https://transformaforge.com/ee879925614ee1df9f81fab122c1bb748a7261bb2c44b8e2 ver=0.0.4
+webtunnel [2001:db8:478b:ae89:51bf:9af7:3576:b7b7]:443 76A48CD150165E281E80676267919BB734151680 url=https://cool110.xyz/Cn4J4GAUglhVcUKeMEkQJt7L ver=0.0.1
 webtunnel [2001:db8:4bf5:5825:626a:b253:3a97:7231]:443 4FA98FE9568D850B675CB828B9E84DE2E2B3B45C url=https://tor.kwe-private.net/E45hEt4K3GQCChZ4B7jfrQ2b ver=0.0.4
 webtunnel [2001:db8:77d3:3892:39fc:d459:869c:44e0]:443 B6650B31F73D0E82DFDD6302233AEA7DBA984DC1 url=https://dev.dumkatze.de/unpack-skinny-purr ver=0.0.3
 webtunnel [2001:db8:7c55:4216:fa04:55e0:372c:8c57]:443 74A9E9BC6908DE84D7429CF6A13ABFF8FA5B21B2 url=https://onethirtysix.chummer.online/6bbKOCF7uQBebN17kxDy1PV8 ver=0.0.1

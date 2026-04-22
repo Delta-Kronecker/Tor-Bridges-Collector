@@ -9,4 +9,3 @@ webtunnel [2001:db8:ae03:9e61:9e65:cce8:fdb6:66a8]:443 CD0DFB72DE3124704AEA1BEF3
 webtunnel [2001:db8:bd88:ba8c:31d5:5bfc:e398:e22a]:443 5C416460CA3D1C72F89EAA654B668CE58943F1E0 url=https://www.readthefinemanual.net/LTi1BwOcMQmZ2kCGl1CK9plm ver=0.0.1
 webtunnel [2001:db8:d265:8b2:d077:92d0:83b7:63f1]:443 402F8543DB594C4D4D13E5A2582BD6DDF4066B67 url=https://bg.808.re/3ZqdSLX2XTFuxbLEsZxZfLiZ ver=0.0.2
 webtunnel [2001:db8:e5e7:622f:3ff1:f694:a29c:7cfb]:443 40254C3F76F126C8D30C5FCEEAF9CE88C335FE0C url=https://1-cvt.sports-streams.org/vijOBpZwRymtoHs0TJh7BFm3 ver=0.0.3
-webtunnel [2001:db8:f3f8:1a33:dba0:17f6:35ce:24f3]:443 963668851C177DC162895A33F1473E32E1E4BE56 url=https://pod05.oneclickhost.eu/K5Fsvkz3SaWjVPm4i0vn5gIs ver=0.0.4

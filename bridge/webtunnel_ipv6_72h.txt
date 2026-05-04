@@ -1,9 +1,7 @@
-webtunnel [2001:db8:2ce3:75bd:2da:f69f:d97a:7874]:443 CFB5DD5A5CC4AAB0435C1C5B27D46C0E2AB54C6E url=https://sexgrueselbox.ch/Tha8Iequ4Goo9ku ver=0.0.3
 webtunnel [2001:db8:4b0:feea:81d8:72b9:95c1:cd62]:443 A6A5AF5E8410EB76647925F66AB2B5810A2C3791 url=https://wolkewolkewolke.zip/xrCyxOQH6HOe952fVtzKMGDN ver=0.0.3
 webtunnel [2001:db8:63b4:6bd7:a357:7858:898e:718c]:443 059AEB126918A33B8246E8136D565FF57753D5CF url=https://alwaysnewbie.eu.org/homesweethome ver=0.0.3
 webtunnel [2001:db8:addf:7bc4:155a:a563:a5d5:8b04]:443 F799A0A458365388600F54BD44A99B5887D54911 url=https://aaronstory2026.xyz:2053/vicmackey ver=0.0.4
 webtunnel [2001:db8:c084:e101:c3b2:81c:a33d:ca0f]:443 2224645DF2C398FCB42F14D1042A4B93A44BCDE8 url=https://mail3.theyosh.nl/0L4veyRivhAewC4XBBgbM70f ver=0.0.4
-webtunnel [2001:db8:d3e0:e4e:ea8c:f13c:4b74:6c15]:443 ECE165E6510C15D4EA814D32B17D6A2E4A56938A url=https://cdn-46.triplebit.dev/beaXo6cho1eil2ai ver=0.0.2
 webtunnel [2001:db8:da07:a178:646c:2d82:27a5:aa74]:443 CF0FB465964FD80892477909B3F771CDD3198F97 url=https://el-hacker.org/Tj95Vm4ZE4tSCsHcSx3Koyok ver=0.0.4
 webtunnel [2001:db8:ecdd:795b:81e3:f90a:4a52:b772]:443 4268FDA0435617984075BEEEDEA95226D3E29513 url=https://myprivatecloud82.fun/DM143fFEmqF1rgqtFtwqgFAFmt21uGPkmFq2ZT1f9pPlitj1 ver=0.0.3
 webtunnel [2001:db8:fbfa:48b4:5520:53e6:24b4:eca0]:443 93807A85521915D7D2BA17725C08AC39035D1741 url=https://web.localenby.is/HmlgNcBbNgRJw862bJVxZRes ver=0.0.3

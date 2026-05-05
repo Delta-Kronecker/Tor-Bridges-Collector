@@ -1,4 +1,5 @@
 webtunnel [2001:db8:1d4c:baf8:3ecc:fdb9:9a07:c2f8]:443 2EBBBBCC1AFBA74ACC9297508ED2CCE2DAD0E92F url=https://n8n.ikebun.jp/129f3f0795e0b037b6e974864e691f0c ver=0.0.4
+webtunnel [2001:db8:2c47:4df3:1bde:f2a:7d6:edc8]:443 DF343521735ABE129910A998817B3A93AA2390FE url=https://mensor.ch ver=0.0.4
 webtunnel [2001:db8:4b0:feea:81d8:72b9:95c1:cd62]:443 A6A5AF5E8410EB76647925F66AB2B5810A2C3791 url=https://wolkewolkewolke.zip/xrCyxOQH6HOe952fVtzKMGDN ver=0.0.3
 webtunnel [2001:db8:4fe2:49d2:2b7d:8576:5ede:e177]:443 C9AB6F207432161589F1B994F44FFE28FBF211E2 url=https://www.jarlaxle.de/wzZhcKoNURYF5JUssKhC25Cg ver=0.0.4
 webtunnel [2001:db8:5b8a:4dc6:c5c:2f14:7828:7ddd]:443 687D226FE25FBD338811EB1A5F47E15C3BFE43BC url=https://soy.institute/1cSUqqNEL5pn8R0pTEjeQRhI ver=0.0.1

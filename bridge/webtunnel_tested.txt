@@ -80,7 +80,6 @@ webtunnel [2001:db8:976:3d4a:a211:b114:a8e2:5b2d]:443 4F4571C3E0FD8D23C0C0AF76D6
 webtunnel [2001:db8:a273:b501:5987:3660:5d1b:1603]:443 082B13E0A1E5D8D2585B6C84914B1810B7E884EC url=https://s3.vlue.dev/s33gf0iiidqo9lacdqzbjgy6 ver=0.0.3
 webtunnel [2001:db8:a379:1522:ea89:9c9d:59c8:1d5a]:443 B55A418B4F30181ED304EB2698EE58D283BEE5BF url=https://mirror.sanin.dev/f6VK8vgUKiq3HX6FHdbQpUaa ver=0.0.3
 webtunnel [2001:db8:a379:1522:ea89:9c9d:59c8:1d5a]:443 B55A418B4F30181ED304EB2698EE58D283BEE5BF url=https://mirror.sanin.dev/f6VK8vgUKiq3HX6FHdbQpUaa ver=0.0.4
-webtunnel [2001:db8:a436:6460:fa7b:318:4e8e:9de3]:443 F76C85011FD8C113AA00960BD9FC7F5B66F726A2 url=https://disobey.net/vM8i19mU4gvHOzRm33DaBNuM ver=0.0.2
 webtunnel [2001:db8:a62f:3205:a2b8:80f2:8491:9497]:443 CDCF334F257ACAD04A2C6CD9725B7FC686160912 url=https://meskio.net/eCDFZe3boSv+b2iqHiaY4ZgPxXBc ver=0.0.3
 webtunnel [2001:db8:a6c3:bdeb:9876:908f:cbf9:548b]:443 1F5056811B0E123CAD39AD0259F14F2880CA33F0 url=https://freesoftware.cloud/8675309 ver=0.0.1
 webtunnel [2001:db8:a8b5:9d82:9ae6:354f:671:e5da]:443 E3AE862BBB49EA5FACF4FDF09C8F1FE0D6F3CE4B url=https://d.img-cdn.net/mExFXMqeh1PcoDRRyz/ ver=0.0.2
@@ -98,6 +97,7 @@ webtunnel [2001:db8:beb:5884:ffcc:bfe3:2858:b06b]:443 1E242C749707B4A68A269F0D31
 webtunnel [2001:db8:beb:5884:ffcc:bfe3:2858:b06b]:443 1E242C749707B4A68A269F0D31311CE36CDFEC28 url=https://wt.gri.mw/74Fm0lKUWWMMjZpKf6iSC0UH ver=0.0.4
 webtunnel [2001:db8:c084:e101:c3b2:81c:a33d:ca0f]:443 2224645DF2C398FCB42F14D1042A4B93A44BCDE8 url=https://mail3.theyosh.nl/0L4veyRivhAewC4XBBgbM70f ver=0.0.4
 webtunnel [2001:db8:c525:22a6:6b6a:e916:9ef7:8152]:443 8A1EE5824071CA39E7D76BD579FB2AEF2B52E524 url=https://c.img-cdn.net/yE4s7KehTFyj/ ver=0.0.2
+webtunnel [2001:db8:c934:3cba:7cd2:7e56:c8c9:40a6]:443 412F21AAD09FA4F83AD52186458466BEC5D27795 url=https://cdn-45.triplebit.dev/yaux5diphu8Meiqu ver=0.0.2
 webtunnel [2001:db8:c9b:bc88:3d6e:1c94:c0e9:b3f9]:443 908AAD3122B6D46E6CD7CE4BE03A6F9491EF4204 url=https://lowkeykick.site/199ea8c3e6efa36c7e56a280838830757b806540 ver=0.0.3
 webtunnel [2001:db8:cc50:fa:264f:d1b8:79a:6a81]:443 38C7ADB125A7AEA7A668C5AE300F6DCEA6BFB340 url=https://surf.mysticboarding.cz/S2vNtMmDc72E3uSmAroQaUyj ver=0.0.1
 webtunnel [2001:db8:cc53:9d8f:41f4:ebdc:ef7d:adc1]:443 5AA94C138A5B9CCDB96EA0C7D6C587AF18230158 url=https://cdn.seo-manager.info/jXh2ONiCuMLsUyzJWq3HJaeE ver=0.0.3

@@ -1,6 +1,5 @@
 webtunnel [2001:db8:272b:3cc6:66df:4d41:6895:cbcf]:443 316ACA10592957F567C6433846C5B0B4C35C858B url=https://docs.prevails.org/a0baef823aeeacee ver=0.0.3
 webtunnel [2001:db8:2ae3:679a:856c:c72a:2746:1a1b]:443 8943BF53C9561C75A7302ED59575EF71E2B26562 url=https://allium.heelsn.eu/X1uzc7J4omPPBbqkJMDgBtXP ver=0.0.4
-webtunnel [2001:db8:35ed:b91c:d25f:5603:5c77:ebeb]:443 57C218E285D2AA1E7077859761421E9C62B9123E url=https://wtb007.unshakled.net:8443/4oeMXyIPcCVtKH7jFkEBvueX ver=0.0.3
 webtunnel [2001:db8:39d2:e768:10b6:5767:176d:9998]:443 8BF17C225F5BF170CB2D7E65DA19D3D73D859451 url=https://bridge2.phntm.pro/35ab85ebe42af5214b579de2560d955b ver=0.0.4
 webtunnel [2001:db8:5a02:89f6:b9f9:212e:37ac:d49a]:443 9D4A06547A47EB46F59BC519800B0D82D0BD2D75 url=https://cdn.exonip.xyz/k7mQpR3xNvLwZsYu9bTcJfAe ver=0.0.3
 webtunnel [2001:db8:747d:f959:7714:e5ea:b6d8:66e7]:443 CF1827C41B504EB3CCF3D4EDE7D8D88761F2039E url=https://sp-sk.bitcdn.ovh/standbakhdown ver=0.0.3

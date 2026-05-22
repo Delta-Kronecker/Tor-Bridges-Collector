@@ -26,6 +26,7 @@ webtunnel [2001:db8:35ed:b91c:d25f:5603:5c77:ebeb]:443 57C218E285D2AA1E707785976
 webtunnel [2001:db8:365b:caab:1be4:d672:e78e:c09a]:443 5C4499F49EF591BB28F86DC63E48846F8E610764 url=https://mstdn.party/ou8MiapiZahngai6 ver=0.0.2
 webtunnel [2001:db8:3845:2a14:bb9:481c:73c9:d237]:443 337F12771B8FBA072121C0978B8D5722B567609B url=https://www.cafe-kantholz.de/LceovFqcXy92Ji6Gx0rrUmmB ver=0.0.3
 webtunnel [2001:db8:3845:2a14:bb9:481c:73c9:d237]:443 337F12771B8FBA072121C0978B8D5722B567609B url=https://www.cafe-kantholz.de/LceovFqcXy92Ji6Gx0rrUmmB ver=0.0.4
+webtunnel [2001:db8:39d2:e768:10b6:5767:176d:9998]:443 8BF17C225F5BF170CB2D7E65DA19D3D73D859451 url=https://bridge2.phntm.pro/35ab85ebe42af5214b579de2560d955b ver=0.0.4
 webtunnel [2001:db8:3c39:fa6c:6fe3:6ec6:ffa:aede]:443 B903D2B1EFA75C5014475CDA60DD694627B37D39 url=https://tearandnatureeco.net/9543cff3539d7c6e4d3f12c7c4e940e0f99a7e59 ver=0.0.3
 webtunnel [2001:db8:409c:250c:532f:1307:1bb4:6721]:443 4834FDBC9934CD1A98FC2278CC7E08A47689FDAA url=https://webtunnel.fedditlab.de/wt ver=0.0.3
 webtunnel [2001:db8:4153:2734:a5fd:324a:77fe:7d3b]:443 91DE3D9DBAFB8A583CEE02448BBA8CADDE54735E url=https://5-ams.sports-streams.org/jdyLcFWUBl1jEjIkL2Bo2LCT ver=0.0.1
@@ -124,6 +125,7 @@ webtunnel [2001:db8:e524:683e:fb8d:e6ee:79c0:f397]:443 DA1ECF055635C1A6ED7F5B5F3
 webtunnel [2001:db8:e73c:13d:2f1d:1d27:5531:a599]:443 FEFBF3C7503830E89234F91154CC1964FFF701A2 url=https://nl.808.re/rzK3UEX7Xx3RhGiXGgZ5gJpG ver=0.0.2
 webtunnel [2001:db8:eb48:18d1:b5ac:62d0:da55:f164]:443 B9B09EDFAEA3824D6258DB017002899F368C9943 url=https://pablo.iki.fi/H5cdG6c0tO7sDwZgAfBixLZB ver=0.0.3
 webtunnel [2001:db8:ecdd:795b:81e3:f90a:4a52:b772]:443 4268FDA0435617984075BEEEDEA95226D3E29513 url=https://myprivatecloud82.fun/DM143fFEmqF1rgqtFtwqgFAFmt21uGPkmFq2ZT1f9pPlitj1 ver=0.0.3
+webtunnel [2001:db8:ece6:a97f:c608:ac46:d9d5:af74]:443 2CF5232525187101F49ED9ED7A75678DA920EB6E url=https://nextcloud.kiljan.org/v4bpkQtAiqV9QfdKda54PXAI ver=0.0.1
 webtunnel [2001:db8:f37a:49d9:c85f:3e7b:eb39:853e]:443 7E8CB9592C97B8ADD03D374A8E207CAAE5121336 url=https://gia.shallotfarm.org/3IMx3r7r1hKVsW136nx9vVMD ver=0.0.1
 webtunnel [2001:db8:f3f8:1a33:dba0:17f6:35ce:24f3]:443 963668851C177DC162895A33F1473E32E1E4BE56 url=https://pod05.oneclickhost.eu/K5Fsvkz3SaWjVPm4i0vn5gIs ver=0.0.3
 webtunnel [2001:db8:f3f8:1a33:dba0:17f6:35ce:24f3]:443 963668851C177DC162895A33F1473E32E1E4BE56 url=https://pod05.oneclickhost.eu/K5Fsvkz3SaWjVPm4i0vn5gIs ver=0.0.4

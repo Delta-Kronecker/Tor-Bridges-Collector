@@ -4,7 +4,6 @@ webtunnel [2001:db8:2b84:8d:b5af:2b7c:2528:ecbc]:443 F99CFE52EDFF8EAA332CD73C1E6
 webtunnel [2001:db8:5556:4116:7011:c61d:f5bb:fc42]:443 8705A462A7F3AB0EB4548B4A2AD8EEEB1A202C2C url=https://capera.tel/H9AExWAVK0rWaHRuXZ8LZCb6 ver=0.0.3
 webtunnel [2001:db8:5e5b:6b4b:2bf3:6087:e7c5:b7f7]:443 3154681979E1CB737DB4A2D540C63F1B92B03995 url=https://tor1.woodie.dev/BXJGRHc8o82e4XheHZ2FCbeA ver=0.0.4
 webtunnel [2001:db8:60bb:a5e8:aa6b:6472:ab33:27b7]:443 DEC83BCC768236DA5F07E377B4A5C6A7E2638B18 url=https://oneforty.chummer.online/e2xrr8hjW2rRjUMsb6jdNoj6 ver=0.0.1
-webtunnel [2001:db8:a6a7:b5e0:79ea:2feb:bd25:1692]:443 80BD5CE2FC5688C7B39DB8F115A3C90CA1D72364 url=https://nauka.edu.eu.org/O3t4PGJbeVJ68N5St5HMW7DE ver=0.0.4
 webtunnel [2001:db8:ae03:9e61:9e65:cce8:fdb6:66a8]:443 CD0DFB72DE3124704AEA1BEF3A2CCD62347F6376 url=https://www2.shallotfarm.org/gKOwKgm0McUdTydo3boBiFFM ver=0.0.3
 webtunnel [2001:db8:bd88:ba8c:31d5:5bfc:e398:e22a]:443 5C416460CA3D1C72F89EAA654B668CE58943F1E0 url=https://www.readthefinemanual.net/LTi1BwOcMQmZ2kCGl1CK9plm ver=0.0.1
 webtunnel [2001:db8:e5e7:622f:3ff1:f694:a29c:7cfb]:443 40254C3F76F126C8D30C5FCEEAF9CE88C335FE0C url=https://1-cvt.sports-streams.org/vijOBpZwRymtoHs0TJh7BFm3 ver=0.0.3

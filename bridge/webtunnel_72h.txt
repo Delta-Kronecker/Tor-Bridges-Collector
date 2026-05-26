@@ -1,5 +1,4 @@
 webtunnel [2001:db8:4b07:feeb:5140:7bc5:498:7ef0]:443 1DCAC79A588BBA559925BCFE8C0984F576D42983 url=https://stop.rechts.jetzt/0T836FGJx31XeLrdIFMDsqb7 ver=0.0.3
-webtunnel [2001:db8:60bb:a5e8:aa6b:6472:ab33:27b7]:443 DEC83BCC768236DA5F07E377B4A5C6A7E2638B18 url=https://oneforty.chummer.online/e2xrr8hjW2rRjUMsb6jdNoj6 ver=0.0.1
 webtunnel [2001:db8:7ed3:a85b:fd0f:d2a8:ebbe:a588]:443 A82B7060501179D6131AF6BCCD5DF4EA5F0A0D59 url=https://kochenjessler.de/RhV075MQmlMKQXZ8Bei5AOeQ ver=0.0.3
 webtunnel [2001:db8:8c88:1b17:d7ae:cb68:f28e:e31c]:443 C115DAC2FE991CA25DDD43D7D4D398FEA9AA4C01 url=https://foglab.net/t9crLwo4LzFDWHdwcGf9gFrk ver=0.0.4
 webtunnel [2001:db8:8e11:37cf:5167:5fce:4650:c2f8]:443 5AE50E81167318FE0A152D4F050C839DB42AB9B8 url=https://signaling.privacy-vbox.de/s6CjTuyWZOWe9Fbhl7ThQ5Lb ver=0.0.2

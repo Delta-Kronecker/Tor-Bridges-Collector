@@ -64,6 +64,45 @@ def convert_vanilla_for_saving(line):
         return line[7:]
     return line
 
+def convert_existing_file_to_new_format(file_path):
+    if not os.path.exists(file_path):
+        return
+    try:
+        with open(file_path, "r", encoding="utf-8") as f:
+            lines = f.readlines()
+        
+        converted = False
+        new_lines = []
+        for line in lines:
+            line = line.strip()
+            if not line:
+                continue
+            if line.startswith("Bridge "):
+                new_lines.append(line[7:] + "\n")
+                converted = True
+            else:
+                new_lines.append(line + "\n")
+        
+        if converted:
+            with open(file_path, "w", encoding="utf-8") as f:
+                f.writelines(new_lines)
+            log(f"Converted existing file {file_path} to new format")
+    except Exception as e:
+        log(f"Error converting {file_path}: {e}")
+
+def convert_all_existing_vanilla_files():
+    vanilla_files = [
+        os.path.join(BRIDGE_DIR, "vanilla.txt"),
+        os.path.join(BRIDGE_DIR, "vanilla_72h.txt"),
+        os.path.join(BRIDGE_DIR, "vanilla_tested.txt"),
+        os.path.join(BRIDGE_DIR, "vanilla_ipv6.txt"),
+        os.path.join(BRIDGE_DIR, "vanilla_ipv6_72h.txt"),
+        os.path.join(BRIDGE_DIR, "vanilla_ipv6_tested.txt")
+    ]
+    
+    for file_path in vanilla_files:
+        convert_existing_file_to_new_format(file_path)
+
 def extract_connection_info(line):
     line = line.strip()
     if not line or len(line) < 5:
@@ -252,8 +291,14 @@ def load_history():
 
 def save_history(history):
     try:
+        converted_history = {}
+        for bridge, timestamp in history.items():
+            if bridge.startswith("Bridge "):
+                converted_history[bridge] = timestamp
+            else:
+                converted_history["Bridge " + bridge] = timestamp
         with open(HISTORY_FILE, "w", encoding="utf-8") as f:
-            json.dump(history, f, indent=2)
+            json.dump(converted_history, f, indent=2)
     except Exception as e:
         log(f"Error saving history: {e}")
 
@@ -339,6 +384,8 @@ def send_to_telegram(file_path, caption):
         log(f"Telegram Error: {e}")
 
 def main():
+    convert_all_existing_vanilla_files()
+    
     session = requests.Session()
     session.headers.update({
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
@@ -369,8 +416,11 @@ def main():
                     for line in f:
                         line = line.strip()
                         if is_valid_bridge_line(line):
-                            if transport_type == "vanilla" and not line.startswith("Bridge "):
-                                existing_bridges.add("Bridge " + line)
+                            if transport_type == "vanilla":
+                                if not line.startswith("Bridge "):
+                                    existing_bridges.add("Bridge " + line)
+                                else:
+                                    existing_bridges.add(line)
                             else:
                                 existing_bridges.add(line)
             except:
@@ -451,9 +501,14 @@ def main():
         tested_bridges = batch_test_bridges(list(all_bridges), transport_type)
         
         if tested_bridges:
-            with open(tested_path, "w", encoding="utf-8") as f:
-                for bridge in sorted(tested_bridges):
-                    f.write(bridge + "\n")
+            if transport_type == "vanilla":
+                with open(tested_path, "w", encoding="utf-8") as f:
+                    for bridge in sorted(tested_bridges):
+                        f.write(bridge + "\n")
+            else:
+                with open(tested_path, "w", encoding="utf-8") as f:
+                    for bridge in sorted(tested_bridges):
+                        f.write(bridge + "\n")
             log(f"   → {len(tested_bridges)} bridges passed connectivity test for {filename}.")
         else:
             with open(tested_path, "w", encoding="utf-8") as f:

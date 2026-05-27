@@ -15,10 +15,10 @@ from datetime import datetime, timedelta
 TARGETS = [
     {"url": "https://bridges.torproject.org/bridges?transport=obfs4", "file": "obfs4.txt", "type": "obfs4", "ip": "IPv4"},
     {"url": "https://bridges.torproject.org/bridges?transport=webtunnel", "file": "webtunnel.txt", "type": "WebTunnel", "ip": "IPv4"},
-    {"url": "https://bridges.torproject.org/bridges?transport=vanilla", "file": "vanilla.txt", "type": "vanilla", "ip": "IPv4"},
+    {"url": "https://bridges.torproject.org/bridges?transport=vanilla", "file": "vanilla.txt", "type": "Vanilla", "ip": "IPv4"},
     {"url": "https://bridges.torproject.org/bridges?transport=obfs4&ipv6=yes", "file": "obfs4_ipv6.txt", "type": "obfs4", "ip": "IPv6"},
     {"url": "https://bridges.torproject.org/bridges?transport=webtunnel&ipv6=yes", "file": "webtunnel_ipv6.txt", "type": "WebTunnel", "ip": "IPv6"},
-    {"url": "https://bridges.torproject.org/bridges?transport=vanilla&ipv6=yes", "file": "vanilla_ipv6.txt", "type": "vanilla", "ip": "IPv6"},
+    {"url": "https://bridges.torproject.org/bridges?transport=vanilla&ipv6=yes", "file": "vanilla_ipv6.txt", "type": "Vanilla", "ip": "IPv6"},
 ]
 
 RECENT_HOURS = 72
@@ -52,41 +52,35 @@ def is_valid_bridge_line(line):
         return False
     if len(line) < 10:
         return False
-    if line.startswith("Bridge "):
-        return True
     return bool(re.search(r'\d+\.\d+\.\d+\.\d+|\[.*\]|https?://', line))
 
-def normalize_vanilla_line(line):
-    line = line.strip()
+def normalize_vanilla_for_history(line):
+    if not line.startswith("Bridge "):
+        return "Bridge " + line
+    return line
+
+def convert_vanilla_for_saving(line):
     if line.startswith("Bridge "):
         return line[7:]
     return line
-
-def format_vanilla_line(original_line):
-    original_line = original_line.strip()
-    if not original_line:
-        return original_line
-    if original_line.startswith("Bridge "):
-        return original_line
-    pattern = r'^(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d+)\s+([A-Fa-f0-9]{40})$'
-    match = re.match(pattern, original_line)
-    if match:
-        return f"Bridge {match.group(1)} {match.group(2)}"
-    return original_line
 
 def extract_connection_info(line):
     line = line.strip()
     if not line or len(line) < 5:
         return None, None, None
-    if line.startswith("Bridge "):
-        line = line[7:]
-    line_lower = line.lower()
+    
+    test_line = line
+    if not test_line.startswith("Bridge ") and " " in test_line and ":" in test_line.split()[0]:
+        test_line = "Bridge " + test_line
+    
+    line_lower = test_line.lower()
     if "obfs4" in line_lower:
         transport = "obfs4"
     elif "webtunnel" in line_lower or "https://" in line_lower:
         transport = "webtunnel"
     else:
         transport = "vanilla"
+    
     patterns = [
         (r'https?://\[([0-9a-fA-F:]+)\](?::(\d+))?', "ipv6"),
         (r'https?://([^/:]+)(?::(\d+))?', "domain"),
@@ -96,8 +90,9 @@ def extract_connection_info(line):
         (r'obfs4\s+([^:]+):(\d+)\s+', "obfs4"),
         (r'(\S+)\s+(\S+)\s+(\S+)', "fingerprint"),
     ]
+    
     for pattern, ptype in patterns:
-        match = re.search(pattern, line, re.IGNORECASE)
+        match = re.search(pattern, test_line, re.IGNORECASE)
         if match:
             if ptype == "fingerprint" and len(match.groups()) >= 3:
                 host = match.group(1)
@@ -111,6 +106,7 @@ def extract_connection_info(line):
                 host = match.group(1)
                 port = "443" if "https" in line_lower else "80"
                 return host, int(port), transport
+    
     return None, None, transport
 
 def is_valid_ip(host):
@@ -200,11 +196,7 @@ def smart_bridge_filter(bridge_list, transport_type):
     unique_bridges = []
     seen = set()
     for bridge in bridge_list:
-        if transport_type == "vanilla" and bridge.startswith("Bridge "):
-            key_bridge = normalize_vanilla_line(bridge)
-        else:
-            key_bridge = bridge
-        key = re.sub(r'\s+', ' ', key_bridge.strip()).lower()
+        key = re.sub(r'\s+', ' ', bridge.strip()).lower()
         if key not in seen:
             seen.add(key)
             unique_bridges.append(bridge)
@@ -213,11 +205,20 @@ def smart_bridge_filter(bridge_list, transport_type):
 def batch_test_bridges(bridge_list, transport_type, batch_size=100):
     if not bridge_list:
         return []
-    filtered_bridges = smart_bridge_filter(bridge_list, transport_type)
+    normalized_for_test = []
+    for bridge in bridge_list:
+        if transport_type == "vanilla" and not bridge.startswith("Bridge "):
+            normalized_for_test.append("Bridge " + bridge)
+        else:
+            normalized_for_test.append(bridge)
+    
+    filtered_bridges = smart_bridge_filter(normalized_for_test, transport_type)
     if not filtered_bridges:
         return []
+    
     working_bridges = []
     total = len(filtered_bridges)
+    
     for i in range(0, total, batch_size):
         batch = filtered_bridges[i:i + batch_size]
         batch_working = []
@@ -233,6 +234,10 @@ def batch_test_bridges(bridge_list, transport_type, batch_size=100):
         working_bridges.extend(batch_working)
         if len(batch_working) > 0:
             log(f"   Batch {i//batch_size + 1}: {len(batch_working)}/{len(batch)} bridges working")
+    
+    if transport_type == "vanilla":
+        working_bridges = [convert_vanilla_for_saving(bridge) for bridge in working_bridges]
+    
     return working_bridges
 
 def load_history():
@@ -357,104 +362,107 @@ def main():
         tested_path = os.path.join(BRIDGE_DIR, tested_filename)
         transport_type = target["type"]
         
-        existing_bridges_set = set()
+        existing_bridges = set()
         if os.path.exists(bridge_path):
             try:
                 with open(bridge_path, "r", encoding="utf-8") as f:
                     for line in f:
                         line = line.strip()
-                        if not is_valid_bridge_line(line):
-                            continue
-                        if transport_type == "vanilla":
-                            original = normalize_vanilla_line(line)
-                            if original:
-                                existing_bridges_set.add(original)
-                        else:
-                            existing_bridges_set.add(line)
+                        if is_valid_bridge_line(line):
+                            if transport_type == "vanilla" and not line.startswith("Bridge "):
+                                existing_bridges.add("Bridge " + line)
+                            else:
+                                existing_bridges.add(line)
             except:
                 pass
 
-        fetched_bridges_set = set()
+        fetched_bridges = set()
         try:
             response = session.get(url, timeout=30)
             if response.status_code == 200:
                 soup = BeautifulSoup(response.text, "html.parser")
                 bridge_div = soup.find("div", id="bridgelines")
+                
                 if bridge_div:
                     raw_text = bridge_div.get_text()
                     lines = [line.strip() for line in raw_text.split("\n") if line.strip()]
+                    
                     for line in lines:
                         if is_valid_bridge_line(line):
-                            fetched_bridges_set.add(line)
-                            if line not in history:
-                                history[line] = datetime.now().isoformat()
+                            fetched_bridges.add(line)
+                            history_line = line
+                            if transport_type == "vanilla":
+                                history_line = normalize_vanilla_for_history(line)
+                            if history_line not in history:
+                                history[history_line] = datetime.now().isoformat()
                 else:
                     log(f"Warning: No bridge container for {filename}.")
             else:
                 log(f"Failed to fetch {url}. Status: {response.status_code}")
+
         except Exception as e:
             log(f"Connection error for {filename}: {e}")
 
-        all_bridges_original = existing_bridges_set.union(fetched_bridges_set)
+        all_bridges = existing_bridges.union(fetched_bridges)
         
-        if transport_type == "vanilla":
-            all_bridges_formatted = set(format_vanilla_line(b) for b in all_bridges_original if b)
-            with open(bridge_path, "w", encoding="utf-8") as f:
-                for bridge in sorted(all_bridges_formatted):
-                    f.write(bridge + "\n")
-            log(f"Processed {filename}: Total {len(all_bridges_formatted)}")
+        if all_bridges:
+            if transport_type == "vanilla":
+                sorted_bridges = sorted(all_bridges)
+                save_bridges = [convert_vanilla_for_saving(bridge) for bridge in sorted_bridges]
+                with open(bridge_path, "w", encoding="utf-8") as f:
+                    for bridge in save_bridges:
+                        f.write(bridge + "\n")
+            else:
+                with open(bridge_path, "w", encoding="utf-8") as f:
+                    for bridge in sorted(all_bridges):
+                        f.write(bridge + "\n")
+            log(f"Processed {filename}: Total {len(all_bridges)}")
         else:
             with open(bridge_path, "w", encoding="utf-8") as f:
-                for bridge in sorted(all_bridges_original):
-                    f.write(bridge + "\n")
-            log(f"Processed {filename}: Total {len(all_bridges_original)}")
+                f.write("")
 
-        recent_bridges_original = []
-        for bridge in all_bridges_original:
-            if bridge in history:
+        recent_bridges = []
+        for bridge in all_bridges:
+            bridge_key = bridge
+            if transport_type == "vanilla":
+                bridge_key = normalize_vanilla_for_history(bridge)
+            if bridge_key in history:
                 try:
-                    first_seen = datetime.fromisoformat(history[bridge])
+                    first_seen = datetime.fromisoformat(history[bridge_key])
                     if first_seen > recent_cutoff_time:
-                        recent_bridges_original.append(bridge)
+                        recent_bridges.append(bridge)
                 except ValueError:
                     pass
         
-        if transport_type == "vanilla":
-            recent_bridges_formatted = [format_vanilla_line(b) for b in recent_bridges_original]
-            with open(recent_path, "w", encoding="utf-8") as f:
-                for bridge in sorted(recent_bridges_formatted):
-                    f.write(bridge + "\n")
+        if recent_bridges:
+            if transport_type == "vanilla":
+                save_recent = [convert_vanilla_for_saving(bridge) for bridge in sorted(recent_bridges)]
+                with open(recent_path, "w", encoding="utf-8") as f:
+                    for bridge in save_recent:
+                        f.write(bridge + "\n")
+            else:
+                with open(recent_path, "w", encoding="utf-8") as f:
+                    for bridge in sorted(recent_bridges):
+                        f.write(bridge + "\n")
         else:
             with open(recent_path, "w", encoding="utf-8") as f:
-                for bridge in sorted(recent_bridges_original):
-                    f.write(bridge + "\n")
-
-        if transport_type == "vanilla":
-            bridges_for_test = [format_vanilla_line(b) for b in all_bridges_original]
-        else:
-            bridges_for_test = list(all_bridges_original)
+                f.write("")
         
-        tested_bridges = batch_test_bridges(bridges_for_test, transport_type)
+        tested_bridges = batch_test_bridges(list(all_bridges), transport_type)
         
-        if transport_type == "vanilla":
+        if tested_bridges:
             with open(tested_path, "w", encoding="utf-8") as f:
                 for bridge in sorted(tested_bridges):
                     f.write(bridge + "\n")
             log(f"   → {len(tested_bridges)} bridges passed connectivity test for {filename}.")
         else:
             with open(tested_path, "w", encoding="utf-8") as f:
-                for bridge in sorted(tested_bridges):
-                    f.write(bridge + "\n")
-            log(f"   → {len(tested_bridges)} bridges passed connectivity test for {filename}.")
+                f.write("")
+            log(f"   → No bridges passed connectivity test for {filename}.")
 
-        if transport_type == "vanilla":
-            stats[filename] = len(all_bridges_formatted)
-            stats[recent_filename] = len(recent_bridges_formatted) if recent_bridges_formatted else 0
-            stats[tested_filename] = len(tested_bridges)
-        else:
-            stats[filename] = len(all_bridges_original)
-            stats[recent_filename] = len(recent_bridges_original)
-            stats[tested_filename] = len(tested_bridges)
+        stats[filename] = len(all_bridges)
+        stats[recent_filename] = len(recent_bridges)
+        stats[tested_filename] = len(tested_bridges)
 
     save_history(history)
     update_readme(stats)
@@ -473,17 +481,21 @@ def main():
         
         with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as zipf:
             archive_root = "Tor Bridges"
+            
             for root, dirs, files in os.walk(BRIDGE_DIR):
                 for file in files:
                     if file == zip_name or file == "bridge_history.json" or not file.endswith('.txt'):
                         continue
+                    
                     file_path = os.path.join(root, file)
+                    
                     if file.endswith("_tested.txt"):
                         folder = os.path.join(archive_root, "Tested")
                     elif file.endswith(f"_{RECENT_HOURS}h.txt"):
                         folder = os.path.join(archive_root, "Recent 72h")
                     else:
                         folder = os.path.join(archive_root, "Full Archive")
+                    
                     arcname = os.path.join(folder, file)
                     zipf.write(file_path, arcname)
         

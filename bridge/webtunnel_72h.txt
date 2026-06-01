@@ -1,2 +1,2 @@
-webtunnel [2001:db8:3606:d9c5:1fa:bff3:1d62:7465]:443 900844EDD4FCFA9F7CE18C391A777F12FBFE1C1E url=https://wt5.wtqwert.top/asdfasdf1234wt5 ver=0.0.4
 webtunnel [2001:db8:e40f:2e7c:eaa0:a693:c904:6780]:443 63BC6E53914453BF8C4355082EC907E72E68B7C4 url=https://anoni.net/sgs/lol ver=0.0.4
+webtunnel [2001:db8:ecdd:795b:81e3:f90a:4a52:b772]:443 4268FDA0435617984075BEEEDEA95226D3E29513 url=https://myprivatecloud82.fun/DM143fFEmqF1rgqtFtwqgFAFmt21uGPkmFq2ZT1f9pPlitj1 ver=0.0.3

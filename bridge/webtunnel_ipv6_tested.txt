@@ -66,6 +66,7 @@ webtunnel [2001:db8:714f:e9ee:d1dc:a674:3606:cfe0]:443 339281F7912780D8A7FB118A4
 webtunnel [2001:db8:714f:e9ee:d1dc:a674:3606:cfe0]:443 339281F7912780D8A7FB118A48A65FFBF92F043F url=https://test.mwumba.com/9f2jjnAR9LR1fInBy60tbS57 ver=0.0.4
 webtunnel [2001:db8:747d:f959:7714:e5ea:b6d8:66e7]:443 CF1827C41B504EB3CCF3D4EDE7D8D88761F2039E url=https://sp-sk.bitcdn.ovh/standbakhdown ver=0.0.3
 webtunnel [2001:db8:77a8:d427:4e0a:8cf7:a2c0:8cda]:443 77B60C7540BA105297FB91DD7BA3557F6ED15C5B url=https://alina-photos.art/da495ccdc73b948387c45c2ab82c1b1aac4b1582 ver=0.0.3
+webtunnel [2001:db8:77cb:5ce6:9995:7466:7ffa:b3f8]:443 770EA6412C8D3997ABFFF7173A3E53F1D3660167 url=https://shallotfarm.org/jcHgyp7m90iQr9QaVSprq1wP ver=0.0.3
 webtunnel [2001:db8:77d3:3892:39fc:d459:869c:44e0]:443 B6650B31F73D0E82DFDD6302233AEA7DBA984DC1 url=https://dev.dumkatze.de/unpack-skinny-purr ver=0.0.3
 webtunnel [2001:db8:77dc:4180:2d73:7fda:59f4:5284]:443 6F6C8E0069880AC253704507119464CE4BD1BA65 url=https://dev-test.catcat.pictures/Fj7VnJi1mjigUKBb2rJ1TeWJ ver=0.0.2
 webtunnel [2001:db8:77dc:4180:2d73:7fda:59f4:5284]:443 6F6C8E0069880AC253704507119464CE4BD1BA65 url=https://dev-test.catcat.pictures/Fj7VnJi1mjigUKBb2rJ1TeWJ ver=0.0.3
@@ -127,6 +128,7 @@ webtunnel [2001:db8:e40f:2e7c:eaa0:a693:c904:6780]:443 63BC6E53914453BF8C4355082
 webtunnel [2001:db8:e524:683e:fb8d:e6ee:79c0:f397]:443 DA1ECF055635C1A6ED7F5B5F36296A5E3015CE57 url=https://np601p22.xoomlia.com/hlmb69xo/ ver=0.0.3
 webtunnel [2001:db8:eb48:18d1:b5ac:62d0:da55:f164]:443 B9B09EDFAEA3824D6258DB017002899F368C9943 url=https://pablo.iki.fi/H5cdG6c0tO7sDwZgAfBixLZB ver=0.0.3
 webtunnel [2001:db8:ecdd:795b:81e3:f90a:4a52:b772]:443 4268FDA0435617984075BEEEDEA95226D3E29513 url=https://myprivatecloud82.fun/DM143fFEmqF1rgqtFtwqgFAFmt21uGPkmFq2ZT1f9pPlitj1 ver=0.0.3
+webtunnel [2001:db8:ece6:a97f:c608:ac46:d9d5:af74]:443 2CF5232525187101F49ED9ED7A75678DA920EB6E url=https://nextcloud.kiljan.org/v4bpkQtAiqV9QfdKda54PXAI ver=0.0.1
 webtunnel [2001:db8:f37a:49d9:c85f:3e7b:eb39:853e]:443 7E8CB9592C97B8ADD03D374A8E207CAAE5121336 url=https://gia.shallotfarm.org/3IMx3r7r1hKVsW136nx9vVMD ver=0.0.1
 webtunnel [2001:db8:f3a2:b7f8:ce95:daa3:e49b:d094]:443 40C5CA8B09069310DBA8BFB87F2AE1ABF5C46ED6 url=https://sp-tr.bitcdn.ovh/whereisthisshortguy ver=0.0.3
 webtunnel [2001:db8:f3f8:1a33:dba0:17f6:35ce:24f3]:443 963668851C177DC162895A33F1473E32E1E4BE56 url=https://pod05.oneclickhost.eu/K5Fsvkz3SaWjVPm4i0vn5gIs ver=0.0.3

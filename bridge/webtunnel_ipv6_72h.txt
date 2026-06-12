@@ -1,2 +1,2 @@
-webtunnel [2001:db8:2ae3:679a:856c:c72a:2746:1a1b]:443 8943BF53C9561C75A7302ED59575EF71E2B26562 url=https://allium.heelsn.eu/X1uzc7J4omPPBbqkJMDgBtXP ver=0.0.4
-webtunnel [2001:db8:e091:f9eb:f35c:5159:f61c:a762]:443 1508F567C54ECF5373CE2EF3BF02C62EEA1B320E url=https://tor.jmrp.io/7Zkw18j2NWGK9X7PiiPUQRJB ver=0.0.4
+webtunnel [2001:db8:272b:3cc6:66df:4d41:6895:cbcf]:443 316ACA10592957F567C6433846C5B0B4C35C858B url=https://docs.prevails.org/a0baef823aeeacee ver=0.0.3
+webtunnel [2001:db8:c9b:bc88:3d6e:1c94:c0e9:b3f9]:443 908AAD3122B6D46E6CD7CE4BE03A6F9491EF4204 url=https://lowkeykick.site/199ea8c3e6efa36c7e56a280838830757b806540 ver=0.0.3

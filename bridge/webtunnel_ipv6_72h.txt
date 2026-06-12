@@ -1,2 +1,2 @@
 webtunnel [2001:db8:5a02:89f6:b9f9:212e:37ac:d49a]:443 9D4A06547A47EB46F59BC519800B0D82D0BD2D75 url=https://cdn.exonip.xyz/k7mQpR3xNvLwZsYu9bTcJfAe ver=0.0.3
-webtunnel [2001:db8:aa16:aa07:b3:b4f0:a667:3f08]:443 775A648318DA1E1240EF0DEC038154B60696DE5B url=https://pod01.oneclickhost.eu/jLoIafiPpOBkJRJBN5mm6GPe ver=0.0.4
+webtunnel [2001:db8:c9b:bc88:3d6e:1c94:c0e9:b3f9]:443 908AAD3122B6D46E6CD7CE4BE03A6F9491EF4204 url=https://lowkeykick.site/199ea8c3e6efa36c7e56a280838830757b806540 ver=0.0.3

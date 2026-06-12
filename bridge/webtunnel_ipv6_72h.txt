@@ -1,2 +1,2 @@
-webtunnel [2001:db8:747d:f959:7714:e5ea:b6d8:66e7]:443 CF1827C41B504EB3CCF3D4EDE7D8D88761F2039E url=https://sp-sk.bitcdn.ovh/standbakhdown ver=0.0.4
+webtunnel [2001:db8:5a02:89f6:b9f9:212e:37ac:d49a]:443 9D4A06547A47EB46F59BC519800B0D82D0BD2D75 url=https://cdn.exonip.xyz/k7mQpR3xNvLwZsYu9bTcJfAe ver=0.0.3
 webtunnel [2001:db8:aa16:aa07:b3:b4f0:a667:3f08]:443 775A648318DA1E1240EF0DEC038154B60696DE5B url=https://pod01.oneclickhost.eu/jLoIafiPpOBkJRJBN5mm6GPe ver=0.0.4

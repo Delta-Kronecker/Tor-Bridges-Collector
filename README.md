@@ -16,8 +16,8 @@ These bridges from the archive have passed a TCP connectivity test (3 retries, 1
 | Transport | IPv4 (Tested) | Count | 
 | :--- | :--- | :--- |
 | **obfs4** | [obfs4_tested.txt](https://raw.githubusercontent.com/Delta-Kronecker/Tor-Bridges-Collector/refs/heads/main/bridge/obfs4_tested.txt) | **240** |
-| **WebTunnel** | [webtunnel_tested.txt](https://raw.githubusercontent.com/Delta-Kronecker/Tor-Bridges-Collector/refs/heads/main/bridge/webtunnel_tested.txt) | **136** |
-| **Vanilla** | [vanilla_tested.txt](https://raw.githubusercontent.com/Delta-Kronecker/Tor-Bridges-Collector/refs/heads/main/bridge/vanilla_tested.txt) | **182** |
+| **WebTunnel** | [webtunnel_tested.txt](https://raw.githubusercontent.com/Delta-Kronecker/Tor-Bridges-Collector/refs/heads/main/bridge/webtunnel_tested.txt) | **137** |
+| **Vanilla** | [vanilla_tested.txt](https://raw.githubusercontent.com/Delta-Kronecker/Tor-Bridges-Collector/refs/heads/main/bridge/vanilla_tested.txt) | **183** |
 
 ### Fresh Bridges (Last 72 Hours)
 Bridges discovered within the last 3 days.
@@ -37,15 +37,15 @@ History of all collected bridges.
 | **WebTunnel** | [webtunnel.txt](https://raw.githubusercontent.com/Delta-Kronecker/Tor-Bridges-Collector/refs/heads/main/bridge/webtunnel.txt) | **180** | [webtunnel_ipv6.txt](https://raw.githubusercontent.com/Delta-Kronecker/Tor-Bridges-Collector/refs/heads/main/bridge/webtunnel_ipv6.txt) | **181** |
 | **Vanilla** | [vanilla.txt](https://raw.githubusercontent.com/Delta-Kronecker/Tor-Bridges-Collector/refs/heads/main/bridge/vanilla.txt) | **446** | [vanilla_ipv6.txt](https://raw.githubusercontent.com/Delta-Kronecker/Tor-Bridges-Collector/refs/heads/main/bridge/vanilla_ipv6.txt) | **39** |
 
-## 💰 Donate
+## 🔥 Keep This Project Going!
 
-**USDT BEP20** (BNB Smart Chain):
-```
-0x2a434FF74737be5B94634040D010a458507b0741
-```
-> ⚠️ BEP20 network only — send only USDT on BNB Smart Chain.
+If you're finding this useful, please show your support:
 
----
+⭐ **Star the repository on GitHub**
+
+⭐ **Star our [Telegram posts](https://t.me/DeltaKroneckerGithub)** 
+
+Your stars fuel our motivation to keep improving!
 
 ## Disclaimer
 This project is for educational and archival purposes. Please use these bridges responsibly.

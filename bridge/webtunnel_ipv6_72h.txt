@@ -1,2 +1,2 @@
+webtunnel [2001:db8:289b:84cd:4be3:77f1:1cdd:9cb1]:443 D71C8E9C2180D2F35DEBF4A39BFCA6972F076D1C sni-imitation=yandex.ru,google.com,dzen.ru,vk.com,mail.ru,ozon.ru,ya.ru,www.wildberries.ru,rutube.ru,www.avito.ru,ok.ru,vkvideo.ru url=https://streaming.the-forgotten-tales.com/gz9X1VBgl0r1Xfx3dHdNl5Tl ver=0.0.4
 webtunnel [2001:db8:28ff:ae4f:c:9ef6:1722:ac46]:443 1098B4E153AB1666B4F63F48325A103FB005940F url=https://pod04.oneclickhost.eu/FeTyRXzPPAzwIjuxzWxwl09N ver=0.0.4
-webtunnel [2001:db8:77dc:4180:2d73:7fda:59f4:5284]:443 6F6C8E0069880AC253704507119464CE4BD1BA65 url=https://dev-test.catcat.pictures/Fj7VnJi1mjigUKBb2rJ1TeWJ ver=0.0.4

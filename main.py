@@ -353,13 +353,15 @@ History of all collected bridges.
 
 ## 🔥 Keep This Project Going!
 
-If you're finding this useful, please show your support:
+### 💰 Donate
 
-⭐ **Star the repository on GitHub**
+**USDT BEP20** (BNB Smart Chain):
+```
+0x2a434FF74737be5B94634040D010a458507b0741
+```
+> ⚠️ BEP20 network only — send only USDT on BNB Smart Chain.
 
-⭐ **Star our [Telegram posts](https://t.me/DeltaKroneckerGithub)** 
-
-Your stars fuel our motivation to keep improving!
+---
 
 ## Disclaimer
 This project is for educational and archival purposes. Please use these bridges responsibly.

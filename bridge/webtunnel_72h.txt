@@ -1,2 +1,2 @@
-webtunnel [2001:db8:4fcd:461f:cbce:edea:fb74:a1e8]:443 F799A0A458365388600F54BD44A99B5887D54911 url=https://wt.aaronstory2026.xyz:2053/vicmackey ver=0.0.4
+webtunnel [2001:db8:63b4:6bd7:a357:7858:898e:718c]:443 059AEB126918A33B8246E8136D565FF57753D5CF url=https://alwaysnewbie.eu.org/homesweethome ver=0.0.3
 webtunnel [2001:db8:fbfa:48b4:5520:53e6:24b4:eca0]:443 93807A85521915D7D2BA17725C08AC39035D1741 url=https://web.localenby.is/HmlgNcBbNgRJw862bJVxZRes ver=0.0.3

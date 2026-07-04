@@ -1,2 +1,2 @@
 webtunnel [2001:db8:6442:84:8e10:778c:8aaa:7a8e]:443 FDA4F037334BA25B7ECEBAC458350B588C57DA24 url=https://freeforall.camdvr.org/BrLxiuXhwTEx3qJxFEhOE3tA ver=0.0.4
-webtunnel [2001:db8:a0a3:3921:d668:34a7:5a6a:90f]:443 DAEFF07E181A420069F9944C12BAA0DE6FD59B6D url=https://nthpyro.dev ver=0.0.3
+webtunnel [2001:db8:6442:84:8e10:778c:8aaa:7a8e]:443 FDA4F037334BA25B7ECEBAC458350B588C57DA24 url=https://freeforall.camdvr.org/BrLxiuXhwTEx3qJxFEhOE3tA ver=0.0.5

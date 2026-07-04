@@ -52,6 +52,7 @@ webtunnel [2001:db8:63b4:6bd7:a357:7858:898e:718c]:443 059AEB126918A33B8246E8136
 webtunnel [2001:db8:63b4:6bd7:a357:7858:898e:718c]:443 059AEB126918A33B8246E8136D565FF57753D5CF url=https://alwaysnewbie.eu.org/homesweethome ver=0.0.3
 webtunnel [2001:db8:63b9:6800:b3f0:e360:b90c:2953]:443 0CCD302CACD212634B21499C6D4243B9363B6FD4 url=https://johns-tech-garden.com/bCnGKCIpQGga4LDzNH7fgZtD ver=0.0.3
 webtunnel [2001:db8:63b9:6800:b3f0:e360:b90c:2953]:443 0CCD302CACD212634B21499C6D4243B9363B6FD4 url=https://johns-tech-garden.com/bCnGKCIpQGga4LDzNH7fgZtD ver=0.0.4
+webtunnel [2001:db8:6442:84:8e10:778c:8aaa:7a8e]:443 FDA4F037334BA25B7ECEBAC458350B588C57DA24 url=https://freeforall.camdvr.org/BrLxiuXhwTEx3qJxFEhOE3tA ver=0.0.4
 webtunnel [2001:db8:6589:5555:e62f:68ab:8983:8e01]:443 98422E9D1648FFDB8F16C06CF58CD64B6C03A003 url=https://bridge-es.jmrp.io/hzry0yMJazasJuZZP09uCUtn ver=0.0.4
 webtunnel [2001:db8:67ae:eddf:66cd:cbd0:eab4:8143]:443 439C2F45FA99C9255F079ACBF59060D3EC2C3637 url=https://push.hieronymus.uk/sheflashedthetorchasasignal ver=0.0.4
 webtunnel [2001:db8:6d8e:6634:691b:dc7f:6c25:fb29]:443 B21C146831B809CE3207F177CE39E6CA5460627E url=https://bubatz.legal/maTXktEDbbS5FInhNhO2TPtF ver=0.0.3
@@ -98,7 +99,6 @@ webtunnel [2001:db8:a8b5:9d82:9ae6:354f:671:e5da]:443 E3AE862BBB49EA5FACF4FDF09C
 webtunnel [2001:db8:a8ef:febc:28c8:b865:8236:b47a]:443 E26D521C9C1A4C343EA7CCB34FE784F35AA31B47 url=https://wechatcommunities.top/4xsgSZnwOMBTIPeLGdXTcWZe ver=0.0.3
 webtunnel [2001:db8:aa16:aa07:b3:b4f0:a667:3f08]:443 775A648318DA1E1240EF0DEC038154B60696DE5B url=https://pod01.oneclickhost.eu/jLoIafiPpOBkJRJBN5mm6GPe ver=0.0.3
 webtunnel [2001:db8:aa16:aa07:b3:b4f0:a667:3f08]:443 775A648318DA1E1240EF0DEC038154B60696DE5B url=https://pod01.oneclickhost.eu/jLoIafiPpOBkJRJBN5mm6GPe ver=0.0.4
-webtunnel [2001:db8:ad13:e588:6629:afd2:cc58:6af5]:443 B51FD3150E208A600D00BCA5963B0EF5C867574F url=https://rot.ronaak.eu:443/iUFRXvAp3E3MHDiJ8453BaaM ver=0.0.2
 webtunnel [2001:db8:addf:7bc4:155a:a563:a5d5:8b04]:443 F799A0A458365388600F54BD44A99B5887D54911 url=https://aaronstory2026.xyz:2053/vicmackey ver=0.0.4
 webtunnel [2001:db8:ae03:9e61:9e65:cce8:fdb6:66a8]:443 CD0DFB72DE3124704AEA1BEF3A2CCD62347F6376 url=https://www2.shallotfarm.org/gKOwKgm0McUdTydo3boBiFFM ver=0.0.3
 webtunnel [2001:db8:afc8:4fe0:c021:5377:36bf:e9b7]:443 3BDD7036FAC9CC81ADBA39E88637D5EF87350F1C url=https://speedtest.qs.ee/dI6HDfnDLSUiFV0MaLMEtcmv ver=0.0.3

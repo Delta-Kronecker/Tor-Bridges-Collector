@@ -1,2 +1,2 @@
-webtunnel [2001:db8:c525:22a6:6b6a:e916:9ef7:8152]:443 8A1EE5824071CA39E7D76BD579FB2AEF2B52E524 url=https://c.img-cdn.net/yE4s7KehTFyj/ ver=0.0.2
-webtunnel [2001:db8:dee:4f60:9a4a:641b:71ff:7358]:443 664BEAA9A60B4C029258E4A19E13E26C6D961E0A url=https://hhynz.maledict.me/TLzq9HcRQDlLGmjHAQMff0Hu ver=0.0.5
+webtunnel [2001:db8:3506:4f42:d18a:e05e:2c90:c172]:443 C1071E13650A41F1B4A1D93C089D4EF685DD1833 url=https://masterkeef.duckdns.org/9VqR6ogd8uMUqncudbuNeHX1 ver=0.0.5
+webtunnel [2001:db8:4153:2734:a5fd:324a:77fe:7d3b]:443 91DE3D9DBAFB8A583CEE02448BBA8CADDE54735E url=https://5-ams.sports-streams.org/jdyLcFWUBl1jEjIkL2Bo2LCT ver=0.0.1

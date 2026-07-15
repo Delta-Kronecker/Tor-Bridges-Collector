@@ -13,6 +13,8 @@ webtunnel [2001:db8:289b:84cd:4be3:77f1:1cdd:9cb1]:443 D71C8E9C2180D2F35DEBF4A39
 webtunnel [2001:db8:289b:84cd:4be3:77f1:1cdd:9cb1]:443 D71C8E9C2180D2F35DEBF4A39BFCA6972F076D1C sni-imitation=yandex.ru,google.com,dzen.ru,vk.com,mail.ru,ozon.ru,ya.ru,www.wildberries.ru,rutube.ru,www.avito.ru,ok.ru,vkvideo.ru url=https://streaming.the-forgotten-tales.com/gz9X1VBgl0r1Xfx3dHdNl5Tl ver=0.0.4
 webtunnel [2001:db8:28ff:ae4f:c:9ef6:1722:ac46]:443 1098B4E153AB1666B4F63F48325A103FB005940F url=https://pod04.oneclickhost.eu/FeTyRXzPPAzwIjuxzWxwl09N ver=0.0.3
 webtunnel [2001:db8:28ff:ae4f:c:9ef6:1722:ac46]:443 1098B4E153AB1666B4F63F48325A103FB005940F url=https://pod04.oneclickhost.eu/FeTyRXzPPAzwIjuxzWxwl09N ver=0.0.4
+webtunnel [2001:db8:2ae3:679a:856c:c72a:2746:1a1b]:443 8943BF53C9561C75A7302ED59575EF71E2B26562 url=https://allium.heelsn.eu/X1uzc7J4omPPBbqkJMDgBtXP ver=0.0.3
+webtunnel [2001:db8:2ae3:679a:856c:c72a:2746:1a1b]:443 8943BF53C9561C75A7302ED59575EF71E2B26562 url=https://allium.heelsn.eu/X1uzc7J4omPPBbqkJMDgBtXP ver=0.0.4
 webtunnel [2001:db8:2b84:8d:b5af:2b7c:2528:ecbc]:443 F99CFE52EDFF8EAA332CD73C1E638035210C0336 url=https://cdn-26.privacyguides.net/cFwsJGX85KZ4INwnDHvVxs0G ver=0.0.2
 webtunnel [2001:db8:2ce3:75bd:2da:f69f:d97a:7874]:443 CFB5DD5A5CC4AAB0435C1C5B27D46C0E2AB54C6E url=https://sexgrueselbox.ch/Tha8Iequ4Goo9ku ver=0.0.3
 webtunnel [2001:db8:2fd8:82a5:19a4:88c6:392c:f516]:443 0C3517B8D76701F136F9D54C4257DA43B726D241 url=https://reptiles.miscellanemaker.cc/416a3e7992a1450c592b60f7544fdd37 ver=0.0.4

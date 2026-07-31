@@ -141,6 +141,7 @@ webtunnel [2001:db8:df91:d45f:47f9:2d09:3a9a:7c22]:443 A633EAF9A7DC0E715183359C3
 webtunnel [2001:db8:e091:f9eb:f35c:5159:f61c:a762]:443 1508F567C54ECF5373CE2EF3BF02C62EEA1B320E url=https://tor.jmrp.io/7Zkw18j2NWGK9X7PiiPUQRJB ver=0.0.4
 webtunnel [2001:db8:e40f:2e7c:eaa0:a693:c904:6780]:443 63BC6E53914453BF8C4355082EC907E72E68B7C4 url=https://anoni.net/sgs/lol ver=0.0.3
 webtunnel [2001:db8:e40f:2e7c:eaa0:a693:c904:6780]:443 63BC6E53914453BF8C4355082EC907E72E68B7C4 url=https://anoni.net/sgs/lol ver=0.0.4
+webtunnel [2001:db8:e40f:2e7c:eaa0:a693:c904:6780]:443 63BC6E53914453BF8C4355082EC907E72E68B7C4 url=https://anoni.net/sgs/lol ver=0.0.5
 webtunnel [2001:db8:e524:683e:fb8d:e6ee:79c0:f397]:443 DA1ECF055635C1A6ED7F5B5F36296A5E3015CE57 url=https://np601p22.xoomlia.com/hlmb69xo/ ver=0.0.3
 webtunnel [2001:db8:eb48:18d1:b5ac:62d0:da55:f164]:443 B9B09EDFAEA3824D6258DB017002899F368C9943 url=https://pablo.iki.fi/H5cdG6c0tO7sDwZgAfBixLZB ver=0.0.3
 webtunnel [2001:db8:ecdd:795b:81e3:f90a:4a52:b772]:443 4268FDA0435617984075BEEEDEA95226D3E29513 url=https://myprivatecloud82.fun/DM143fFEmqF1rgqtFtwqgFAFmt21uGPkmFq2ZT1f9pPlitj1 ver=0.0.3

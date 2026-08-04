@@ -1,2 +1,2 @@
-webtunnel [2001:db8:1d4c:baf8:3ecc:fdb9:9a07:c2f8]:443 2EBBBBCC1AFBA74ACC9297508ED2CCE2DAD0E92F url=https://n8n.ikebun.jp/129f3f0795e0b037b6e974864e691f0c ver=0.0.4
-webtunnel [2001:db8:a0a3:3921:d668:34a7:5a6a:90f]:443 DAEFF07E181A420069F9944C12BAA0DE6FD59B6D url=https://nthpyro.dev ver=0.0.3
+webtunnel [2001:db8:c525:22a6:6b6a:e916:9ef7:8152]:443 8A1EE5824071CA39E7D76BD579FB2AEF2B52E524 url=https://c.img-cdn.net/yE4s7KehTFyj/ ver=0.0.2
+webtunnel [2001:db8:dee:4f60:9a4a:641b:71ff:7358]:443 664BEAA9A60B4C029258E4A19E13E26C6D961E0A url=https://hhynz.maledict.me/TLzq9HcRQDlLGmjHAQMff0Hu ver=0.0.5

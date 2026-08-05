@@ -1,6 +1,5 @@
 webtunnel [2001:db8:135d:123e:527a:c63b:5eb0:b322]:443 68674E54A17AEB1C9ADE878BBBB46C6975DD3105 url=https://vika7.space/83c1327ea78e32b5d151e872ca123f7858aec2e1 ver=0.0.4
 webtunnel [2001:db8:157f:b0b0:4ee2:b754:ee1e:76d1]:443 96E16DE2F8DA38060D93A554DC56C90A681F6FE4 url=https://jochenkessler.de/D82XI88Vz3nttmFEc9OBXGRD ver=0.0.3
-webtunnel [2001:db8:15ff:dc41:12c5:ce54:2bfa:ab3e]:443 88C9B6F63D50B63FC5E1DE2F5423FCDA2C0AC5EB url=https://vault.005184.xyz/e3QD38jnqsG3jzcfa8NA6ar9 ver=0.0.3
 webtunnel [2001:db8:15ff:dc41:12c5:ce54:2bfa:ab3e]:443 88C9B6F63D50B63FC5E1DE2F5423FCDA2C0AC5EB url=https://vault.005184.xyz/e3QD38jnqsG3jzcfa8NA6ar9 ver=0.0.4
 webtunnel [2001:db8:1ba8:84b3:6343:e46:dd15:cb61]:443 6591C1F81F0BED7F21B38488B884DF6ABA5B46FD url=https://chatbuddy.eu.org/x1DauPp3DogPaL9hd3tUC6W1 ver=0.0.4
 webtunnel [2001:db8:1d30:ff54:bba:de27:3861:ff8c]:443 93F50F39F559F2BC2D0C8F936239017AC85AA9BE url=https://rabbithole2.net/4kHLbQkqWJV0Jxfk28H5MySc ver=0.0.1
@@ -58,6 +57,8 @@ webtunnel [2001:db8:5f24:a703:dbde:bec8:d285:d600]:443 EFCEA1B038931F73BA155FE1E
 webtunnel [2001:db8:6281:baa0:afc0:9579:b303:59a7]:443 377CF6FCBFD2E57D0775EA6F2E8D3EF0D8CDD02F url=https://cryptomeanscryptography.club/TfDS3X50Rf3dR5x3Q3vLS25o ver=0.0.3
 webtunnel [2001:db8:6281:baa0:afc0:9579:b303:59a7]:443 377CF6FCBFD2E57D0775EA6F2E8D3EF0D8CDD02F url=https://cryptomeanscryptography.club/TfDS3X50Rf3dR5x3Q3vLS25o ver=0.0.5
 webtunnel [2001:db8:628e:4cc:75b8:a286:fd79:4e82]:443 4723A337C3F108B96EF7429EC3DD96F3222B589D url=https://api.mittarovo.cz/5E8310CF0A ver=0.0.4
+webtunnel [2001:db8:63b4:6bd7:a357:7858:898e:718c]:443 059AEB126918A33B8246E8136D565FF57753D5CF url=https://alwaysnewbie.eu.org/homesweethome ver=0.0.2
+webtunnel [2001:db8:63b4:6bd7:a357:7858:898e:718c]:443 059AEB126918A33B8246E8136D565FF57753D5CF url=https://alwaysnewbie.eu.org/homesweethome ver=0.0.3
 webtunnel [2001:db8:6442:84:8e10:778c:8aaa:7a8e]:443 FDA4F037334BA25B7ECEBAC458350B588C57DA24 url=https://freeforall.camdvr.org/BrLxiuXhwTEx3qJxFEhOE3tA ver=0.0.4
 webtunnel [2001:db8:6442:84:8e10:778c:8aaa:7a8e]:443 FDA4F037334BA25B7ECEBAC458350B588C57DA24 url=https://freeforall.camdvr.org/BrLxiuXhwTEx3qJxFEhOE3tA ver=0.0.5
 webtunnel [2001:db8:6589:5555:e62f:68ab:8983:8e01]:443 98422E9D1648FFDB8F16C06CF58CD64B6C03A003 url=https://bridge-es.jmrp.io/hzry0yMJazasJuZZP09uCUtn ver=0.0.4

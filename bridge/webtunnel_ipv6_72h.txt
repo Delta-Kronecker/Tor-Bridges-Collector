@@ -1,2 +1,2 @@
+webtunnel [2001:db8:ba36:d2f:764f:ac6b:f992:cb92]:443 33E457AAB7861BF71EF5E77947C1DD3F104BE411 url=https://cdn.dameray.com/2b2d9f2715a649a49c2f034089ad2671826b ver=0.0.4
 webtunnel [2001:db8:db12:d3f0:335f:5cb1:f305:bdd1]:443 F0657A8419A7C14027CD79D33CA018D9487CB302 url=https://heresthespace.com/oAH2lLnop5li9wV ver=0.0.3
-webtunnel [2001:db8:ece6:a97f:c608:ac46:d9d5:af74]:443 2CF5232525187101F49ED9ED7A75678DA920EB6E url=https://nextcloud.kiljan.org/v4bpkQtAiqV9QfdKda54PXAI ver=0.0.1

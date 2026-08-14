@@ -1,2 +1,2 @@
-webtunnel [2001:db8:afc8:4fe0:c021:5377:36bf:e9b7]:443 3BDD7036FAC9CC81ADBA39E88637D5EF87350F1C url=https://speedtest.qs.ee/dI6HDfnDLSUiFV0MaLMEtcmv ver=0.0.3
+webtunnel [2001:db8:80f:be74:6afc:2b7b:e1ca:1daf]:443 3FBF86ADCC8D39D30B3BE340FB0D87F64E64E7EE url=https://hongkong.dagestani.eu/thismustallbefakenews ver=0.0.4
 webtunnel [2001:db8:bf9b:e80f:c26e:e1e1:79d9:5f7c]:443 EE53E114F2E8312A2877B2CD82EBAB4276E3571A url=https://regionalindex37.xyz/057e1684-506e-4d45-8214-827bf2c924de ver=0.0.5

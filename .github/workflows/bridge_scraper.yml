@@ -14,6 +14,10 @@ on:
           - 'true'
           - 'false'
 
+concurrency:
+  group: bridge-update
+  cancel-in-progress: false
+
 permissions:
   contents: write
 
@@ -56,8 +60,11 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           
-          git fetch origin main
-          git reset --hard origin/main
+          git pull origin main --rebase --autostash || exit 1
+          if [ -n "$(git ls-files -u)" ]; then
+            echo "Conflicts after rebase; aborting to avoid committing conflict markers"
+            exit 1
+          fi
           
           git add bridge/ README.md
           

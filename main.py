@@ -188,9 +188,9 @@ def test_tcp_socket(host, port, timeout, server_hostname=None):
         except:
             pass
         sock.close()
-        return True
-    except:
-        return False
+        return True, "ok"
+    except Exception as e:
+        return False, f"tcp {host}:{port} -> {type(e).__name__}: {e}"
 
 def test_ssl_socket(host, port, timeout, server_hostname=None):
     try:
@@ -207,14 +207,14 @@ def test_ssl_socket(host, port, timeout, server_hostname=None):
         except:
             pass
         ssl_sock.close()
-        return True
-    except:
-        return False
+        return True, "ok"
+    except Exception as e:
+        return False, f"ssl {host}:{port} (sni={server_hostname}) -> {type(e).__name__}: {e}"
 
 def advanced_connection_test(bridge_line, ipv6=False):
     host, port, transport = extract_connection_info(bridge_line, prefer_ipv6=ipv6)
     if not host or not port:
-        return False
+        return False, "no host/port extracted"
     sni_domain = extract_webtunnel_domain(bridge_line) if transport == "webtunnel" else None
     if transport == "webtunnel":
         test_func = test_ssl_socket
@@ -234,16 +234,19 @@ def advanced_connection_test(bridge_line, ipv6=False):
         if resolved:
             test_hosts.append(resolved)
         test_hosts.append(host)
+    last_reason = "unknown"
     for test_host in test_hosts:
         for attempt in range(MAX_RETRIES):
             try:
-                if test_func(test_host, port, timeout, sni_domain):
-                    return True
-            except:
-                pass
+                ok, reason = test_func(test_host, port, timeout, sni_domain)
+                last_reason = reason
+                if ok:
+                    return True, "ok"
+            except Exception as e:
+                last_reason = f"{type(e).__name__}: {e}"
             if attempt < MAX_RETRIES - 1:
                 time.sleep(0.3 * (attempt + 1))
-    return False
+    return False, last_reason
 
 def smart_bridge_filter(bridge_list, transport_type):
     if not bridge_list:
@@ -275,6 +278,7 @@ def batch_test_bridges(bridge_list, transport_type, ipv6=False, batch_size=100):
     
     working_bridges = []
     total = len(filtered_bridges)
+    failure_reasons = {}
     
     for i in range(0, total, batch_size):
         batch = filtered_bridges[i:i + batch_size]
@@ -284,13 +288,23 @@ def batch_test_bridges(bridge_list, transport_type, ipv6=False, batch_size=100):
             for future in concurrent.futures.as_completed(future_to_bridge):
                 bridge = future_to_bridge[future]
                 try:
-                    if future.result():
+                    ok, reason = future.result()
+                    if ok:
                         batch_working.append(bridge)
-                except:
-                    pass
+                    else:
+                        reason = (reason or "unknown")[:200]
+                        failure_reasons[reason] = failure_reasons.get(reason, 0) + 1
+                except Exception as e:
+                    failure_reasons[f"exception: {type(e).__name__}: {e}"[:200]] = failure_reasons.get(f"exception: {type(e).__name__}: {e}"[:200], 0) + 1
         working_bridges.extend(batch_working)
         if len(batch_working) > 0:
             log(f"   Batch {i//batch_size + 1}: {len(batch_working)}/{len(batch)} bridges working")
+    
+    if failure_reasons:
+        top_reasons = sorted(failure_reasons.items(), key=lambda x: -x[1])[:10]
+        log(f"   Top failure reasons ({transport_type}{' IPv6' if ipv6 else ''}):")
+        for reason, count in top_reasons:
+            log(f"     - [{count}] {reason}")
     
     if transport_type == "vanilla":
         working_bridges = [convert_vanilla_for_saving(bridge) for bridge in working_bridges]

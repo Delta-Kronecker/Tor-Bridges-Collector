@@ -154,7 +154,7 @@ def extract_connection_info(line, prefer_ipv6=False):
     return None, None, transport
 
 def extract_webtunnel_domain(line):
-    match = re.search(r'https?://([^/:]+)', line, re.IGNORECASE)
+    match = re.search(r'https?://([^/\s:]+)', line, re.IGNORECASE)
     if match:
         return match.group(1)
     return None
@@ -167,16 +167,28 @@ def is_valid_ip(host):
         return False
 
 def resolve_host(host, ipv6=False):
+    hosts = resolve_hosts(host, ipv6=ipv6)
+    return hosts[0] if hosts else None
+
+def resolve_hosts(host, ipv6=False):
     family = socket.AF_INET6 if ipv6 else socket.AF_INET
+    results = []
     try:
         infos = socket.getaddrinfo(host, None, family, socket.SOCK_STREAM)
         for info in infos:
             addr = info[4][0]
-            if addr:
-                return addr
+            if addr and addr not in results:
+                results.append(addr)
     except:
         pass
-    return None
+    return results
+
+def is_unroutable_ipv6(host):
+    try:
+        ip = ipaddress.IPv6Address(host)
+    except:
+        return False
+    return not ip.is_global
 
 def test_tcp_socket(host, port, timeout, server_hostname=None):
     try:
@@ -227,14 +239,26 @@ def advanced_connection_test(bridge_line, ipv6=False):
     if port == 0:
         port = default_port
     test_hosts = []
-    if is_valid_ip(host):
-        test_hosts.append(host)
+    if transport == "webtunnel" and ipv6:
+        if not sni_domain:
+            return False, "no url domain found for webtunnel IPv6"
+        test_hosts = resolve_hosts(sni_domain, ipv6=True)
+        if not test_hosts:
+            return False, f"no AAAA records for {sni_domain}"
+        last_reason = "unknown"
     else:
-        resolved = resolve_host(host, ipv6=ipv6)
-        if resolved:
-            test_hosts.append(resolved)
-        test_hosts.append(host)
-    last_reason = "unknown"
+        if is_valid_ip(host):
+            if not is_unroutable_ipv6(host):
+                test_hosts.append(host)
+        else:
+            resolved = resolve_host(host, ipv6=ipv6)
+            if resolved and not is_unroutable_ipv6(resolved):
+                test_hosts.append(resolved)
+            if not is_unroutable_ipv6(host):
+                test_hosts.append(host)
+        if not test_hosts:
+            return False, "only unroutable/documentation address"
+        last_reason = "unknown"
     for test_host in test_hosts:
         for attempt in range(MAX_RETRIES):
             try:

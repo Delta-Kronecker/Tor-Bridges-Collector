@@ -103,7 +103,7 @@ def convert_all_existing_vanilla_files():
     for file_path in vanilla_files:
         convert_existing_file_to_new_format(file_path)
 
-def extract_connection_info(line):
+def extract_connection_info(line, prefer_ipv6=False):
     line = line.strip()
     if not line or len(line) < 5:
         return None, None, None
@@ -119,6 +119,11 @@ def extract_connection_info(line):
         transport = "webtunnel"
     else:
         transport = "vanilla"
+    
+    if prefer_ipv6:
+        match = re.search(r'\[([0-9a-fA-F:]+)\]:(\d+)', test_line, re.IGNORECASE)
+        if match:
+            return match.group(1), int(match.group(2)), transport
     
     patterns = [
         (r'https?://\[([0-9a-fA-F:]+)\](?::(\d+))?', "ipv6"),
@@ -155,11 +160,17 @@ def is_valid_ip(host):
     except:
         return False
 
-def resolve_host(host):
+def resolve_host(host, ipv6=False):
+    family = socket.AF_INET6 if ipv6 else socket.AF_INET
     try:
-        return socket.gethostbyname(host)
+        infos = socket.getaddrinfo(host, None, family, socket.SOCK_STREAM)
+        for info in infos:
+            addr = info[4][0]
+            if addr:
+                return addr
     except:
-        return None
+        pass
+    return None
 
 def test_tcp_socket(host, port, timeout):
     try:
@@ -194,8 +205,8 @@ def test_ssl_socket(host, port, timeout):
     except:
         return False
 
-def advanced_connection_test(bridge_line):
-    host, port, transport = extract_connection_info(bridge_line)
+def advanced_connection_test(bridge_line, ipv6=False):
+    host, port, transport = extract_connection_info(bridge_line, prefer_ipv6=ipv6)
     if not host or not port:
         return False
     if transport == "webtunnel":
@@ -212,7 +223,7 @@ def advanced_connection_test(bridge_line):
     if is_valid_ip(host):
         test_hosts.append(host)
     else:
-        resolved = resolve_host(host)
+        resolved = resolve_host(host, ipv6=ipv6)
         if resolved:
             test_hosts.append(resolved)
         test_hosts.append(host)
@@ -241,7 +252,7 @@ def smart_bridge_filter(bridge_list, transport_type):
             unique_bridges.append(bridge)
     return unique_bridges
 
-def batch_test_bridges(bridge_list, transport_type, batch_size=100):
+def batch_test_bridges(bridge_list, transport_type, ipv6=False, batch_size=100):
     if not bridge_list:
         return []
     normalized_for_test = []
@@ -262,7 +273,7 @@ def batch_test_bridges(bridge_list, transport_type, batch_size=100):
         batch = filtered_bridges[i:i + batch_size]
         batch_working = []
         with concurrent.futures.ThreadPoolExecutor(max_workers=min(MAX_WORKERS, len(batch))) as executor:
-            future_to_bridge = {executor.submit(advanced_connection_test, bridge): bridge for bridge in batch}
+            future_to_bridge = {executor.submit(advanced_connection_test, bridge, ipv6): bridge for bridge in batch}
             for future in concurrent.futures.as_completed(future_to_bridge):
                 bridge = future_to_bridge[future]
                 try:
@@ -324,7 +335,7 @@ This repository automatically collects, validates, and archives Tor bridges. A G
 
 ## Bridge Lists
 
-### Tested & Active (Recommended)
+### Tested & Active (IPv4 - Recommended)
 These bridges from the archive have passed a TCP connectivity test (3 retries, 10s timeout) during the last run.
 
 | Transport | IPv4 (Tested) | Count | 
@@ -332,6 +343,15 @@ These bridges from the archive have passed a TCP connectivity test (3 retries, 1
 | **obfs4** | [obfs4_tested.txt]({REPO_URL}/bridge/obfs4_tested.txt) | **{stats.get('obfs4_tested.txt', 0)}** |
 | **WebTunnel** | [webtunnel_tested.txt]({REPO_URL}/bridge/webtunnel_tested.txt) | **{stats.get('webtunnel_tested.txt', 0)}** |
 | **Vanilla** | [vanilla_tested.txt]({REPO_URL}/bridge/vanilla_tested.txt) | **{stats.get('vanilla_tested.txt', 0)}** |
+
+### Tested & Active (IPv6)
+These bridges from the archive have passed an IPv6 TCP connectivity test during the last run.
+
+| Transport | IPv6 (Tested) | Count |
+| :--- | :--- | :--- |
+| **obfs4** | [obfs4_ipv6_tested.txt]({REPO_URL}/bridge/obfs4_ipv6_tested.txt) | **{stats.get('obfs4_ipv6_tested.txt', 0)}** |
+| **WebTunnel** | [webtunnel_ipv6_tested.txt]({REPO_URL}/bridge/webtunnel_ipv6_tested.txt) | **{stats.get('webtunnel_ipv6_tested.txt', 0)}** |
+| **Vanilla** | [vanilla_ipv6_tested.txt]({REPO_URL}/bridge/vanilla_ipv6_tested.txt) | **{stats.get('vanilla_ipv6_tested.txt', 0)}** |
 
 ### Fresh Bridges (Last 72 Hours)
 Bridges discovered within the last 3 days.
@@ -500,7 +520,7 @@ def main():
             with open(recent_path, "w", encoding="utf-8") as f:
                 f.write("")
         
-        tested_bridges = batch_test_bridges(list(all_bridges), transport_type)
+        tested_bridges = batch_test_bridges(list(all_bridges), transport_type, ipv6=(target["ip"] == "IPv6"))
         
         if tested_bridges:
             if transport_type == "vanilla":
@@ -547,7 +567,7 @@ def main():
                     file_path = os.path.join(root, file)
                     
                     if file.endswith("_tested.txt"):
-                        folder = os.path.join(archive_root, "Tested")
+                        folder = os.path.join(archive_root, "Tested", "IPv6" if "ipv6" in file else "IPv4")
                     elif file.endswith(f"_{RECENT_HOURS}h.txt"):
                         folder = os.path.join(archive_root, "Recent 72h")
                     else:
@@ -564,6 +584,9 @@ def main():
         obfs4_tested = stats.get('obfs4_tested.txt', 0)
         webtunnel_tested = stats.get('webtunnel_tested.txt', 0)
         vanilla_tested = stats.get('vanilla_tested.txt', 0)
+        obfs4_ipv6_tested = stats.get('obfs4_ipv6_tested.txt', 0)
+        webtunnel_ipv6_tested = stats.get('webtunnel_ipv6_tested.txt', 0)
+        vanilla_ipv6_tested = stats.get('vanilla_ipv6_tested.txt', 0)
         obfs4_recent = stats.get('obfs4_72h.txt', 0)
         webtunnel_recent = stats.get('webtunnel_72h.txt', 0)
         vanilla_recent = stats.get('vanilla_72h.txt', 0)
@@ -587,10 +610,15 @@ def main():
 • WebTunnel IPv4: {webtunnel_total} | IPv6: {webtunnel_ipv6}
 • Vanilla IPv4: {vanilla_total} | IPv6: {vanilla_ipv6}
 
-*Tested & Active (Recommended - IPv4 only):*
+*Tested & Active (IPv4 - Recommended):*
 • obfs4: {obfs4_tested}
 • WebTunnel: {webtunnel_tested}
 • Vanilla: {vanilla_tested}
+
+*Tested & Active (IPv6):*
+• obfs4: {obfs4_ipv6_tested}
+• WebTunnel: {webtunnel_ipv6_tested}
+• Vanilla: {vanilla_ipv6_tested}
 
 *Recent (Last 72h):*
 • obfs4 IPv4: {obfs4_recent} | IPv6: {obfs4_ipv6_recent}
@@ -603,7 +631,8 @@ def main():
 *ZIP Contents:*
 • Full Archive/ - Complete bridge history
 • Recent 72h/ - Bridges from last 3 days
-• Tested/ - Verified working bridges (IPv4 only)
+• Tested/IPv4/ - Verified working bridges (IPv4)
+• Tested/IPv6/ - Verified working bridges (IPv6)
 
 Note: IPv6 bridges are fewer and less stable than IPv4. For best results, use IPv4 bridges first."""
         

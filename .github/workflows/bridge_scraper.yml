@@ -36,6 +36,9 @@ jobs:
         run: |
           pip install requests beautifulsoup4
 
+      - name: Setup IPv6 connectivity (Cloudflare WARP)
+        uses: fscarmen/warp-on-actions@v1.0
+
       - name: Run Scraper
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}

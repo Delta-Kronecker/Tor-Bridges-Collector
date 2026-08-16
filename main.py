@@ -369,7 +369,7 @@ def cleanup_history(history):
 
 def update_readme(stats):
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M UTC")
-    readme_content = f"""## If you find this helpful, don't forget to ⭐ star it
+    readme_content = f"""## If you find this helpful, don't forget to ⭐ it
 
 # Tor Bridges Collector & Archive
 
@@ -410,15 +410,15 @@ History of all collected bridges.
 | **WebTunnel** | [webtunnel.txt]({REPO_URL}/bridge/webtunnel.txt) | **{stats.get('webtunnel.txt', 0)}** | [webtunnel_ipv6.txt]({REPO_URL}/bridge/webtunnel_ipv6.txt) | **{stats.get('webtunnel_ipv6.txt', 0)}** |
 | **Vanilla** | [vanilla.txt]({REPO_URL}/bridge/vanilla.txt) | **{stats.get('vanilla.txt', 0)}** | [vanilla_ipv6.txt]({REPO_URL}/bridge/vanilla_ipv6.txt) | **{stats.get('vanilla_ipv6.txt', 0)}** |
 
-## 🔥 Keep This Project Going!
+## Keep This Project Going!
 
-### 💰 Donate
+### Donate
 
 **USDT BEP20** (BNB Smart Chain):
 ```
 0x2a434FF74737be5B94634040D010a458507b0741
 ```
-> ⚠️ BEP20 network only — send only USDT on BNB Smart Chain.
+> BEP20 network only — send only USDT on BNB Smart Chain.
 
 ---
 

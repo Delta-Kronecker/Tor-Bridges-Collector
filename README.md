@@ -1,3 +1,5 @@
+## If you find this helpful, don't forget to ⭐ star it
+
 # Tor Bridges Collector & Archive
 
 This repository automatically collects, validates, and archives Tor bridges. A GitHub Action runs every 1 hours to fetch new bridges from the official Tor Project.

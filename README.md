@@ -1,3 +1,5 @@
+## If you find this helpful, don’t forget to ⭐ star it
+
 # Tor Bridges Collector & Archive
 
 This repository automatically collects, validates, and archives Tor bridges. A GitHub Action runs every 1 hours to fetch new bridges from the official Tor Project.
@@ -37,15 +39,14 @@ History of all collected bridges.
 | **WebTunnel** | [webtunnel.txt](https://raw.githubusercontent.com/Delta-Kronecker/Tor-Bridges-Collector/refs/heads/main/bridge/webtunnel.txt) | **220** | [webtunnel_ipv6.txt](https://raw.githubusercontent.com/Delta-Kronecker/Tor-Bridges-Collector/refs/heads/main/bridge/webtunnel_ipv6.txt) | **221** |
 | **Vanilla** | [vanilla.txt](https://raw.githubusercontent.com/Delta-Kronecker/Tor-Bridges-Collector/refs/heads/main/bridge/vanilla.txt) | **469** | [vanilla_ipv6.txt](https://raw.githubusercontent.com/Delta-Kronecker/Tor-Bridges-Collector/refs/heads/main/bridge/vanilla_ipv6.txt) | **50** |
 
-## 🔥 Keep This Project Going!
 
-### 💰 Donate
+###  Donate
 
 **USDT BEP20** (BNB Smart Chain):
 ```
 0x2a434FF74737be5B94634040D010a458507b0741
 ```
-> ⚠️ BEP20 network only — send only USDT on BNB Smart Chain.
+>  BEP20 network only — send only USDT on BNB Smart Chain.
 
 ---
 

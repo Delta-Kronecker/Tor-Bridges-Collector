@@ -37,7 +37,10 @@ jobs:
           pip install requests beautifulsoup4
 
       - name: Setup IPv6 connectivity (Cloudflare WARP)
-        uses: fscarmen/warp-on-actions@v1.0
+        uses: fscarmen/warp-on-actions@v1.4
+        with:
+          stack: dual
+          mode: wireguard
 
       - name: Run Scraper
         env:

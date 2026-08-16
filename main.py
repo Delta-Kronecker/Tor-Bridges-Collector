@@ -153,6 +153,12 @@ def extract_connection_info(line, prefer_ipv6=False):
     
     return None, None, transport
 
+def extract_webtunnel_domain(line):
+    match = re.search(r'https?://([^/:]+)', line, re.IGNORECASE)
+    if match:
+        return match.group(1)
+    return None
+
 def is_valid_ip(host):
     try:
         ipaddress.ip_address(host)
@@ -172,7 +178,7 @@ def resolve_host(host, ipv6=False):
         pass
     return None
 
-def test_tcp_socket(host, port, timeout):
+def test_tcp_socket(host, port, timeout, server_hostname=None):
     try:
         sock = socket.create_connection((host, port), timeout=timeout)
         sock.settimeout(1)
@@ -186,14 +192,14 @@ def test_tcp_socket(host, port, timeout):
     except:
         return False
 
-def test_ssl_socket(host, port, timeout):
+def test_ssl_socket(host, port, timeout, server_hostname=None):
     try:
         sock = socket.create_connection((host, port), timeout=timeout)
         context = ssl.create_default_context()
         context.check_hostname = False
         context.verify_mode = ssl.CERT_NONE
         context.minimum_version = ssl.TLSVersion.TLSv1_2
-        ssl_sock = context.wrap_socket(sock, server_hostname=host)
+        ssl_sock = context.wrap_socket(sock, server_hostname=server_hostname or host)
         ssl_sock.settimeout(SSL_TIMEOUT)
         try:
             ssl_sock.send(b"GET / HTTP/1.0\r\n\r\n")
@@ -209,6 +215,7 @@ def advanced_connection_test(bridge_line, ipv6=False):
     host, port, transport = extract_connection_info(bridge_line, prefer_ipv6=ipv6)
     if not host or not port:
         return False
+    sni_domain = extract_webtunnel_domain(bridge_line) if transport == "webtunnel" else None
     if transport == "webtunnel":
         test_func = test_ssl_socket
         timeout = CONNECTION_TIMEOUT
@@ -230,7 +237,7 @@ def advanced_connection_test(bridge_line, ipv6=False):
     for test_host in test_hosts:
         for attempt in range(MAX_RETRIES):
             try:
-                if test_func(test_host, port, timeout):
+                if test_func(test_host, port, timeout, sni_domain):
                     return True
             except:
                 pass
@@ -335,23 +342,14 @@ This repository automatically collects, validates, and archives Tor bridges. A G
 
 ## Bridge Lists
 
-### Tested & Active (IPv4 - Recommended)
+### Tested & Active (Recommended)
 These bridges from the archive have passed a TCP connectivity test (3 retries, 10s timeout) during the last run.
 
-| Transport | IPv4 (Tested) | Count | 
-| :--- | :--- | :--- |
-| **obfs4** | [obfs4_tested.txt]({REPO_URL}/bridge/obfs4_tested.txt) | **{stats.get('obfs4_tested.txt', 0)}** |
-| **WebTunnel** | [webtunnel_tested.txt]({REPO_URL}/bridge/webtunnel_tested.txt) | **{stats.get('webtunnel_tested.txt', 0)}** |
-| **Vanilla** | [vanilla_tested.txt]({REPO_URL}/bridge/vanilla_tested.txt) | **{stats.get('vanilla_tested.txt', 0)}** |
-
-### Tested & Active (IPv6)
-These bridges from the archive have passed an IPv6 TCP connectivity test during the last run.
-
-| Transport | IPv6 (Tested) | Count |
-| :--- | :--- | :--- |
-| **obfs4** | [obfs4_ipv6_tested.txt]({REPO_URL}/bridge/obfs4_ipv6_tested.txt) | **{stats.get('obfs4_ipv6_tested.txt', 0)}** |
-| **WebTunnel** | [webtunnel_ipv6_tested.txt]({REPO_URL}/bridge/webtunnel_ipv6_tested.txt) | **{stats.get('webtunnel_ipv6_tested.txt', 0)}** |
-| **Vanilla** | [vanilla_ipv6_tested.txt]({REPO_URL}/bridge/vanilla_ipv6_tested.txt) | **{stats.get('vanilla_ipv6_tested.txt', 0)}** |
+| Transport | IPv4 (Tested) | Count | IPv6 (Tested) | Count |
+| :--- | :--- | :--- | :--- | :--- |
+| **obfs4** | [obfs4_tested.txt]({REPO_URL}/bridge/obfs4_tested.txt) | **{stats.get('obfs4_tested.txt', 0)}** | [obfs4_ipv6_tested.txt]({REPO_URL}/bridge/obfs4_ipv6_tested.txt) | **{stats.get('obfs4_ipv6_tested.txt', 0)}** |
+| **WebTunnel** | [webtunnel_tested.txt]({REPO_URL}/bridge/webtunnel_tested.txt) | **{stats.get('webtunnel_tested.txt', 0)}** | [webtunnel_ipv6_tested.txt]({REPO_URL}/bridge/webtunnel_ipv6_tested.txt) | **{stats.get('webtunnel_ipv6_tested.txt', 0)}** |
+| **Vanilla** | [vanilla_tested.txt]({REPO_URL}/bridge/vanilla_tested.txt) | **{stats.get('vanilla_tested.txt', 0)}** | [vanilla_ipv6_tested.txt]({REPO_URL}/bridge/vanilla_ipv6_tested.txt) | **{stats.get('vanilla_ipv6_tested.txt', 0)}** |
 
 ### Fresh Bridges (Last 72 Hours)
 Bridges discovered within the last 3 days.

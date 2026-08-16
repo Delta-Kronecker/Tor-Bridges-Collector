@@ -1,4 +1,5 @@
 import os
+import asyncio
 import requests
 import json
 import re
@@ -443,6 +444,69 @@ def send_to_telegram(file_path, caption):
     except Exception as e:
         log(f"Telegram Error: {e}")
 
+def fetch_telegram_bridges():
+    api_id = int(os.getenv("TELEGRAM_API_ID", "0"))
+    api_hash = os.getenv("TELEGRAM_API_HASH", "")
+    session = os.getenv("TELEGRAM_SESSION", "")
+    if api_id == 0 or not api_hash or not session:
+        log("GetBridgesBot disabled: TELEGRAM_API_ID/API_HASH/SESSION secrets missing.")
+        return {}
+
+    try:
+        from telethon import TelegramClient
+        from telethon.sessions import StringSession
+    except ImportError:
+        log("GetBridgesBot skipped: telethon is not installed.")
+        return {}
+
+    bot_username = os.getenv("GETBRIDGES_BOT", "GetBridgesBot")
+    requests_to_bot = [("obfs4", "obfs4 bridges"), ("webtunnel", "webtunnel bridges")]
+    result = {}
+
+    async def _fetch():
+        client = TelegramClient(StringSession(session), api_id, api_hash)
+        await client.connect()
+        if not await client.is_user_authorized():
+            log("GetBridgesBot skipped: Telegram session is not authorized.")
+            await client.disconnect()
+            return result
+        for transport, request in requests_to_bot:
+            found = []
+            try:
+                async with client.conversation(bot_username, timeout=30) as conv:
+                    await conv.send_message("/start")
+                    try:
+                        await conv.get_response(timeout=20)
+                    except Exception:
+                        pass
+                    await conv.send_message(request)
+                    while True:
+                        try:
+                            msg = await conv.get_response(timeout=25)
+                        except Exception:
+                            break
+                        text = msg.text or ""
+                        for raw_line in text.splitlines():
+                            line = raw_line.strip().strip('`')
+                            if transport in line.lower() and is_valid_bridge_line(line):
+                                if line not in found:
+                                    found.append(line)
+                        if found:
+                            break
+            except Exception as e:
+                log(f"GetBridgesBot {transport} error: {type(e).__name__}: {e}")
+            if found:
+                result[transport] = found
+                log(f"GetBridgesBot: received {len(found)} {transport} bridge line(s).")
+        await client.disconnect()
+        return result
+
+    try:
+        return asyncio.run(_fetch())
+    except Exception as e:
+        log(f"GetBridgesBot error: {type(e).__name__}: {e}")
+        return {}
+
 def main():
     convert_all_existing_vanilla_files()
     
@@ -458,6 +522,8 @@ def main():
     stats = {}
     
     log("Starting Bridge Scraper Session...")
+    
+    telegram_bridges = fetch_telegram_bridges()
 
     for target in TARGETS:
         url = target["url"]
@@ -513,7 +579,21 @@ def main():
         except Exception as e:
             log(f"Connection error for {filename}: {e}")
 
-        all_bridges = existing_bridges.union(fetched_bridges)
+        extra_bridges = set()
+        for transport in ("obfs4", "webtunnel"):
+            if filename == f"{transport}.txt":
+                for line in telegram_bridges.get(transport, []):
+                    if is_valid_bridge_line(line):
+                        extra_bridges.add(line)
+                        history_line = line
+                        if transport_type == "vanilla":
+                            history_line = normalize_vanilla_for_history(line)
+                        if history_line not in history:
+                            history[history_line] = datetime.now().isoformat()
+                if extra_bridges:
+                    log(f"Added {len(extra_bridges)} GetBridgesBot bridge(s) to {filename}")
+
+        all_bridges = existing_bridges.union(fetched_bridges).union(extra_bridges)
         
         if all_bridges:
             if transport_type == "vanilla":

@@ -461,7 +461,11 @@ def fetch_telegram_bridges():
 
     async def _fetch():
         client = TelegramClient(StringSession(session), api_id, api_hash)
-        await client.connect()
+        try:
+            await asyncio.wait_for(client.connect(), timeout=15)
+        except asyncio.TimeoutError:
+            log("GetBridgesBot: Telethon connect timed out.")
+            return result
         if not await client.is_user_authorized():
             log("GetBridgesBot skipped: Telegram session is not authorized.")
             await client.disconnect()
@@ -498,7 +502,10 @@ def fetch_telegram_bridges():
         return result
 
     try:
-        return asyncio.run(_fetch())
+        return asyncio.run(asyncio.wait_for(_fetch(), timeout=120))
+    except asyncio.TimeoutError:
+        log("GetBridgesBot timed out.")
+        return {}
     except Exception as e:
         log(f"GetBridgesBot error: {type(e).__name__}: {e}")
         return {}

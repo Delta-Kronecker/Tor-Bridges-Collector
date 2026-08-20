@@ -1,4 +1,2 @@
 webtunnel [2001:db8:2b84:8d:b5af:2b7c:2528:ecbc]:443 F99CFE52EDFF8EAA332CD73C1E638035210C0336 url=https://cdn-26.privacyguides.net/cFwsJGX85KZ4INwnDHvVxs0G ver=0.0.2
-webtunnel [2001:db8:5d90:6cd2:fcac:ea1c:67b2:bee0]:443 D85733AB26E770DC4AB2ED44A0559504550D0925 url=https://qbxa1hay.xoomlia.com/k0tf6syz/ ver=0.0.3
-webtunnel [2001:db8:9de4:c800:cc50:4c26:b192:b006]:443 1F5CA44230E96911836158A474E2AEB16EAEA57C url=https://ghosttown.dev/MTwam63OSHyUPQPcRRw8hx50 ver=0.0.4
 webtunnel [2001:db8:ae03:9e61:9e65:cce8:fdb6:66a8]:443 CD0DFB72DE3124704AEA1BEF3A2CCD62347F6376 url=https://www2.shallotfarm.org/gKOwKgm0McUdTydo3boBiFFM ver=0.0.5

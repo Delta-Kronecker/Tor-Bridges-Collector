@@ -58,6 +58,7 @@ webtunnel [2001:db8:5e5b:6b4b:2bf3:6087:e7c5:b7f7]:443 3154681979E1CB737DB4A2D54
 webtunnel [2001:db8:5f24:a703:dbde:bec8:d285:d600]:443 EFCEA1B038931F73BA155FE1E5945BCEBD62212C url=https://ttt.enerhome.site/ttt_TOR_Cjy8764jkUtopY ver=0.0.1
 webtunnel [2001:db8:6281:baa0:afc0:9579:b303:59a7]:443 377CF6FCBFD2E57D0775EA6F2E8D3EF0D8CDD02F url=https://cryptomeanscryptography.club/TfDS3X50Rf3dR5x3Q3vLS25o ver=0.0.3
 webtunnel [2001:db8:6281:baa0:afc0:9579:b303:59a7]:443 377CF6FCBFD2E57D0775EA6F2E8D3EF0D8CDD02F url=https://cryptomeanscryptography.club/TfDS3X50Rf3dR5x3Q3vLS25o ver=0.0.5
+webtunnel [2001:db8:628e:4cc:75b8:a286:fd79:4e82]:443 4723A337C3F108B96EF7429EC3DD96F3222B589D url=https://api.mittarovo.cz/5E8310CF0A ver=0.0.4
 webtunnel [2001:db8:63b4:6bd7:a357:7858:898e:718c]:443 059AEB126918A33B8246E8136D565FF57753D5CF url=https://alwaysnewbie.eu.org/homesweethome ver=0.0.2
 webtunnel [2001:db8:63b4:6bd7:a357:7858:898e:718c]:443 059AEB126918A33B8246E8136D565FF57753D5CF url=https://alwaysnewbie.eu.org/homesweethome ver=0.0.3
 webtunnel [2001:db8:6442:84:8e10:778c:8aaa:7a8e]:443 FDA4F037334BA25B7ECEBAC458350B588C57DA24 url=https://freeforall.camdvr.org/BrLxiuXhwTEx3qJxFEhOE3tA ver=0.0.4
@@ -100,7 +101,6 @@ webtunnel [2001:db8:92ce:dea9:9efb:61f8:b7e2:4971]:443 291666C8F9E8736771E046DAC
 webtunnel [2001:db8:976:3d4a:a211:b114:a8e2:5b2d]:443 4F4571C3E0FD8D23C0C0AF76D63F7A5B08199A86 url=https://talnett.com/RLzWM1yDLRjlDiNxzdBQr8DR ver=0.0.3
 webtunnel [2001:db8:976:3d4a:a211:b114:a8e2:5b2d]:443 4F4571C3E0FD8D23C0C0AF76D63F7A5B08199A86 url=https://talnett.com/RLzWM1yDLRjlDiNxzdBQr8DR ver=0.0.4
 webtunnel [2001:db8:976:3d4a:a211:b114:a8e2:5b2d]:443 4F4571C3E0FD8D23C0C0AF76D63F7A5B08199A86 url=https://talnett.com/RLzWM1yDLRjlDiNxzdBQr8DR ver=0.0.5
-webtunnel [2001:db8:9de4:c800:cc50:4c26:b192:b006]:443 1F5CA44230E96911836158A474E2AEB16EAEA57C url=https://ghosttown.dev/MTwam63OSHyUPQPcRRw8hx50 ver=0.0.4
 webtunnel [2001:db8:a379:1522:ea89:9c9d:59c8:1d5a]:443 B55A418B4F30181ED304EB2698EE58D283BEE5BF url=https://mirror.sanin.dev/f6VK8vgUKiq3HX6FHdbQpUaa ver=0.0.3
 webtunnel [2001:db8:a379:1522:ea89:9c9d:59c8:1d5a]:443 B55A418B4F30181ED304EB2698EE58D283BEE5BF url=https://mirror.sanin.dev/f6VK8vgUKiq3HX6FHdbQpUaa ver=0.0.4
 webtunnel [2001:db8:a379:1522:ea89:9c9d:59c8:1d5a]:443 B55A418B4F30181ED304EB2698EE58D283BEE5BF url=https://mirror.sanin.dev/f6VK8vgUKiq3HX6FHdbQpUaa ver=0.0.5

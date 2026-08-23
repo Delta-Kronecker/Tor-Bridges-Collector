@@ -75,6 +75,8 @@ webtunnel [2001:db8:714f:e9ee:d1dc:a674:3606:cfe0]:443 339281F7912780D8A7FB118A4
 webtunnel [2001:db8:747d:f959:7714:e5ea:b6d8:66e7]:443 CF1827C41B504EB3CCF3D4EDE7D8D88761F2039E url=https://sp-sk.bitcdn.ovh/standbakhdown ver=0.0.3
 webtunnel [2001:db8:747d:f959:7714:e5ea:b6d8:66e7]:443 CF1827C41B504EB3CCF3D4EDE7D8D88761F2039E url=https://sp-sk.bitcdn.ovh/standbakhdown ver=0.0.4
 webtunnel [2001:db8:77a8:d427:4e0a:8cf7:a2c0:8cda]:443 77B60C7540BA105297FB91DD7BA3557F6ED15C5B url=https://alina-photos.art/da495ccdc73b948387c45c2ab82c1b1aac4b1582 ver=0.0.3
+webtunnel [2001:db8:77cb:5ce6:9995:7466:7ffa:b3f8]:443 770EA6412C8D3997ABFFF7173A3E53F1D3660167 url=https://shallotfarm.org/jcHgyp7m90iQr9QaVSprq1wP ver=0.0.3
+webtunnel [2001:db8:77cb:5ce6:9995:7466:7ffa:b3f8]:443 770EA6412C8D3997ABFFF7173A3E53F1D3660167 url=https://shallotfarm.org/jcHgyp7m90iQr9QaVSprq1wP ver=0.0.5
 webtunnel [2001:db8:77d3:3892:39fc:d459:869c:44e0]:443 B6650B31F73D0E82DFDD6302233AEA7DBA984DC1 url=https://dev.dumkatze.de/unpack-skinny-purr ver=0.0.3
 webtunnel [2001:db8:77dc:4180:2d73:7fda:59f4:5284]:443 6F6C8E0069880AC253704507119464CE4BD1BA65 url=https://dev-test.catcat.pictures/Fj7VnJi1mjigUKBb2rJ1TeWJ ver=0.0.2
 webtunnel [2001:db8:77dc:4180:2d73:7fda:59f4:5284]:443 6F6C8E0069880AC253704507119464CE4BD1BA65 url=https://dev-test.catcat.pictures/Fj7VnJi1mjigUKBb2rJ1TeWJ ver=0.0.3
@@ -103,6 +105,7 @@ webtunnel [2001:db8:92ce:dea9:9efb:61f8:b7e2:4971]:443 291666C8F9E8736771E046DAC
 webtunnel [2001:db8:976:3d4a:a211:b114:a8e2:5b2d]:443 4F4571C3E0FD8D23C0C0AF76D63F7A5B08199A86 url=https://talnett.com/RLzWM1yDLRjlDiNxzdBQr8DR ver=0.0.3
 webtunnel [2001:db8:976:3d4a:a211:b114:a8e2:5b2d]:443 4F4571C3E0FD8D23C0C0AF76D63F7A5B08199A86 url=https://talnett.com/RLzWM1yDLRjlDiNxzdBQr8DR ver=0.0.4
 webtunnel [2001:db8:976:3d4a:a211:b114:a8e2:5b2d]:443 4F4571C3E0FD8D23C0C0AF76D63F7A5B08199A86 url=https://talnett.com/RLzWM1yDLRjlDiNxzdBQr8DR ver=0.0.5
+webtunnel [2001:db8:9de4:c800:cc50:4c26:b192:b006]:443 1F5CA44230E96911836158A474E2AEB16EAEA57C url=https://ghosttown.dev/MTwam63OSHyUPQPcRRw8hx50 ver=0.0.4
 webtunnel [2001:db8:a379:1522:ea89:9c9d:59c8:1d5a]:443 B55A418B4F30181ED304EB2698EE58D283BEE5BF url=https://mirror.sanin.dev/f6VK8vgUKiq3HX6FHdbQpUaa ver=0.0.3
 webtunnel [2001:db8:a379:1522:ea89:9c9d:59c8:1d5a]:443 B55A418B4F30181ED304EB2698EE58D283BEE5BF url=https://mirror.sanin.dev/f6VK8vgUKiq3HX6FHdbQpUaa ver=0.0.4
 webtunnel [2001:db8:a379:1522:ea89:9c9d:59c8:1d5a]:443 B55A418B4F30181ED304EB2698EE58D283BEE5BF url=https://mirror.sanin.dev/f6VK8vgUKiq3HX6FHdbQpUaa ver=0.0.5

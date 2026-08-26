@@ -1,4 +1,4 @@
-webtunnel [2001:db8:191d:f879:307f:ae5f:f25f:edbe]:443 E8F3D7D70ECDD1441B09958B04EABB835F7E7C4F url=https://cdn-130.triplebit.dev/3b4c2d5e6f7g8h9i0j1k2l3m ver=0.0.2
-webtunnel [2001:db8:1da7:e44a:892b:6ada:b3e2:4160]:443 ACBB486B9D60979A05E623D11CC8181A16A81E51 url=https://usa.bulger.au/7gBqm1jbTOpU0jLV91IZHN0f ver=0.0.1
 webtunnel [2001:db8:77a8:d427:4e0a:8cf7:a2c0:8cda]:443 77B60C7540BA105297FB91DD7BA3557F6ED15C5B url=https://alina-photos.art/da495ccdc73b948387c45c2ab82c1b1aac4b1582 ver=0.0.3
 webtunnel [2001:db8:7d9e:1aa:ee0d:4115:ac82:8007]:443 7CC64C882F0098BCE3AC6D1C14ED5BA017B15AD8 url=https://ie01-dub.beijing.st/sorryiamlateijustdontgiveafoook ver=0.0.5
+webtunnel [2001:db8:9830:b7ec:bb37:f12:ec5f:aace]:443 67DFB4E30EF8CC5EFD87CC066D919D12DEDB5170 url= ver=0.0.4
+webtunnel [2001:db8:bb9d:97fd:ed39:10a0:2f60:73b3]:443 3068C8728C4FCBFD3AD9E0AE1CBBF69F7DEBE7E6 url=https://drive.gehenna.cz/9F2A77B13C ver=0.0.6

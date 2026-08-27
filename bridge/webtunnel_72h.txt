@@ -1,4 +1,4 @@
-webtunnel [2001:db8:77a8:d427:4e0a:8cf7:a2c0:8cda]:443 77B60C7540BA105297FB91DD7BA3557F6ED15C5B url=https://alina-photos.art/da495ccdc73b948387c45c2ab82c1b1aac4b1582 ver=0.0.3
-webtunnel [2001:db8:7d9e:1aa:ee0d:4115:ac82:8007]:443 7CC64C882F0098BCE3AC6D1C14ED5BA017B15AD8 url=https://ie01-dub.beijing.st/sorryiamlateijustdontgiveafoook ver=0.0.5
-webtunnel [2001:db8:9830:b7ec:bb37:f12:ec5f:aace]:443 67DFB4E30EF8CC5EFD87CC066D919D12DEDB5170 url= ver=0.0.4
-webtunnel [2001:db8:bb9d:97fd:ed39:10a0:2f60:73b3]:443 3068C8728C4FCBFD3AD9E0AE1CBBF69F7DEBE7E6 url=https://drive.gehenna.cz/9F2A77B13C ver=0.0.6
+webtunnel [2001:db8:259c:faa6:24a9:cce0:c60f:4642]:443 23958FC105E58061AFD2DECC61D363F28AB36490 url=https://pod02.oneclickhost.eu/lzcHh4sbo8bOTwkc4IwkSxNS ver=0.0.6
+webtunnel [2001:db8:289b:84cd:4be3:77f1:1cdd:9cb1]:443 D71C8E9C2180D2F35DEBF4A39BFCA6972F076D1C sni-imitation=yandex.ru,google.com,dzen.ru,vk.com,mail.ru,ozon.ru,ya.ru,www.wildberries.ru,rutube.ru,www.avito.ru,ok.ru,vkvideo.ru url=https://streaming.the-forgotten-tales.com/gz9X1VBgl0r1Xfx3dHdNl5Tl ver=0.0.5
+webtunnel [2001:db8:60a9:1d8:6b81:cf57:c637:99ad]:443 1448AB7272019B6BD193FC0C0A6D90882BF0CFB5 url=https://radio.bulger.co.uk/MRVXuFJChNu7VSs8Zf4KhaDD ver=0.0.4
+webtunnel [2001:db8:715b:f70c:e96d:2bfe:d8d1:f3ce]:443 47719009237699FB6DC7B52DE5F487B4D244D9F9 url=https://creeper.sbs/EJUv2XVQkHdMHwXJCwNUfGip ver=0.0.4

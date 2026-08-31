@@ -1,4 +1,4 @@
-webtunnel [2001:db8:4e0:fc0e:c381:ed8c:7ddf:3433]:443 7F8A03A9D34FAF642D9480CA506C5701989C8EAC url=https://bridge.hxflife.xyz/07a6bf67ce2030e0582dcbce9b2f5c9c ver=0.0.6
-webtunnel [2001:db8:8398:7383:d015:afe5:11c2:61a6]:443 3BB18234DE40FE0313FBC3FCFFBAF16F42381BFF url=https://libreaxolotl.xyz/rKGGmPXyenWA0PDRpL6INM2Z ver=0.0.4
-webtunnel [2001:db8:e674:93b5:72d5:d2c:70cc:c0d3]:443 7FE9DC4C091655F7D9802564EA8A03B2823CEE22 url=https://nodes.tox.st/tox_chat_is_a_open-source_p2p_privacy_chat_platform ver=0.0.6
-webtunnel [2001:db8:ecdd:795b:81e3:f90a:4a52:b772]:443 4268FDA0435617984075BEEEDEA95226D3E29513 url=https://myprivatecloud82.fun/DM143fFEmqF1rgqtFtwqgFAFmt21uGPkmFq2ZT1f9pPlitj1 ver=0.0.3
+webtunnel [2001:db8:60a9:1d8:6b81:cf57:c637:99ad]:443 1448AB7272019B6BD193FC0C0A6D90882BF0CFB5 url=https://radio.bulger.co.uk/MRVXuFJChNu7VSs8Zf4KhaDD ver=0.0.4
+webtunnel [2001:db8:63b4:6bd7:a357:7858:898e:718c]:443 059AEB126918A33B8246E8136D565FF57753D5CF url=https://alwaysnewbie.eu.org/homesweethome ver=0.0.3
+webtunnel [2001:db8:abc:8852:1fca:afa2:1368:ccb4]:443 0AD63AC9D14A2711228AC9CA54E3EAC18A4FD628 url=https://sub2.mysty.ru/ ver=0.0.5
+webtunnel [2001:db8:fbfa:48b4:5520:53e6:24b4:eca0]:443 93807A85521915D7D2BA17725C08AC39035D1741 url=https://web.localenby.is/HmlgNcBbNgRJw862bJVxZRes ver=0.0.3

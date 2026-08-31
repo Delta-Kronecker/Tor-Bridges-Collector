@@ -136,6 +136,7 @@ webtunnel [2001:db8:afc8:4fe0:c021:5377:36bf:e9b7]:443 3BDD7036FAC9CC81ADBA39E88
 webtunnel [2001:db8:b705:a39c:b308:e898:e070:b8e8]:443 E1094D987D5116EE9D77124AD1500CF59B41628A url=https://le.nd-ai.de/b0153c441eef06cbdd84d071897459e1789b347758fe282a99b4088daf154a1a ver=0.0.3
 webtunnel [2001:db8:b91b:9b4c:8003:9671:eee:7f0a]:443 B80A80398FDE7F94C6C72F9429D8EA128663B780 url=https://ams1.cryptomeanscryptography.club/x50fjFEcivPj42GQKfOOnyw3 ver=0.0.3
 webtunnel [2001:db8:b91b:9b4c:8003:9671:eee:7f0a]:443 B80A80398FDE7F94C6C72F9429D8EA128663B780 url=https://ams1.cryptomeanscryptography.club/x50fjFEcivPj42GQKfOOnyw3 ver=0.0.5
+webtunnel [2001:db8:bb9d:97fd:ed39:10a0:2f60:73b3]:443 3068C8728C4FCBFD3AD9E0AE1CBBF69F7DEBE7E6 url=https://drive.gehenna.cz/9F2A77B13C ver=0.0.6
 webtunnel [2001:db8:bd88:ba8c:31d5:5bfc:e398:e22a]:443 5C416460CA3D1C72F89EAA654B668CE58943F1E0 url=https://www.readthefinemanual.net/LTi1BwOcMQmZ2kCGl1CK9plm ver=0.0.1
 webtunnel [2001:db8:beb:5884:ffcc:bfe3:2858:b06b]:443 1E242C749707B4A68A269F0D31311CE36CDFEC28 url=https://wt.gri.mw/74Fm0lKUWWMMjZpKf6iSC0UH ver=0.0.3
 webtunnel [2001:db8:beb:5884:ffcc:bfe3:2858:b06b]:443 1E242C749707B4A68A269F0D31311CE36CDFEC28 url=https://wt.gri.mw/74Fm0lKUWWMMjZpKf6iSC0UH ver=0.0.4

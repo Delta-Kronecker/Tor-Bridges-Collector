@@ -1,2 +1,2 @@
-webtunnel [2001:db8:c525:22a6:6b6a:e916:9ef7:8152]:443 8A1EE5824071CA39E7D76BD579FB2AEF2B52E524 url=https://c.img-cdn.net/yE4s7KehTFyj/ ver=0.0.2
-webtunnel [2001:db8:dee:4f60:9a4a:641b:71ff:7358]:443 664BEAA9A60B4C029258E4A19E13E26C6D961E0A url=https://hhynz.maledict.me/TLzq9HcRQDlLGmjHAQMff0Hu ver=0.0.5
+webtunnel [2001:db8:1d30:ff54:bba:de27:3861:ff8c]:443 93F50F39F559F2BC2D0C8F936239017AC85AA9BE url=https://rabbithole2.net/4kHLbQkqWJV0Jxfk28H5MySc ver=0.0.1
+webtunnel [2001:db8:2af5:ccd2:12b:120d:762b:9ed4]:443 C0060BECE946A6BCBEA868AEB97969303B927289 url=https://men-touching.men/ibId6XJSQgAhhO9elAKOE1pS ver=0.0.6

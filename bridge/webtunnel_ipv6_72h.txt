@@ -1,2 +1,2 @@
-webtunnel [2001:db8:1d30:ff54:bba:de27:3861:ff8c]:443 93F50F39F559F2BC2D0C8F936239017AC85AA9BE url=https://rabbithole2.net/4kHLbQkqWJV0Jxfk28H5MySc ver=0.0.1
-webtunnel [2001:db8:2af5:ccd2:12b:120d:762b:9ed4]:443 C0060BECE946A6BCBEA868AEB97969303B927289 url=https://men-touching.men/ibId6XJSQgAhhO9elAKOE1pS ver=0.0.6
+webtunnel [2001:db8:ba36:d2f:764f:ac6b:f992:cb92]:443 33E457AAB7861BF71EF5E77947C1DD3F104BE411 url=https://cdn.dameray.com/2b2d9f2715a649a49c2f034089ad2671826b ver=0.0.4
+webtunnel [2001:db8:db12:d3f0:335f:5cb1:f305:bdd1]:443 F0657A8419A7C14027CD79D33CA018D9487CB302 url=https://heresthespace.com/oAH2lLnop5li9wV ver=0.0.3

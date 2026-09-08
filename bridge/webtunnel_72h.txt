@@ -1,4 +1,2 @@
-webtunnel [2001:db8:1b75:cd28:36c7:1347:3eda:a01e]:443 13001E27730255B1101F95BE4E5EC29E9560B0DD url=https://mrrp.sillykittens.net/IfuJ9KsjkEk6462QblGNI0pR ver=0.0.4
-webtunnel [2001:db8:2638:b1a0:f262:490b:f15c:6798]:443 FFBAE1B459A6CB5C6751F9BE72284EAB9E36CD0F url=https://steuern-sind-raub.ch/rohzaaSae8meith4oo ver=0.0.3
-webtunnel [2001:db8:60a9:1d8:6b81:cf57:c637:99ad]:443 1448AB7272019B6BD193FC0C0A6D90882BF0CFB5 url=https://radio.bulger.co.uk/MRVXuFJChNu7VSs8Zf4KhaDD ver=0.0.4
-webtunnel [2001:db8:715b:f70c:e96d:2bfe:d8d1:f3ce]:443 47719009237699FB6DC7B52DE5F487B4D244D9F9 url=https://creeper.sbs/EJUv2XVQkHdMHwXJCwNUfGip ver=0.0.4
+webtunnel [2001:db8:243b:a5c9:7728:ccef:745a:e1ee]:443 B94C563110B9AFD1727F742EB614B09DA8DC2A74 url=https://encyclical.org/3UhGoU2otI1enSBtW8l4inE0 ver=0.0.4
+webtunnel [2001:db8:db93:b227:b085:2fb2:6699:3758]:443 23710B81797F7F158D0BADE5ABF8937F9FA8A1E6 url=https://0016100.xyz/o0uXxHSvpyHlz6bhmT9bx90U ver=0.0.4

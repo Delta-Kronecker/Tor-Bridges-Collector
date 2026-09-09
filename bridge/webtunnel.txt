@@ -31,6 +31,7 @@ webtunnel [2001:db8:28ff:ae4f:c:9ef6:1722:ac46]:443 1098B4E153AB1666B4F63F48325A
 webtunnel [2001:db8:2a61:dea:a9e1:2127:6f2c:5680]:443 76CAF380CD98B4640E2F2F4DD09BB8348D271C31 url=https://headhumping.jumpingcrab.com/teqzL2Muf7pnzw2qhQ3d ver=0.0.1
 webtunnel [2001:db8:2ae3:679a:856c:c72a:2746:1a1b]:443 8943BF53C9561C75A7302ED59575EF71E2B26562 url=https://allium.heelsn.eu/X1uzc7J4omPPBbqkJMDgBtXP ver=0.0.3
 webtunnel [2001:db8:2ae3:679a:856c:c72a:2746:1a1b]:443 8943BF53C9561C75A7302ED59575EF71E2B26562 url=https://allium.heelsn.eu/X1uzc7J4omPPBbqkJMDgBtXP ver=0.0.4
+webtunnel [2001:db8:2ae3:679a:856c:c72a:2746:1a1b]:443 8943BF53C9561C75A7302ED59575EF71E2B26562 url=https://allium.heelsn.eu/X1uzc7J4omPPBbqkJMDgBtXP ver=0.0.6
 webtunnel [2001:db8:2af5:ccd2:12b:120d:762b:9ed4]:443 C0060BECE946A6BCBEA868AEB97969303B927289 url=https://men-touching.men/ibId6XJSQgAhhO9elAKOE1pS ver=0.0.6
 webtunnel [2001:db8:2b84:8d:b5af:2b7c:2528:ecbc]:443 F99CFE52EDFF8EAA332CD73C1E638035210C0336 url=https://cdn-26.privacyguides.net/cFwsJGX85KZ4INwnDHvVxs0G ver=0.0.2
 webtunnel [2001:db8:2c47:4df3:1bde:f2a:7d6:edc8]:443 DF343521735ABE129910A998817B3A93AA2390FE url=https://mensor.ch ver=0.0.4
@@ -92,6 +93,7 @@ webtunnel [2001:db8:5f24:a703:dbde:bec8:d285:d600]:443 EFCEA1B038931F73BA155FE1E
 webtunnel [2001:db8:603:6e60:8f8b:5077:7cd3:7d3b]:443 E72CE4ACEEE2552F3104A728ECEC0C18ABD967EA url=https://pl2.808.re/5GZktnqLvubQd6yUdTR3dlVy ver=0.0.2
 webtunnel [2001:db8:60a9:1d8:6b81:cf57:c637:99ad]:443 1448AB7272019B6BD193FC0C0A6D90882BF0CFB5 url=https://radio.bulger.co.uk/MRVXuFJChNu7VSs8Zf4KhaDD ver=0.0.4
 webtunnel [2001:db8:60bb:a5e8:aa6b:6472:ab33:27b7]:443 DEC83BCC768236DA5F07E377B4A5C6A7E2638B18 url=https://oneforty.chummer.online/e2xrr8hjW2rRjUMsb6jdNoj6 ver=0.0.1
+webtunnel [2001:db8:61d8:dd06:ee48:5658:1005:8c1a]:443 ED7E43FDFA82588D3E01B713F649C5C00C452B0A url=https://mdapi.ch/api/v1/proxy/U84is7V9U8rB0ZgnWKfs65lmwsvprN9x ver=0.0.5
 webtunnel [2001:db8:6281:baa0:afc0:9579:b303:59a7]:443 377CF6FCBFD2E57D0775EA6F2E8D3EF0D8CDD02F url=https://cryptomeanscryptography.club/TfDS3X50Rf3dR5x3Q3vLS25o ver=0.0.3
 webtunnel [2001:db8:6281:baa0:afc0:9579:b303:59a7]:443 377CF6FCBFD2E57D0775EA6F2E8D3EF0D8CDD02F url=https://cryptomeanscryptography.club/TfDS3X50Rf3dR5x3Q3vLS25o ver=0.0.5
 webtunnel [2001:db8:628e:4cc:75b8:a286:fd79:4e82]:443 4723A337C3F108B96EF7429EC3DD96F3222B589D url=https://api.mittarovo.cz/5E8310CF0A ver=0.0.4

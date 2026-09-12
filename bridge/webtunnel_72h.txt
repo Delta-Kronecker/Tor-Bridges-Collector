@@ -1,3 +1,3 @@
-webtunnel [2001:db8:1169:5d59:447d:1feb:3595:b174]:443 9E22636EA817AD4FE43F2EC14DEED5131FED1CB0 url=https://cdn-40.triplebit.dev/aif5ohWa4aWiephu ver=0.0.2
-webtunnel [2001:db8:aaf2:3e7d:b135:6398:bee7:c8e5]:443 C85C16134DF18A4B7FA0A0053C6F877E0450FB7B url=https://bridge.limoneneis.de/jABABR3DTBOgO9gCvY1dZjgu ver=0.0.6
+webtunnel [2001:db8:3532:d0b6:b59e:acfb:f6ed:a40e]:443 81DCDD5A242A10CA419E7CE477DBE3BD00A9DAB0 url=https://wedo.cyou/4fdDGGRIMtLFi2bmq4rxLbti ver=0.0.4
 webtunnel [2001:db8:ad13:e588:6629:afd2:cc58:6af5]:443 B51FD3150E208A600D00BCA5963B0EF5C867574F url=https://rot.ronaak.eu:443/iUFRXvAp3E3MHDiJ8453BaaM ver=0.0.2
+webtunnel [2001:db8:c3b9:96a9:d07e:2cc0:eb8b:fb5c]:443 1AA948BDB380AF78E6478B0C2E85D203341E2021 url=https://bridge.octopitech.com/jhx1TaQD9GyALKMQAiuVCa2B ver=0.0.4

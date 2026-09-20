@@ -1,4 +1,4 @@
-webtunnel [2001:db8:2b84:8d:b5af:2b7c:2528:ecbc]:443 F99CFE52EDFF8EAA332CD73C1E638035210C0336 url=https://cdn-26.privacyguides.net/cFwsJGX85KZ4INwnDHvVxs0G ver=0.0.2
-webtunnel [2001:db8:6b49:259c:4189:ea0b:5618:7b3a]:443 906BABCFBF0E872ADB1661AC1283A77C616C084B url=https://ghostme.link/ ver=0.0.5
-webtunnel [2001:db8:ad01:2031:5e4f:149f:50da:542e]:443 55975C16B90225C762A211CE9C480A5F1A8E2B66 url=https://kidcoral.com/iVOop90Hv3EkDLVC7uBnkHyp ver=0.0.4
-webtunnel [2001:db8:ae03:9e61:9e65:cce8:fdb6:66a8]:443 CD0DFB72DE3124704AEA1BEF3A2CCD62347F6376 url=https://www2.shallotfarm.org/gKOwKgm0McUdTydo3boBiFFM ver=0.0.5
+webtunnel [2001:db8:135d:123e:527a:c63b:5eb0:b322]:443 68674E54A17AEB1C9ADE878BBBB46C6975DD3105 url=https://vika7.space/83c1327ea78e32b5d151e872ca123f7858aec2e1 ver=0.0.4
+webtunnel [2001:db8:16dd:e87a:be69:57a6:40b3:21da]:443 6D1E413706CFB579D293C2539901D03F31C1DE6C url=https://cyberspace.rest/r5DN8hUb7tq1gPuoLtxDdrBk ver=0.0.7
+webtunnel [2001:db8:5e5b:6b4b:2bf3:6087:e7c5:b7f7]:443 3154681979E1CB737DB4A2D540C63F1B92B03995 url=https://tor1.woodie.dev/BXJGRHc8o82e4XheHZ2FCbeA ver=0.0.4
+webtunnel [2001:db8:9513:a2a7:e8de:e859:2818:6694]:443 34E2AC0B23D523B789EAD6E193DC05078943B94D url=https://us04-buf.beijing.st/fromwhereyoupickupthisgarbage ver=0.0.4

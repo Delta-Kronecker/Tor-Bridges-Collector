@@ -1,2 +1,2 @@
-webtunnel [2001:db8:8c88:1b17:d7ae:cb68:f28e:e31c]:443 C115DAC2FE991CA25DDD43D7D4D398FEA9AA4C01 url=https://foglab.net/t9crLwo4LzFDWHdwcGf9gFrk ver=0.0.5
-webtunnel [2001:db8:cd2d:9f63:180b:1857:cf43:6fd0]:443 FD3942670AB4ADED23A52FB34B9BADDA63D8B62C url=https://webtunnel.buhhenbaldence.com:8443/MqyJQRbWuJW0teiWH02Q3p7J ver=0.0.5
+webtunnel [2001:db8:3845:2a14:bb9:481c:73c9:d237]:443 337F12771B8FBA072121C0978B8D5722B567609B url=https://www.cafe-kantholz.de/LceovFqcXy92Ji6Gx0rrUmmB ver=0.0.6
+webtunnel [2001:db8:6589:5555:e62f:68ab:8983:8e01]:443 98422E9D1648FFDB8F16C06CF58CD64B6C03A003 url=https://bridge-es.jmrp.io/hzry0yMJazasJuZZP09uCUtn ver=0.0.4

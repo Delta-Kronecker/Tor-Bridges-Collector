@@ -1,4 +1,4 @@
 webtunnel [2001:db8:6b49:259c:4189:ea0b:5618:7b3a]:443 906BABCFBF0E872ADB1661AC1283A77C616C084B url=https://ghostme.link/ ver=0.0.5
+webtunnel [2001:db8:6c28:75f1:a614:c263:a4c9:6ab]:443 F9928874DE5B119F9F80ABDF8124DCC1C2AEE57B url=https://dev.jonahtreiber.com/cuRsFLyC7t5kFKfZG1KhLTpr ver=0.0.7
 webtunnel [2001:db8:7d9e:1aa:ee0d:4115:ac82:8007]:443 7CC64C882F0098BCE3AC6D1C14ED5BA017B15AD8 url=https://ie01-dub.beijing.st/sorryiamlateijustdontgiveafoook ver=0.0.5
 webtunnel [2001:db8:9830:b7ec:bb37:f12:ec5f:aace]:443 653AB31AC3FBEEE0B224833F2C2F6EEB2FC67FAB url= ver=0.0.4
-webtunnel [2001:db8:ad01:2031:5e4f:149f:50da:542e]:443 55975C16B90225C762A211CE9C480A5F1A8E2B66 url=https://kidcoral.com/iVOop90Hv3EkDLVC7uBnkHyp ver=0.0.4

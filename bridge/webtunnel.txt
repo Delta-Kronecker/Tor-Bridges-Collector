@@ -112,6 +112,7 @@ webtunnel [2001:db8:6442:84:8e10:778c:8aaa:7a8e]:443 FDA4F037334BA25B7ECEBAC4583
 webtunnel [2001:db8:6589:5555:e62f:68ab:8983:8e01]:443 98422E9D1648FFDB8F16C06CF58CD64B6C03A003 url=https://bridge-es.jmrp.io/hzry0yMJazasJuZZP09uCUtn ver=0.0.4
 webtunnel [2001:db8:67ae:eddf:66cd:cbd0:eab4:8143]:443 439C2F45FA99C9255F079ACBF59060D3EC2C3637 url=https://push.hieronymus.uk/sheflashedthetorchasasignal ver=0.0.4
 webtunnel [2001:db8:6b49:259c:4189:ea0b:5618:7b3a]:443 906BABCFBF0E872ADB1661AC1283A77C616C084B url=https://ghostme.link/ ver=0.0.5
+webtunnel [2001:db8:6c28:75f1:a614:c263:a4c9:6ab]:443 F9928874DE5B119F9F80ABDF8124DCC1C2AEE57B url=https://dev.jonahtreiber.com/cuRsFLyC7t5kFKfZG1KhLTpr ver=0.0.7
 webtunnel [2001:db8:6d8e:6634:691b:dc7f:6c25:fb29]:443 B21C146831B809CE3207F177CE39E6CA5460627E url=https://bubatz.legal/maTXktEDbbS5FInhNhO2TPtF ver=0.0.3
 webtunnel [2001:db8:6d91:1d3e:230b:9d98:8e29:eefc]:443 C762244C9E351B4A63EF1EF4585A38535C3023D8 url=https://anastasia.anondns.net/atkzL9N85rspiiRudpeCh9gq ver=0.0.1
 webtunnel [2001:db8:6ebc:2eba:25e:28d6:4d14:6cfa]:443 28F5A0325B50F3EFB5FCC73194FCBF9D4972248E url=https://tired.social/0r2DRKvagEsZtvZgItdN0fo1 ver=0.0.4

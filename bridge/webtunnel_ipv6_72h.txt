@@ -1,2 +1,2 @@
-webtunnel [2001:db8:157f:b0b0:4ee2:b754:ee1e:76d1]:443 96E16DE2F8DA38060D93A554DC56C90A681F6FE4 url=https://jochenkessler.de/D82XI88Vz3nttmFEc9OBXGRD ver=0.0.3
-webtunnel [2001:db8:77cb:5ce6:9995:7466:7ffa:b3f8]:443 770EA6412C8D3997ABFFF7173A3E53F1D3660167 url=https://shallotfarm.org/jcHgyp7m90iQr9QaVSprq1wP ver=0.0.5
+webtunnel [2001:db8:2444:7905:816d:62a4:9184:e1b2]:443 5158AFC892367D7E33A80759289BBB03C4B05AFE url=https://magicgreenforest.de/itwouldbeawfuliftheearthexploded_itssobeautiful ver=0.0.5
+webtunnel [2001:db8:d3e0:e4e:ea8c:f13c:4b74:6c15]:443 ECE165E6510C15D4EA814D32B17D6A2E4A56938A url=https://cdn-46.triplebit.dev/beaXo6cho1eil2ai ver=0.0.2

@@ -1,27 +1,2 @@
-Bridge snowflake 193.187.88.42:132 B280B23E1107BB62ABFC40DDCC8824814F80A72 url=https://snowflake-broker.torproject.net/
-Bridge snowflake 193.187.88.43:132 B280B23E1107BB62ABFC40DDCC8824814F80A72 url=https://snowflake-broker.torproject.net/
-Bridge snowflake 193.187.88.44:132 B280B23E1107BB62ABFC40DDCC8824814F80A72 url=https://snowflake-broker.torproject.net/
-Bridge snowflake 193.187.88.45:132 B280B23E1107BB62ABFC40DDCC8824814F80A72 url=https://snowflake-broker.torproject.net/
-Bridge snowflake 193.187.88.46:132 B280B23E1107BB62ABFC40DDCC8824814F80A72 url=https://snowflake-broker.torproject.net/
-Bridge snowflake [2a0c:dd40:1:b::42]:132 B280B23E1107BB62ABFC40DDCC8824814F80A72 url=https://snowflake-broker.torproject.net/
-Bridge snowflake [2a0c:dd40:1:b::43]:132 B280B23E1107BB62ABFC40DDCC8824814F80A72 url=https://snowflake-broker.torproject.net/
-Bridge snowflake [2a0c:dd40:1:b::44]:132 B280B23E1107BB62ABFC40DDCC8824814F80A72 url=https://snowflake-broker.torproject.net/
-Bridge snowflake [2a0c:dd40:1:b::45]:132 B280B23E1107BB62ABFC40DDCC8824814F80A72 url=https://snowflake-broker.torproject.net/
-Bridge snowflake [2a0c:dd40:1:b::46]:132 B280B23E1107BB62ABFC40DDCC8824814F80A72 url=https://snowflake-broker.torproject.net/
-Bridge snowflake 141.212.118.18:80 8838024498816A039FCBBA14E6F40A0843051FA url=https://snowflake-broker.torproject.net/
-Bridge snowflake [2607:f018:600:8:be30:5bff:fe1:c6fa]:80 8838024498816A039FCBBA14E6F40A0843051FA url=https://snowflake-broker.torproject.net/
-Bridge snowflake 192.0.2.3:80 2B280B23E1107BB62ABFC40DDCC8824814F80A72 url=https://snowflake-broker.torproject.net.global.prod.fastly.net/ front=cdn.sstatic.net
-Bridge snowflake 192.0.2.4:80 8838024498816A039FCBBA14E6F40A0843051FA url=https://snowflake-broker.torproject.net.global.prod.fastly.net/ front=cdn.sstatic.net
-Bridge snowflake 192.0.2.3:80 2B280B23E1107BB62ABFC40DDCC8824814F80A72 url=https://snowflake-broker.azureedge.net/ front=ajax.aspnetcdn.com
-Bridge snowflake 192.0.2.4:80 8838024498816A039FCBBA14E6F40A0843051FA url=https://snowflake-broker.azureedge.net/ front=ajax.aspnetcdn.com
-Bridge snowflake 192.0.2.3:80 2B280B23E1107BB62ABFC40DDCC8824814F80A72 url=https://1098762253.rsc.cdn77.org/ front=docs.plesk.com
-Bridge snowflake 192.0.2.4:80 8838024498816A039FCBBA14E6F40A0843051FA url=https://1098762253.rsc.cdn77.org/ front=docs.plesk.com
-Bridge snowflake 192.0.2.3:80 2B280B23E1107BB62ABFC40DDCC8824814F80A72 url=https://snowflake-broker.torproject.net/ front=www.google.com
-Bridge snowflake 192.0.2.4:80 8838024498816A039FCBBA14E6F40A0843051FA url=https://snowflake-broker.torproject.net.global.prod.fastly.net/ front=fastly.jsdelivr.net
-Bridge snowflake 192.0.2.3:80 2B280B23E1107BB62ABFC40DDCC8824814F80A72 url=https://snowflake-broker.torproject.net.global.prod.fastly.net/ front=foursquare.com
-Bridge snowflake 10.0.3.1:443 53B65F538F5E9A5FA6DFE5D75C78CB66C5515EF7 url=https://snowflake-broker.triplebit.dev/ front=www.google.com
-Bridge snowflake 10.0.3.2:443 A478B32B16FC1F371677F9F41D9C5272B8EBB0F7 url=https://snowflake-broker.triplebit.dev/ front=www.gstatic.com
-Bridge snowflake 10.0.3.1:80 53B65F538F5E9A5FA6DFE5D75C78CB66C5515EF7 url=https://triplebit-snowflake-broker.b-cdn.net/ front=www.bunny.net
-Bridge snowflake 10.0.3.2:80 A478B32B16FC1F371677F9F41D9C5272B8EBB0F7 url=https://triplebit-snowflake-broker.b-cdn.net/ front=fonts.bunny.net
-Bridge snowflake 10.0.3.1:8080 53B65F538F5E9A5FA6DFE5D75C78CB66C5515EF7 url=https://snowflake-broker.triplebit.dev/ front=www.google.com
-Bridge snowflake 10.0.3.2:8080 A478B32B16FC1F371677F9F41D9C5272B8EBB0F7 url=https://snowflake-broker.triplebit.dev/ front=www.gstatic.com
+snowflake 192.0.2.3:80 2B280B23E1107BB62ABFC40DDCC8824814F80A72 fingerprint=2B280B23E1107BB62ABFC40DDCC8824814F80A72 url=https://snowflake-broker.torproject.net/ ampcache=https://cdn.ampproject.org/ fronts=www.google.com,cdn.ampproject.org utls-imitate=hellorandomizedalpn covertdtls-config=randomizemimic ice=stun:stun.nextcloud.com:443,stun:stun.sipgate.net:10000,stun:stun.epygi.com:3478,stun:stun.uls.co.za:3478,stun:stun.voipgate.com:3478,stun:stun.bethesda.net:3478,stun:stun.mixvoip.com:3478
+snowflake 192.0.2.4:80 8838024498816A039FCBBAB14E6F40A0843051FA fingerprint=8838024498816A039FCBBAB14E6F40A0843051FA url=https://snowflake-broker.torproject.net/ ampcache=https://cdn.ampproject.org/ fronts=www.google.com,cdn.ampproject.org utls-imitate=hellorandomizedalpn covertdtls-config=randomizemimic ice=stun:stun.nextcloud.com:443,stun:stun.sipgate.net:10000,stun:stun.epygi.com:3478,stun:stun.uls.co.za:3478,stun:stun.voipgate.com:3478,stun:stun.bethesda.net:3478,stun:stun.mixvoip.com:3478

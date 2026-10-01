@@ -1,4 +1,4 @@
 webtunnel [2001:db8:4b0:feea:81d8:72b9:95c1:cd62]:443 A6A5AF5E8410EB76647925F66AB2B5810A2C3791 url=https://wolkewolkewolke.zip/xrCyxOQH6HOe952fVtzKMGDN ver=0.0.6
-webtunnel [2001:db8:5722:229e:db2c:cf04:3dea:9e2]:443 E4AE179198DD05322D336E9029B23CC7E19B6B2A url=https://cdn-36.triplebit.dev/jah6keeth0Pheiph ver=0.0.2
 webtunnel [2001:db8:90fe:ab66:632e:6253:a16d:c15b]:443 48E7FE5AD683DC5C768A5E755D0B0B79DC8EBCC2 url=https://girafe.tel/418itlP1y6FTIGNe5iMyS41A ver=0.0.5
-webtunnel [2001:db8:ad01:2031:5e4f:149f:50da:542e]:443 55975C16B90225C762A211CE9C480A5F1A8E2B66 url=https://kidcoral.com/iVOop90Hv3EkDLVC7uBnkHyp ver=0.0.4
+webtunnel [2001:db8:945c:e0b9:7e4c:c974:ff00:d4c5]:443 91937F3EFB3BE5169788AC7C8BF07460B7E306DB url=https://kabel.entreri.de/YXbp1dNrJeOF8giAFFYWxvmf ver=0.0.6
+webtunnel [2001:db8:eedb:cae7:a345:4f72:f9cc:5de0]:443 B3C81E7A0CA474270DAA4A2C8633E1CA8935C37D url=https://wordpress.far-east-investment.ru/sORes7268CEUSRD7hAWvJU5A ver=0.0.6

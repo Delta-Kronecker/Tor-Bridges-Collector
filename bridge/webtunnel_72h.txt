@@ -1,4 +1,4 @@
-webtunnel [2001:db8:4fcd:461f:cbce:edea:fb74:a1e8]:443 F799A0A458365388600F54BD44A99B5887D54911 url=https://wt.aaronstory2026.xyz:2053/vicmackey ver=0.0.4
-webtunnel [2001:db8:6c28:75f1:a614:c263:a4c9:6ab]:443 F9928874DE5B119F9F80ABDF8124DCC1C2AEE57B url=https://dev.jonahtreiber.com/cuRsFLyC7t5kFKfZG1KhLTpr ver=0.0.7
-webtunnel [2001:db8:b25f:7b5c:ea:7689:d15e:3389]:443 669F835F5358D33A79DDDD559A3A167B104FF3BC url=https://dsl.one.pl/X7yJZdFkZTGdQkMMclV4qdVz ver=0.0.5
-webtunnel [2001:db8:fbfa:48b4:5520:53e6:24b4:eca0]:443 93807A85521915D7D2BA17725C08AC39035D1741 url=https://web.localenby.is/HmlgNcBbNgRJw862bJVxZRes ver=0.0.3
+webtunnel [2001:db8:4b0:feea:81d8:72b9:95c1:cd62]:443 A6A5AF5E8410EB76647925F66AB2B5810A2C3791 url=https://wolkewolkewolke.zip/xrCyxOQH6HOe952fVtzKMGDN ver=0.0.6
+webtunnel [2001:db8:5722:229e:db2c:cf04:3dea:9e2]:443 E4AE179198DD05322D336E9029B23CC7E19B6B2A url=https://cdn-36.triplebit.dev/jah6keeth0Pheiph ver=0.0.2
+webtunnel [2001:db8:90fe:ab66:632e:6253:a16d:c15b]:443 48E7FE5AD683DC5C768A5E755D0B0B79DC8EBCC2 url=https://girafe.tel/418itlP1y6FTIGNe5iMyS41A ver=0.0.5
+webtunnel [2001:db8:ad01:2031:5e4f:149f:50da:542e]:443 55975C16B90225C762A211CE9C480A5F1A8E2B66 url=https://kidcoral.com/iVOop90Hv3EkDLVC7uBnkHyp ver=0.0.4

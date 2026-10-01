@@ -72,6 +72,7 @@ webtunnel [2001:db8:4b07:feeb:5140:7bc5:498:7ef0]:443 1DCAC79A588BBA559925BCFE8C
 webtunnel [2001:db8:4b0:feea:81d8:72b9:95c1:cd62]:443 A6A5AF5E8410EB76647925F66AB2B5810A2C3791 url=https://wolkewolkewolke.zip/xrCyxOQH6HOe952fVtzKMGDN ver=0.0.2
 webtunnel [2001:db8:4b0:feea:81d8:72b9:95c1:cd62]:443 A6A5AF5E8410EB76647925F66AB2B5810A2C3791 url=https://wolkewolkewolke.zip/xrCyxOQH6HOe952fVtzKMGDN ver=0.0.3
 webtunnel [2001:db8:4b0:feea:81d8:72b9:95c1:cd62]:443 A6A5AF5E8410EB76647925F66AB2B5810A2C3791 url=https://wolkewolkewolke.zip/xrCyxOQH6HOe952fVtzKMGDN ver=0.0.4
+webtunnel [2001:db8:4b0:feea:81d8:72b9:95c1:cd62]:443 A6A5AF5E8410EB76647925F66AB2B5810A2C3791 url=https://wolkewolkewolke.zip/xrCyxOQH6HOe952fVtzKMGDN ver=0.0.6
 webtunnel [2001:db8:4bf5:5825:626a:b253:3a97:7231]:443 4FA98FE9568D850B675CB828B9E84DE2E2B3B45C url=https://tor.kwe-private.net/E45hEt4K3GQCChZ4B7jfrQ2b ver=0.0.4
 webtunnel [2001:db8:4c4d:6607:48fd:c65:8863:3acb]:443 42CE173F2EBA27E2473C334A0AC7666E0E1EE43E url=https://kfc911.top/ZUeV1KsVKwfRvMoMo7T6ra9U ver=0.0.3
 webtunnel [2001:db8:4e0:fc0e:c381:ed8c:7ddf:3433]:443 7F8A03A9D34FAF642D9480CA506C5701989C8EAC url=https://bridge.hxflife.xyz/07a6bf67ce2030e0582dcbce9b2f5c9c ver=0.0.5
@@ -162,6 +163,7 @@ webtunnel [2001:db8:8f9d:7cf3:4369:a1d5:4b74:3d25]:443 1F4BB0339C869983899721E7F
 webtunnel [2001:db8:908e:f294:fd7c:a021:f8a6:1638]:443 19E0AD706448E0314D968A9FB07636162F022AB5 url=https://a.private.st/gIgsXgvrwvJLUlpyl8ZsZ2C7 ver=0.0.2
 webtunnel [2001:db8:90af:6d79:cafb:22d:9fc:8ba5]:443 E88DDF7ECA143274DDDC87D552C70110B8702367 url=https://topwager.bet/0a710ccee8e0ab2e2c6841833cb6a63a ver=0.0.4
 webtunnel [2001:db8:90b3:8baf:14bd:bd83:2133:717]:443 DB9E6D6AB7A3C7C47682F31F6A7D5F819BA9276E url=https://cz.tradebotz.site/DmMthZQhWQLaiP6a6pygK3ho ver=0.0.4
+webtunnel [2001:db8:90fe:ab66:632e:6253:a16d:c15b]:443 48E7FE5AD683DC5C768A5E755D0B0B79DC8EBCC2 url=https://girafe.tel/418itlP1y6FTIGNe5iMyS41A ver=0.0.5
 webtunnel [2001:db8:92ce:dea9:9efb:61f8:b7e2:4971]:443 291666C8F9E8736771E046DAC04FA4DA35F89467 url=https://deimos.fedfe1.xyz/13m07GMVvrE78vs1VZXl ver=0.0.3
 webtunnel [2001:db8:9487:ad3c:96f0:a3d7:faad:1d04]:443 6CE4800062A823AA7EC6E2A9BA95B1A8D0A2B5CE url=https://marmara.ltd/E7NmI7irPfaVamb241KHxc4r ver=0.0.3
 webtunnel [2001:db8:9513:a2a7:e8de:e859:2818:6694]:443 34E2AC0B23D523B789EAD6E193DC05078943B94D url=https://us04-buf.beijing.st/fromwhereyoupickupthisgarbage ver=0.0.4

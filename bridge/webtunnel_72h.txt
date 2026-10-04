@@ -1,4 +1,4 @@
-webtunnel [2001:db8:12ff:2d55:9130:36a7:c49b:d1f4]:443 933C998EC827D1C17CC93D1292BBC41735867CF8 url=https://x7t2qctb.xoomlia.com/qzxrtfmu/ ver=0.0.3
-webtunnel [2001:db8:b1d5:4998:8150:f75b:988f:1f48]:443 216C8BB1C44FC2BFF7AF823B55AC38F113079B93 url=https://cdn-38.triplebit.dev/Bai8aXeiPhar5gai ver=0.0.2
-webtunnel [2001:db8:c525:22a6:6b6a:e916:9ef7:8152]:443 8A1EE5824071CA39E7D76BD579FB2AEF2B52E524 url=https://c.img-cdn.net/yE4s7KehTFyj/ ver=0.0.2
-webtunnel [2001:db8:dee:4f60:9a4a:641b:71ff:7358]:443 664BEAA9A60B4C029258E4A19E13E26C6D961E0A url=https://hhynz.maledict.me/TLzq9HcRQDlLGmjHAQMff0Hu ver=0.0.5
+webtunnel [2001:db8:1d30:ff54:bba:de27:3861:ff8c]:443 93F50F39F559F2BC2D0C8F936239017AC85AA9BE url=https://rabbithole2.net/4kHLbQkqWJV0Jxfk28H5MySc ver=0.0.1
+webtunnel [2001:db8:309:cdb:16f0:62c:28e1:9524]:443 C038344E981F9BA209E420EAC4ECE1D4193BB355 url=https://shoes.tworiverssoftware.com/2GDD1PZDcm4UPkPEfYulA6nZ ver=0.0.6
+webtunnel [2001:db8:aeb9:7a97:6e50:b4b3:d886:388b]:443 FCAD64CFACC6E45CF92087436D039BF9EC8B4C75 url=https://bridge.baby/BxAgfOKz0jrrDCfHgLTyQ3d0 ver=0.0.7
+webtunnel [2001:db8:cc50:fa:264f:d1b8:79a:6a81]:443 38C7ADB125A7AEA7A668C5AE300F6DCEA6BFB340 url=https://surf.mysticboarding.cz/S2vNtMmDc72E3uSmAroQaUyj ver=0.0.6

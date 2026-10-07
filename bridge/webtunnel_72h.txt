@@ -1,4 +1,4 @@
-webtunnel [2001:db8:12ff:2d55:9130:36a7:c49b:d1f4]:443 933C998EC827D1C17CC93D1292BBC41735867CF8 url=https://x7t2qctb.xoomlia.com/qzxrtfmu/ ver=0.0.3
-webtunnel [2001:db8:a8b5:9d82:9ae6:354f:671:e5da]:443 E3AE862BBB49EA5FACF4FDF09C8F1FE0D6F3CE4B url=https://d.img-cdn.net/mExFXMqeh1PcoDRRyz/ ver=0.0.2
-webtunnel [2001:db8:b1d5:4998:8150:f75b:988f:1f48]:443 216C8BB1C44FC2BFF7AF823B55AC38F113079B93 url=https://cdn-38.triplebit.dev/Bai8aXeiPhar5gai ver=0.0.2
-webtunnel [2001:db8:f7d3:5976:5f99:663b:3ba1:4e3a]:443 05D0531304F2DB161921D6D03CE38DB1CA2332D6 url=https://pod03.oneclickhost.eu/d0NbsV36v0Q4MDdDTs3ZhCCJ ver=0.0.7
+webtunnel [2001:db8:1b75:cd28:36c7:1347:3eda:a01e]:443 13001E27730255B1101F95BE4E5EC29E9560B0DD url=https://mrrp.sillykittens.net/IfuJ9KsjkEk6462QblGNI0pR ver=0.0.4
+webtunnel [2001:db8:1f1e:4d2f:321b:6626:823e:c504]:443 4946C9B8410CF59953455C158F957CAB2055A61D url=https://mstdn.party/fooghee7naChifi0 ver=0.0.2
+webtunnel [2001:db8:2638:b1a0:f262:490b:f15c:6798]:443 FFBAE1B459A6CB5C6751F9BE72284EAB9E36CD0F url=https://steuern-sind-raub.ch/rohzaaSae8meith4oo ver=0.0.3
+webtunnel [2001:db8:ecc6:9ade:63b6:e98f:fac6:dc89]:443 C2C9072B0FAA99F95AE6A6899203AB0978B7CC4A url=https://www2.shouldiblockads.com/aTzB6XNVkeh2XqT9XQ0RHmHw ver=0.0.2

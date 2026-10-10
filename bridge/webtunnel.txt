@@ -202,6 +202,7 @@ webtunnel [2001:db8:aa16:aa07:b3:b4f0:a667:3f08]:443 775A648318DA1E1240EF0DEC038
 webtunnel [2001:db8:aa16:aa07:b3:b4f0:a667:3f08]:443 775A648318DA1E1240EF0DEC038154B60696DE5B url=https://pod01.oneclickhost.eu/jLoIafiPpOBkJRJBN5mm6GPe ver=0.0.4
 webtunnel [2001:db8:aa16:aa07:b3:b4f0:a667:3f08]:443 775A648318DA1E1240EF0DEC038154B60696DE5B url=https://pod01.oneclickhost.eu/jLoIafiPpOBkJRJBN5mm6GPe ver=0.0.5
 webtunnel [2001:db8:aa16:aa07:b3:b4f0:a667:3f08]:443 775A648318DA1E1240EF0DEC038154B60696DE5B url=https://pod01.oneclickhost.eu/jLoIafiPpOBkJRJBN5mm6GPe ver=0.0.6
+webtunnel [2001:db8:aa16:aa07:b3:b4f0:a667:3f08]:443 775A648318DA1E1240EF0DEC038154B60696DE5B url=https://pod01.oneclickhost.eu/jLoIafiPpOBkJRJBN5mm6GPe ver=0.0.7
 webtunnel [2001:db8:aaf2:3e7d:b135:6398:bee7:c8e5]:443 C85C16134DF18A4B7FA0A0053C6F877E0450FB7B url=https://bridge.limoneneis.de/jABABR3DTBOgO9gCvY1dZjgu ver=0.0.6
 webtunnel [2001:db8:ab73:e4e:2447:2849:ad3a:78bc]:443 A310B68A6C1D1DBDD374B1B641E9A122109477DB url=https://cdnspace.net/ovVRTrs9IcHUv2uQBPa4cvKX ver=0.0.5
 webtunnel [2001:db8:abc:8852:1fca:afa2:1368:ccb4]:443 0AD63AC9D14A2711228AC9CA54E3EAC18A4FD628 url=https://sub2.mysty.ru/ ver=0.0.5

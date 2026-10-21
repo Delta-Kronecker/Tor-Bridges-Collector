@@ -119,8 +119,6 @@ webtunnel [2001:db8:8a96:b122:e199:d511:c55e:6bcb]:443 F5038BA595B75BD87A295CA60
 webtunnel [2001:db8:8a96:b122:e199:d511:c55e:6bcb]:443 F5038BA595B75BD87A295CA6060214CCD4280F2F url=https://bridges.lovethosetrains.com/iwCXEhbdY7ErwP8J4MRavyAj ver=0.0.4
 webtunnel [2001:db8:8a96:b122:e199:d511:c55e:6bcb]:443 F5038BA595B75BD87A295CA6060214CCD4280F2F url=https://bridges.lovethosetrains.com/iwCXEhbdY7ErwP8J4MRavyAj ver=0.0.6
 webtunnel [2001:db8:8a9d:77ec:3b4d:ad85:24e0:a700]:443 1FC3F8277DC68922B6DFDFEE6943BF3C79188E6A url=https://unknxwn.lol/H9wNSHum9rxiryQNRCCLjGn8 ver=0.0.4
-webtunnel [2001:db8:8c88:1b17:d7ae:cb68:f28e:e31c]:443 C115DAC2FE991CA25DDD43D7D4D398FEA9AA4C01 url=https://foglab.net/t9crLwo4LzFDWHdwcGf9gFrk ver=0.0.4
-webtunnel [2001:db8:8c88:1b17:d7ae:cb68:f28e:e31c]:443 C115DAC2FE991CA25DDD43D7D4D398FEA9AA4C01 url=https://foglab.net/t9crLwo4LzFDWHdwcGf9gFrk ver=0.0.5
 webtunnel [2001:db8:8e11:37cf:5167:5fce:4650:c2f8]:443 5AE50E81167318FE0A152D4F050C839DB42AB9B8 url=https://signaling.privacy-vbox.de/s6CjTuyWZOWe9Fbhl7ThQ5Lb ver=0.0.2
 webtunnel [2001:db8:8e54:c386:c25e:3697:e8f8:377d]:443 3EE00C6568B9DC9F15D1479CEB954FC8856366C3 url=https://cyfog.net/nOzNIJFUBQWlGRhmACMeclRw ver=0.0.4
 webtunnel [2001:db8:8e54:c386:c25e:3697:e8f8:377d]:443 3EE00C6568B9DC9F15D1479CEB954FC8856366C3 url=https://cyfog.net/nOzNIJFUBQWlGRhmACMeclRw ver=0.0.5
@@ -162,6 +160,7 @@ webtunnel [2001:db8:aeb9:7a97:6e50:b4b3:d886:388b]:443 FCAD64CFACC6E45CF92087436
 webtunnel [2001:db8:afc8:4fe0:c021:5377:36bf:e9b7]:443 3BDD7036FAC9CC81ADBA39E88637D5EF87350F1C url=https://speedtest.qs.ee/dI6HDfnDLSUiFV0MaLMEtcmv ver=0.0.3
 webtunnel [2001:db8:b1d5:4998:8150:f75b:988f:1f48]:443 216C8BB1C44FC2BFF7AF823B55AC38F113079B93 url=https://cdn-38.triplebit.dev/Bai8aXeiPhar5gai ver=0.0.2
 webtunnel [2001:db8:b25f:7b5c:ea:7689:d15e:3389]:443 669F835F5358D33A79DDDD559A3A167B104FF3BC url=https://dsl.one.pl/X7yJZdFkZTGdQkMMclV4qdVz ver=0.0.5
+webtunnel [2001:db8:b705:a39c:b308:e898:e070:b8e8]:443 E1094D987D5116EE9D77124AD1500CF59B41628A url=https://le.nd-ai.de/b0153c441eef06cbdd84d071897459e1789b347758fe282a99b4088daf154a1a ver=0.0.3
 webtunnel [2001:db8:b91b:9b4c:8003:9671:eee:7f0a]:443 B80A80398FDE7F94C6C72F9429D8EA128663B780 url=https://ams1.cryptomeanscryptography.club/x50fjFEcivPj42GQKfOOnyw3 ver=0.0.3
 webtunnel [2001:db8:b91b:9b4c:8003:9671:eee:7f0a]:443 B80A80398FDE7F94C6C72F9429D8EA128663B780 url=https://ams1.cryptomeanscryptography.club/x50fjFEcivPj42GQKfOOnyw3 ver=0.0.5
 webtunnel [2001:db8:ba36:d2f:764f:ac6b:f992:cb92]:443 33E457AAB7861BF71EF5E77947C1DD3F104BE411 url=https://cdn.dameray.com/2b2d9f2715a649a49c2f034089ad2671826b ver=0.0.4

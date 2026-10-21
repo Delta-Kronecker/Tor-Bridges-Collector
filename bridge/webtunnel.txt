@@ -117,6 +117,7 @@ webtunnel [2001:db8:63b9:6800:b3f0:e360:b90c:2953]:443 0CCD302CACD212634B21499C6
 webtunnel [2001:db8:6442:84:8e10:778c:8aaa:7a8e]:443 FDA4F037334BA25B7ECEBAC458350B588C57DA24 url=https://freeforall.camdvr.org/BrLxiuXhwTEx3qJxFEhOE3tA ver=0.0.4
 webtunnel [2001:db8:6442:84:8e10:778c:8aaa:7a8e]:443 FDA4F037334BA25B7ECEBAC458350B588C57DA24 url=https://freeforall.camdvr.org/BrLxiuXhwTEx3qJxFEhOE3tA ver=0.0.5
 webtunnel [2001:db8:6589:5555:e62f:68ab:8983:8e01]:443 98422E9D1648FFDB8F16C06CF58CD64B6C03A003 url=https://bridge-es.jmrp.io/hzry0yMJazasJuZZP09uCUtn ver=0.0.4
+webtunnel [2001:db8:65a8:c789:310f:6d00:60be:b447]:443 DBF8A0FEBBC698A086B0C758407012CE4CD27122 url=https://wtrelay7.duckdns.org/f7Qm2xV9pL4tR8wZ3cN6bY1h ver=0.0.2
 webtunnel [2001:db8:67ae:eddf:66cd:cbd0:eab4:8143]:443 439C2F45FA99C9255F079ACBF59060D3EC2C3637 url=https://push.hieronymus.uk/sheflashedthetorchasasignal ver=0.0.4
 webtunnel [2001:db8:6b49:259c:4189:ea0b:5618:7b3a]:443 906BABCFBF0E872ADB1661AC1283A77C616C084B url=https://ghostme.link/ ver=0.0.5
 webtunnel [2001:db8:6c28:75f1:a614:c263:a4c9:6ab]:443 F9928874DE5B119F9F80ABDF8124DCC1C2AEE57B url=https://dev.jonahtreiber.com/cuRsFLyC7t5kFKfZG1KhLTpr ver=0.0.7

@@ -129,7 +129,6 @@ webtunnel [2001:db8:8e54:c386:c25e:3697:e8f8:377d]:443 3EE00C6568B9DC9F15D1479CE
 webtunnel [2001:db8:8f9d:7cf3:4369:a1d5:4b74:3d25]:443 1F4BB0339C869983899721E7FA0553123CE8665E url=https://osu.bloom.my.id/MHCgO86k3TqjCxxNOwAn5lRS ver=0.0.5
 webtunnel [2001:db8:908e:f294:fd7c:a021:f8a6:1638]:443 19E0AD706448E0314D968A9FB07636162F022AB5 url=https://a.private.st/gIgsXgvrwvJLUlpyl8ZsZ2C7 ver=0.0.2
 webtunnel [2001:db8:90b3:8baf:14bd:bd83:2133:717]:443 DB9E6D6AB7A3C7C47682F31F6A7D5F819BA9276E url=https://cz.tradebotz.site/DmMthZQhWQLaiP6a6pygK3ho ver=0.0.4
-webtunnel [2001:db8:90fe:ab66:632e:6253:a16d:c15b]:443 48E7FE5AD683DC5C768A5E755D0B0B79DC8EBCC2 url=https://girafe.tel/418itlP1y6FTIGNe5iMyS41A ver=0.0.5
 webtunnel [2001:db8:92ce:dea9:9efb:61f8:b7e2:4971]:443 291666C8F9E8736771E046DAC04FA4DA35F89467 url=https://deimos.fedfe1.xyz/13m07GMVvrE78vs1VZXl ver=0.0.3
 webtunnel [2001:db8:945c:e0b9:7e4c:c974:ff00:d4c5]:443 91937F3EFB3BE5169788AC7C8BF07460B7E306DB url=https://kabel.entreri.de/YXbp1dNrJeOF8giAFFYWxvmf ver=0.0.6
 webtunnel [2001:db8:9513:a2a7:e8de:e859:2818:6694]:443 34E2AC0B23D523B789EAD6E193DC05078943B94D url=https://us04-buf.beijing.st/fromwhereyoupickupthisgarbage ver=0.0.4

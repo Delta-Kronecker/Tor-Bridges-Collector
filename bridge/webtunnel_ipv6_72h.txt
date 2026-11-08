@@ -1,0 +1,2 @@
+webtunnel 127.0.0.1:15000 D74CBD2AD903BD9502A6DAA6DCEC0C5A710AD686 url=https://tunnel.sandale.saarland/3981cf037e2f8fefec8a9ef06e440ef9
+webtunnel [2001:db8:2ae3:679a:856c:c72a:2746:1a1b]:443 8943BF53C9561C75A7302ED59575EF71E2B26562 url=https://allium.heelsn.eu/X1uzc7J4omPPBbqkJMDgBtXP ver=0.0.7

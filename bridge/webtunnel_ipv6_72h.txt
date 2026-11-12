@@ -1,2 +1,2 @@
-webtunnel [2001:db8:ad13:e588:6629:afd2:cc58:6af5]:443 B51FD3150E208A600D00BCA5963B0EF5C867574F url=https://rot.ronaak.eu:443/iUFRXvAp3E3MHDiJ8453BaaM ver=0.0.2
-webtunnel [2001:db8:c148:803:abb6:673d:91e6:4961]:443 380E64D54178F6C91DDF487357E8114E16F2EDD8 url=https://uganda-hikes.com/bbe8ed2be2f9da8e1b4041615da56fb2 ver=0.0.5
+webtunnel [2001:db8:3df:df76:f4f2:adf2:f63a:c57c]:443 F5C8F7763FE25A5A6664971F0B4768E5D6A15024 url=https://tier1cdn.net/vbHp31yOV7ytucLapxfK3uzb ver=0.0.7
+webtunnel [2001:db8:80f:be74:6afc:2b7b:e1ca:1daf]:443 3FBF86ADCC8D39D30B3BE340FB0D87F64E64E7EE url=https://hongkong.dagestani.eu/thismustallbefakenews ver=0.0.4

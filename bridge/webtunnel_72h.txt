@@ -1,2 +1,2 @@
-webtunnel [2001:db8:3df:df76:f4f2:adf2:f63a:c57c]:443 F5C8F7763FE25A5A6664971F0B4768E5D6A15024 url=https://tier1cdn.net/vbHp31yOV7ytucLapxfK3uzb ver=0.0.7
-webtunnel [2001:db8:80f:be74:6afc:2b7b:e1ca:1daf]:443 3FBF86ADCC8D39D30B3BE340FB0D87F64E64E7EE url=https://hongkong.dagestani.eu/thismustallbefakenews ver=0.0.4
+webtunnel [2001:db8:478b:ae89:51bf:9af7:3576:b7b7]:443 76A48CD150165E281E80676267919BB734151680 url=https://cool110.xyz/Cn4J4GAUglhVcUKeMEkQJt7L ver=0.0.1
+webtunnel [2001:db8:a379:1522:ea89:9c9d:59c8:1d5a]:443 B55A418B4F30181ED304EB2698EE58D283BEE5BF url=https://mirror.sanin.dev/f6VK8vgUKiq3HX6FHdbQpUaa ver=0.0.5
